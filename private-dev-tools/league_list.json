@@ -1,0 +1,2642 @@
+[
+{
+"league": "Spanish First Division",
+"nation": "Spain",
+"players": 1593
+},
+{
+"league": "Italian Serie A",
+"nation": "Italy",
+"players": 1534
+},
+{
+"league": "Ligue 1 McDonald's",
+"nation": "France",
+"players": 1420
+},
+{
+"league": "Premier League",
+"nation": "England",
+"players": 1372
+},
+{
+"league": "Sky Bet Championship",
+"nation": "England",
+"players": 1106
+},
+{
+"league": "Ligue 2 BKT",
+"nation": "France",
+"players": 1041
+},
+{
+"league": "Serie BKT",
+"nation": "Italy",
+"players": 939
+},
+{
+"league": "Bundesliga",
+"nation": "Germany",
+"players": 887
+},
+{
+"league": "Bundesliga 2",
+"nation": "Germany",
+"players": 693
+},
+{
+"league": "Spanish Second Division",
+"nation": "Spain",
+"players": 682
+},
+{
+"league": "Sky Bet League One",
+"nation": "England",
+"players": 637
+},
+{
+"league": "Sky Bet League Two",
+"nation": "England",
+"players": 548
+},
+{
+"league": "3. Liga",
+"nation": "Germany",
+"players": 471
+},
+{
+"league": "Italian Serie C/C",
+"nation": "Italy",
+"players": 441
+},
+{
+"league": "Italian Serie C/A",
+"nation": "Italy",
+"players": 422
+},
+{
+"league": "Italian Serie C/B",
+"nation": "Italy",
+"players": 410
+},
+{
+"league": "Spanish Federation First Division A",
+"nation": "Spain",
+"players": 344
+},
+{
+"league": "Spanish Federation First Division B",
+"nation": "Spain",
+"players": 343
+},
+{
+"league": "French National",
+"nation": "France",
+"players": 327
+},
+{
+"league": "William Hill Premiership",
+"nation": "Scotland",
+"players": 320
+},
+{
+"league": "Major League Soccer",
+"nation": "United States",
+"players": 305
+},
+{
+"league": "Turkish Super League",
+"nation": "Turkey",
+"players": 260
+},
+{
+"league": "Spanish Federation Second Group 4",
+"nation": "Spain",
+"players": 254
+},
+{
+"league": "Saudi Premier Division",
+"nation": "Saudi Arabia",
+"players": 241
+},
+{
+"league": "Portuguese Premier League",
+"nation": "Portugal",
+"players": 232
+},
+{
+"league": "German Regional Division Northeast",
+"nation": "Germany",
+"players": 227
+},
+{
+"league": "German Regional Division Southwest",
+"nation": "Germany",
+"players": 215
+},
+{
+"league": "VriendenLoterij Eredivisie",
+"nation": "Netherlands",
+"players": 208
+},
+{
+"league": "Qatar Stars League",
+"nation": "Qatar",
+"players": 206
+},
+{
+"league": "Spanish Federation Second Group 3",
+"nation": "Spain",
+"players": 203
+},
+{
+"league": "French National 2 - C",
+"nation": "France",
+"players": 201
+},
+{
+"league": "Austrian Premier Division",
+"nation": "Austria",
+"players": 197
+},
+{
+"league": "Enterprise National League",
+"nation": "England",
+"players": 185
+},
+{
+"league": "Jupiler Pro League",
+"nation": "Belgium",
+"players": 183
+},
+{
+"league": "German Lower Division",
+"nation": "Germany",
+"players": 180
+},
+{
+"league": "Irish Premier Division",
+"nation": "Republic of Ireland",
+"players": 178
+},
+{
+"league": "William Hill Championship",
+"nation": "Scotland",
+"players": 175
+},
+{
+"league": "Mexican First Division",
+"nation": "Mexico",
+"players": 174
+},
+{
+"league": "Brazilian National First Division",
+"nation": "Brazil",
+"players": 165
+},
+{
+"league": "Spanish Federation Second Group 2",
+"nation": "Spain",
+"players": 164
+},
+{
+"league": "French National 2 - A",
+"nation": "France",
+"players": 160
+},
+{
+"league": "Spanish Federation Second Group 5",
+"nation": "Spain",
+"players": 153
+},
+{
+"league": "Persian Gulf Premier League",
+"nation": "Iran",
+"players": 148
+},
+{
+"league": "Swiss Super League",
+"nation": "Switzerland",
+"players": 143
+},
+{
+"league": "German Regional Division West",
+"nation": "Germany",
+"players": 143
+},
+{
+"league": "German Regional Division North",
+"nation": "Germany",
+"players": 137
+},
+{
+"league": "Spanish Federation Second Group 1",
+"nation": "Spain",
+"players": 136
+},
+{
+"league": "French National 2 - B",
+"nation": "France",
+"players": 129
+},
+{
+"league": "German Regional Division Bavaria",
+"nation": "Germany",
+"players": 125
+},
+{
+"league": "Greek Super League 1",
+"nation": "Greece",
+"players": 117
+},
+{
+"league": "German U19 Division Group F",
+"nation": "Germany",
+"players": 116
+},
+{
+"league": "Argentine Premier Division",
+"nation": "Argentina",
+"players": 111
+},
+{
+"league": "Iraqi Stars League",
+"nation": "Iraq",
+"players": 109
+},
+{
+"league": "J1 League",
+"nation": "Japan",
+"players": 107
+},
+{
+"league": "Romanian First League",
+"nation": "Romania",
+"players": 106
+},
+{
+"league": "Sports Direct Premiership",
+"nation": "Northern Ireland",
+"players": 101
+},
+{
+"league": "Croatian First League",
+"nation": "Croatia",
+"players": 100
+},
+{
+"league": "PKO Bank Polski Ekstraklasa",
+"nation": "Poland",
+"players": 98
+},
+{
+"league": "Egyptian Premier Division",
+"nation": "Egypt",
+"players": 95
+},
+{
+"league": "Uzbekistan Superleague",
+"nation": "Uzbekistan",
+"players": 93
+},
+{
+"league": "Spanish Federation Third Group 5",
+"nation": "Spain",
+"players": 93
+},
+{
+"league": "Russian Premier League",
+"nation": "Russia",
+"players": 92
+},
+{
+"league": "Jordanian Premier Division",
+"nation": "Jordan",
+"players": 92
+},
+{
+"league": "South African Premier Soccer League",
+"nation": "South Africa",
+"players": 88
+},
+{
+"league": "Czech First Division",
+"nation": "Czechia",
+"players": 86
+},
+{
+"league": "Cypriot First Division",
+"nation": "Cyprus",
+"players": 77
+},
+{
+"league": "Italian Serie D Grp. B",
+"nation": "Italy",
+"players": 73
+},
+{
+"league": "Italian Serie D Grp. E",
+"nation": "Italy",
+"players": 72
+},
+{
+"league": "Keuken Kampioen Divisie",
+"nation": "Netherlands",
+"players": 70
+},
+{
+"league": "French Regional Divisions",
+"nation": "France",
+"players": 69
+},
+{
+"league": "3F Superliga",
+"nation": "Denmark",
+"players": 69
+},
+{
+"league": "Turkish 1. League",
+"nation": "Turkey",
+"players": 68
+},
+{
+"league": "Italian Serie D Grp. D",
+"nation": "Italy",
+"players": 67
+},
+{
+"league": "Portuguese Second League",
+"nation": "Portugal",
+"players": 65
+},
+{
+"league": "Ecuadorian Serie A",
+"nation": "Ecuador",
+"players": 65
+},
+{
+"league": "Belgian Challenger Pro League",
+"nation": "Belgium",
+"players": 62
+},
+{
+"league": "Hana Bank K League 1",
+"nation": "South Korea",
+"players": 61
+},
+{
+"league": "Chilean First Division",
+"nation": "Chile",
+"players": 61
+},
+{
+"league": "Norwegian Premier Division",
+"nation": "Norway",
+"players": 59
+},
+{
+"league": "Isuzu UTE A-League",
+"nation": "Australia",
+"players": 59
+},
+{
+"league": "Italian Serie D Grp. C",
+"nation": "Italy",
+"players": 59
+},
+{
+"league": "Italian Serie D Grp. F",
+"nation": "Italy",
+"players": 58
+},
+{
+"league": "German U19 Division Group B",
+"nation": "Germany",
+"players": 57
+},
+{
+"league": "German Div. Baden-Württemberg",
+"nation": "Germany",
+"players": 56
+},
+{
+"league": "Spanish Federation Third Group 12",
+"nation": "Spain",
+"players": 54
+},
+{
+"league": "Ligue Professionnelle 1",
+"nation": "Tunisia",
+"players": 53
+},
+{
+"league": "French National 3 - Group E",
+"nation": "France",
+"players": 52
+},
+{
+"league": "Enterprise National League South",
+"nation": "England",
+"players": 52
+},
+{
+"league": "Spanish Federation Third Group 10",
+"nation": "Spain",
+"players": 50
+},
+{
+"league": "German U19 Division Group C",
+"nation": "Germany",
+"players": 50
+},
+{
+"league": "Paraguay First Division Primera División",
+"nation": "Paraguay",
+"players": 49
+},
+{
+"league": "Italian Serie D Grp. H",
+"nation": "Italy",
+"players": 49
+},
+{
+"league": "French National 3 - Group H",
+"nation": "France",
+"players": 48
+},
+{
+"league": "Swiss Challenge League",
+"nation": "Switzerland",
+"players": 48
+},
+{
+"league": "Bulgarian First League",
+"nation": "Bulgaria",
+"players": 48
+},
+{
+"league": "Spanish Federation Third Group 6",
+"nation": "Spain",
+"players": 47
+},
+{
+"league": "ADNOC Pro League",
+"nation": "United Arab Emirates",
+"players": 47
+},
+{
+"league": "Swedish Premier Division",
+"nation": "Sweden",
+"players": 47
+},
+{
+"league": "Bolivian Premier Division",
+"nation": "Bolivia",
+"players": 47
+},
+{
+"league": "Austrian First Division",
+"nation": "Austria",
+"players": 47
+},
+{
+"league": "Italian Serie D Grp. A",
+"nation": "Italy",
+"players": 47
+},
+{
+"league": "Spanish Federation Third Group 7",
+"nation": "Spain",
+"players": 47
+},
+{
+"league": "Spanish Federation Third Group 2",
+"nation": "Spain",
+"players": 46
+},
+{
+"league": "French National 3 - Group G",
+"nation": "France",
+"players": 45
+},
+{
+"league": "Spanish Federation Third Group 18",
+"nation": "Spain",
+"players": 45
+},
+{
+"league": "Spanish Federation Third Group 9",
+"nation": "Spain",
+"players": 45
+},
+{
+"league": "Hungarian Division I",
+"nation": "Hungary",
+"players": 44
+},
+{
+"league": "Luxembourg National Division",
+"nation": "Luxembourg",
+"players": 43
+},
+{
+"league": "USSL Championship Eastern Conference",
+"nation": "United States",
+"players": 42
+},
+{
+"league": "Andorran First Division",
+"nation": "Andorra",
+"players": 42
+},
+{
+"league": "Enterprise National League North",
+"nation": "England",
+"players": 40
+},
+{
+"league": "Spanish Federation Third Group 1",
+"nation": "Spain",
+"players": 40
+},
+{
+"league": "Italian Serie D Grp. I",
+"nation": "Italy",
+"players": 39
+},
+{
+"league": "Spanish Federation Third Group 8",
+"nation": "Spain",
+"players": 39
+},
+{
+"league": "Colombian First Division",
+"nation": "Colombia",
+"players": 38
+},
+{
+"league": "Bosnian Premier League",
+"nation": "Bosnia and Herzegovina",
+"players": 38
+},
+{
+"league": "German U19 Division Group G",
+"nation": "Germany",
+"players": 38
+},
+{
+"league": "Polish First Division",
+"nation": "Poland",
+"players": 35
+},
+{
+"league": "Spanish Federation Third Group 14",
+"nation": "Spain",
+"players": 34
+},
+{
+"league": "Azeri Premier League",
+"nation": "Azerbaijan",
+"players": 34
+},
+{
+"league": "Moroccan Premier Division",
+"nation": "Morocco",
+"players": 34
+},
+{
+"league": "French National 3 - Group D",
+"nation": "France",
+"players": 34
+},
+{
+"league": "German U19 Division Group A",
+"nation": "Germany",
+"players": 34
+},
+{
+"league": "Serbian SuperLeague",
+"nation": "Serbia",
+"players": 33
+},
+{
+"league": "Italian Serie D Grp. G",
+"nation": "Italy",
+"players": 32
+},
+{
+"league": "Spanish Federation Third Group 3",
+"nation": "Spain",
+"players": 32
+},
+{
+"league": "USSL Championship Western Conference",
+"nation": "United States",
+"players": 32
+},
+{
+"league": "Liga Panameña de Futbol",
+"nation": "Panama",
+"players": 32
+},
+{
+"league": "Spanish Federation Third Group 13",
+"nation": "Spain",
+"players": 30
+},
+{
+"league": "Algerian League 1",
+"nation": "Algeria",
+"players": 30
+},
+{
+"league": "French National 3 - Group A",
+"nation": "France",
+"players": 30
+},
+{
+"league": "United States Soccer Leagues Division One",
+"nation": "United States",
+"players": 30
+},
+{
+"league": "German Div. Westphalia",
+"nation": "Germany",
+"players": 30
+},
+{
+"league": "German U19 Oberliga Baden-Württemberg",
+"nation": "Germany",
+"players": 30
+},
+{
+"league": "German U19 Division Group D",
+"nation": "Germany",
+"players": 30
+},
+{
+"league": "French National 3 - Group B",
+"nation": "France",
+"players": 29
+},
+{
+"league": "Chinese Super League",
+"nation": "China PR",
+"players": 28
+},
+{
+"league": "French National 3 - Group F",
+"nation": "France",
+"players": 28
+},
+{
+"league": "Slovenian First League",
+"nation": "Slovenia",
+"players": 28
+},
+{
+"league": "Malaysian Super League",
+"nation": "Malaysia",
+"players": 28
+},
+{
+"league": "German Div. Lower Saxony",
+"nation": "Germany",
+"players": 27
+},
+{
+"league": "Saudi First Division League",
+"nation": "Saudi Arabia",
+"players": 27
+},
+{
+"league": "Israeli Premier League",
+"nation": "Israel",
+"players": 27
+},
+{
+"league": "German Div. Hessia",
+"nation": "Germany",
+"players": 27
+},
+{
+"league": "German Div. North East - North",
+"nation": "Germany",
+"players": 27
+},
+{
+"league": "Uruguayan First Division",
+"nation": "Uruguay",
+"players": 27
+},
+{
+"league": "Gibraltar Football League",
+"nation": "Gibraltar",
+"players": 26
+},
+{
+"league": "Slovak First Division",
+"nation": "Slovakia",
+"players": 26
+},
+{
+"league": "Indonesian Super League",
+"nation": "Indonesia",
+"players": 26
+},
+{
+"league": "German Div. North East - South",
+"nation": "Germany",
+"players": 26
+},
+{
+"league": "German U19 Division 2 Middle Rhine",
+"nation": "Germany",
+"players": 26
+},
+{
+"league": "German Div. Rhineland-Palatinate/Saar",
+"nation": "Germany",
+"players": 24
+},
+{
+"league": "German U19 Division Group E",
+"nation": "Germany",
+"players": 24
+},
+{
+"league": "Thai League One",
+"nation": "Thailand",
+"players": 23
+},
+{
+"league": "French National 3 - Group C",
+"nation": "France",
+"players": 23
+},
+{
+"league": "German U19 Division 2 Lower Rhine",
+"nation": "Germany",
+"players": 22
+},
+{
+"league": "Irish First Division",
+"nation": "Republic of Ireland",
+"players": 21
+},
+{
+"league": "Ukrainian Premier League",
+"nation": "Ukraine",
+"players": 21
+},
+{
+"league": "Belgian First National Division - ACFF",
+"nation": "Belgium",
+"players": 21
+},
+{
+"league": "JD Cymru Premier",
+"nation": "Wales",
+"players": 21
+},
+{
+"league": "Haitian Championnat National D1",
+"nation": "Haiti",
+"players": 21
+},
+{
+"league": "William Hill League 1",
+"nation": "Scotland",
+"players": 20
+},
+{
+"league": "Qatari Second Division",
+"nation": "Qatar",
+"players": 20
+},
+{
+"league": "Spanish Federation Third Group 11",
+"nation": "Spain",
+"players": 20
+},
+{
+"league": "German Div. Lower Rhine",
+"nation": "Germany",
+"players": 20
+},
+{
+"league": "German Div. Middle Rhine",
+"nation": "Germany",
+"players": 20
+},
+{
+"league": "Spanish Federation Third Group 4",
+"nation": "Spain",
+"players": 20
+},
+{
+"league": "German U19 Division Group H",
+"nation": "Germany",
+"players": 20
+},
+{
+"league": "Canadian Premier League",
+"nation": "Canada",
+"players": 19
+},
+{
+"league": "French Regional 1 - Méditerranée",
+"nation": "France",
+"players": 19
+},
+{
+"league": "Indian National Division",
+"nation": "India",
+"players": 19
+},
+{
+"league": "Spanish Federation Third Group 15",
+"nation": "Spain",
+"players": 19
+},
+{
+"league": "Swiss Promotion League",
+"nation": "Switzerland",
+"players": 18
+},
+{
+"league": "Spanish Regional Division",
+"nation": "Spain",
+"players": 18
+},
+{
+"league": "Spanish Federation Third Group 16",
+"nation": "Spain",
+"players": 17
+},
+{
+"league": "Betinia Liga",
+"nation": "Denmark",
+"players": 16
+},
+{
+"league": "German U19 Division 2 Westphalia",
+"nation": "Germany",
+"players": 16
+},
+{
+"league": "German U19 Division 2 Regional Div. North",
+"nation": "Germany",
+"players": 16
+},
+{
+"league": "Peruvian First Division",
+"nation": "Peru",
+"players": 15
+},
+{
+"league": "Romanian Second League",
+"nation": "Romania",
+"players": 15
+},
+{
+"league": "German Div. Bavaria South",
+"nation": "Germany",
+"players": 15
+},
+{
+"league": "German Div. Bavaria North",
+"nation": "Germany",
+"players": 15
+},
+{
+"league": "German U19 Division 2 Bavaria",
+"nation": "Germany",
+"players": 15
+},
+{
+"league": "Libyan Premier League",
+"nation": "Libya",
+"players": 14
+},
+{
+"league": "UAE First Division",
+"nation": "United Arab Emirates",
+"players": 14
+},
+{
+"league": "Austrian Regional League West",
+"nation": "Austria",
+"players": 14
+},
+{
+"league": "Maltese Premier League",
+"nation": "Malta",
+"players": 14
+},
+{
+"league": "UAE Second Division",
+"nation": "United Arab Emirates",
+"players": 13
+},
+{
+"league": "Finnish Premier League",
+"nation": "Finland",
+"players": 13
+},
+{
+"league": "French Regional 1 - Occitanie - Group A",
+"nation": "France",
+"players": 13
+},
+{
+"league": "Brazilian National Second Division",
+"nation": "Brazil",
+"players": 13
+},
+{
+"league": "German Div. Hamburg",
+"nation": "Germany",
+"players": 13
+},
+{
+"league": "Greek Super League 2 South",
+"nation": "Greece",
+"players": 12
+},
+{
+"league": "Kuwaiti Premier League",
+"nation": "Kuwait",
+"players": 12
+},
+{
+"league": "Greek Super League 2 North",
+"nation": "Greece",
+"players": 12
+},
+{
+"league": "English Southern League Premier Central",
+"nation": "England",
+"players": 12
+},
+{
+"league": "Hana Bank K League 2",
+"nation": "South Korea",
+"players": 12
+},
+{
+"league": "Armenian Premier League",
+"nation": "Armenia",
+"players": 11
+},
+{
+"league": "Swedish First Division Elite",
+"nation": "Sweden",
+"players": 11
+},
+{
+"league": "French Regional 1 - Hauts de France - Group B",
+"nation": "France",
+"players": 11
+},
+{
+"league": "Hong Kong Premier League",
+"nation": "Hong Kong (China PR)",
+"players": 11
+},
+{
+"league": "Jordanian First Division League",
+"nation": "Jordan",
+"players": 11
+},
+{
+"league": "New Zealand Northern League",
+"nation": "New Zealand",
+"players": 11
+},
+{
+"league": "German Div. Schleswig-Holstein",
+"nation": "Germany",
+"players": 11
+},
+{
+"league": "German U19 Division 2 Regional Div. Northeast",
+"nation": "Germany",
+"players": 11
+},
+{
+"league": "New Zealand Central League",
+"nation": "New Zealand",
+"players": 10
+},
+{
+"league": "V.League One",
+"nation": "Vietnam",
+"players": 10
+},
+{
+"league": "Turkish 2. League White Group",
+"nation": "Turkey",
+"players": 10
+},
+{
+"league": "French Regional 1 - Auvergne Rhône Alpes - Group B",
+"nation": "France",
+"players": 10
+},
+{
+"league": "Portuguese Third Division - South",
+"nation": "Portugal",
+"players": 10
+},
+{
+"league": "German U19 Division 2 Regional Div. Southwest",
+"nation": "Germany",
+"players": 10
+},
+{
+"league": "Kazakhstan Premier League",
+"nation": "Kazakhstan",
+"players": 9
+},
+{
+"league": "Chilean First Division B",
+"nation": "Chile",
+"players": 9
+},
+{
+"league": "French Regional 1 - Grand Est - Group A",
+"nation": "France",
+"players": 9
+},
+{
+"league": "French Regional 1 - Auvergne Rhône Alpes - Group A",
+"nation": "France",
+"players": 9
+},
+{
+"league": "Spanish Preferente Tenerife",
+"nation": "Spain",
+"players": 9
+},
+{
+"league": "Spanish División Honor Andalucía Gr. 1",
+"nation": "Spain",
+"players": 9
+},
+{
+"league": "TOPsport A lyga",
+"nation": "Lithuania",
+"players": 9
+},
+{
+"league": "Venezuelan Premier Division",
+"nation": "Venezuela",
+"players": 9
+},
+{
+"league": "J2 League",
+"nation": "Japan",
+"players": 9
+},
+{
+"league": "National Premier Leagues - Victoria",
+"nation": "Australia",
+"players": 9
+},
+{
+"league": "Kyrgyzstani High League",
+"nation": "Kyrgyzstan",
+"players": 9
+},
+{
+"league": "Spanish Federation Third Group 17",
+"nation": "Spain",
+"players": 9
+},
+{
+"league": "German U19 Division 2 Hessia",
+"nation": "Germany",
+"players": 9
+},
+{
+"league": "Italian Eccellenza Puglia",
+"nation": "Italy",
+"players": 8
+},
+{
+"league": "Albanian Superleague",
+"nation": "Albania",
+"players": 8
+},
+{
+"league": "Chinese National First Division",
+"nation": "China PR",
+"players": 8
+},
+{
+"league": "French Regional 1 - Centre Val de Loire",
+"nation": "France",
+"players": 8
+},
+{
+"league": "Czech Second Division",
+"nation": "Czechia",
+"players": 8
+},
+{
+"league": "Austrian Regional League East",
+"nation": "Austria",
+"players": 8
+},
+{
+"league": "Icelandic Premier Division",
+"nation": "Iceland",
+"players": 8
+},
+{
+"league": "Cypriot Second Division",
+"nation": "Cyprus",
+"players": 8
+},
+{
+"league": "Croatian Third League",
+"nation": "Croatia",
+"players": 8
+},
+{
+"league": "Finnish First Division Championship",
+"nation": "Finland",
+"players": 7
+},
+{
+"league": "Réunion Regional 1",
+"nation": "Réunion",
+"players": 7
+},
+{
+"league": "English Northern Premier League Premier Division",
+"nation": "England",
+"players": 7
+},
+{
+"league": "Argentine Second Division",
+"nation": "Argentina",
+"players": 7
+},
+{
+"league": "Indian National Football League",
+"nation": "India",
+"players": 7
+},
+{
+"league": "Slovenian Second League",
+"nation": "Slovenia",
+"players": 7
+},
+{
+"league": "J3 League",
+"nation": "Japan",
+"players": 7
+},
+{
+"league": "French Regional 1 - Grand Est - Group B",
+"nation": "France",
+"players": 7
+},
+{
+"league": "French Regional 1 - Nouvelle Aquitaine - Group B",
+"nation": "France",
+"players": 6
+},
+{
+"league": "Belgian Second Amateur Division ACFF",
+"nation": "Belgium",
+"players": 6
+},
+{
+"league": "Uzbekistan Pro League",
+"nation": "Uzbekistan",
+"players": 6
+},
+{
+"league": "French Regional 1 - Corse",
+"nation": "France",
+"players": 6
+},
+{
+"league": "French Regional 1 - Hauts de France - Group A",
+"nation": "France",
+"players": 6
+},
+{
+"league": "Bahrain Premier League",
+"nation": "Bahrain",
+"players": 6
+},
+{
+"league": "William Hill League 2",
+"nation": "Scotland",
+"players": 6
+},
+{
+"league": "Swiss First League Classic Group 3",
+"nation": "Switzerland",
+"players": 6
+},
+{
+"league": "Turkish 2. League Red Group",
+"nation": "Turkey",
+"players": 6
+},
+{
+"league": "Primera División de Costa Rica",
+"nation": "Costa Rica",
+"players": 6
+},
+{
+"league": "English Northern Premier League Division One East",
+"nation": "England",
+"players": 5
+},
+{
+"league": "Italian Eccellenza Liguria",
+"nation": "Italy",
+"players": 5
+},
+{
+"league": "French Regional 1 - Paris Ile de France - Group B",
+"nation": "France",
+"players": 5
+},
+{
+"league": "Tonybet Virsliga",
+"nation": "Latvia",
+"players": 5
+},
+{
+"league": "Singaporean Premier League",
+"nation": "Singapore",
+"players": 5
+},
+{
+"league": "Moldovan Super Liga",
+"nation": "Moldova",
+"players": 5
+},
+{
+"league": "Azadegan League",
+"nation": "Iran",
+"players": 5
+},
+{
+"league": "French Regional 1 - Occitanie - Group B",
+"nation": "France",
+"players": 5
+},
+{
+"league": "English Southern League Premier South",
+"nation": "England",
+"players": 5
+},
+{
+"league": "Kosovan Superleague",
+"nation": "Kosovo",
+"players": 5
+},
+{
+"league": "French Regional 1 - Nouvelle Aquitaine - Group A",
+"nation": "France",
+"players": 5
+},
+{
+"league": "Icelandic First Division",
+"nation": "Iceland",
+"players": 5
+},
+{
+"league": "Luxembourg Division of Honour",
+"nation": "Luxembourg",
+"players": 5
+},
+{
+"league": "Serbian First League",
+"nation": "Serbia",
+"players": 5
+},
+{
+"league": "Spanish U19 Division 2 Group 7",
+"nation": "Spain",
+"players": 5
+},
+{
+"league": "Italian Eccellenza Emilia-Romagna Grp.A",
+"nation": "Italy",
+"players": 4
+},
+{
+"league": "Georgian National League",
+"nation": "Georgia",
+"players": 4
+},
+{
+"league": "Belgian Third Amateur Division VV A",
+"nation": "Belgium",
+"players": 4
+},
+{
+"league": "French Regional 1 - Grand Est - Group C",
+"nation": "France",
+"players": 4
+},
+{
+"league": "Tanzanian Mainland Premier Division",
+"nation": "Tanzania",
+"players": 4
+},
+{
+"league": "Egyptian Second Division",
+"nation": "Egypt",
+"players": 4
+},
+{
+"league": "Austrian Regional League Central",
+"nation": "Austria",
+"players": 4
+},
+{
+"league": "Russian First Division",
+"nation": "Russia",
+"players": 4
+},
+{
+"league": "CampoBet 2. Division",
+"nation": "Denmark",
+"players": 4
+},
+{
+"league": "Cambodian Premier League",
+"nation": "Cambodia",
+"players": 4
+},
+{
+"league": "Israeli National League",
+"nation": "Israel",
+"players": 4
+},
+{
+"league": "Italian Eccellenza Toscana Grp.A",
+"nation": "Italy",
+"players": 4
+},
+{
+"league": "North Macedonian First League",
+"nation": "North Macedonia",
+"players": 4
+},
+{
+"league": "Swiss First League Classic Group 2",
+"nation": "Switzerland",
+"players": 4
+},
+{
+"league": "French Regional 1 - Bretagne - Group A",
+"nation": "France",
+"players": 4
+},
+{
+"league": "French Regional 1 - Paris Ile de France - Group A",
+"nation": "France",
+"players": 4
+},
+{
+"league": "Portugal Championship - Group D",
+"nation": "Portugal",
+"players": 4
+},
+{
+"league": "Icelandic Second Division",
+"nation": "Iceland",
+"players": 4
+},
+{
+"league": "Irish Munster Senior League Premier Division",
+"nation": "Republic of Ireland",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Piemonte Grp.B",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Campania Grp.A",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Friuli-Venezia Giulia",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "São Vicente Premier Division",
+"nation": "Cape Verde Islands",
+"players": 3
+},
+{
+"league": "DR Congo Premier Division A",
+"nation": "Democratic Republic of Congo",
+"players": 3
+},
+{
+"league": "United Premier Soccer League",
+"nation": "United States",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Calabria",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Marche",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "Victorian Premier League 1",
+"nation": "Australia",
+"players": 3
+},
+{
+"league": "Belarusian Highest League",
+"nation": "Belarus",
+"players": 3
+},
+{
+"league": "Brazilian National Lower Division",
+"nation": "Brazil",
+"players": 3
+},
+{
+"league": "East Timorese Premier Division",
+"nation": "East Timor",
+"players": 3
+},
+{
+"league": "Omani Professional League",
+"nation": "Oman",
+"players": 3
+},
+{
+"league": "Croatian Second League",
+"nation": "Croatia",
+"players": 3
+},
+{
+"league": "English Northern Premier League Division One Mids",
+"nation": "England",
+"players": 3
+},
+{
+"league": "English Northern Premier League Division One West",
+"nation": "England",
+"players": 3
+},
+{
+"league": "English Isthmian League Premier Division",
+"nation": "England",
+"players": 3
+},
+{
+"league": "Bulgarian Second League",
+"nation": "Bulgaria",
+"players": 3
+},
+{
+"league": "Korean K3 League",
+"nation": "South Korea",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Lazio Grp.A",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "Italian Eccellenza Emilia-Romagna Grp.B",
+"nation": "Italy",
+"players": 3
+},
+{
+"league": "Slovak Second Division",
+"nation": "Slovakia",
+"players": 3
+},
+{
+"league": "French Regional 1 - Pays de la Loire - Group B",
+"nation": "France",
+"players": 3
+},
+{
+"league": "Liga Nacional de Guatemala",
+"nation": "Guatemala",
+"players": 3
+},
+{
+"league": "Tajikistani High League",
+"nation": "Tajikistan",
+"players": 3
+},
+{
+"league": "Spanish Preferente Madrid Gr. 2",
+"nation": "Spain",
+"players": 3
+},
+{
+"league": "Spanish Primera Catalana Gr. 2",
+"nation": "Spain",
+"players": 3
+},
+{
+"league": "Spanish Superlliga Catalana",
+"nation": "Spain",
+"players": 3
+},
+{
+"league": "Andorran Second Division",
+"nation": "Andorra",
+"players": 3
+},
+{
+"league": "Jamaican Premier League",
+"nation": "Jamaica",
+"players": 3
+},
+{
+"league": "Swiss First League Classic Group 1",
+"nation": "Switzerland",
+"players": 3
+},
+{
+"league": "Dutch Vierde Divisie A",
+"nation": "Netherlands",
+"players": 2
+},
+{
+"league": "Italian Promozione Emilia-Romagna Grp.A",
+"nation": "Italy",
+"players": 2
+},
+{
+"league": "English Isthmian League South Central Division",
+"nation": "England",
+"players": 2
+},
+{
+"league": "Indonesian Championship Group II",
+"nation": "Indonesia",
+"players": 2
+},
+{
+"league": "Colombian Second Division",
+"nation": "Colombia",
+"players": 2
+},
+{
+"league": "English Isthmian League South East Division",
+"nation": "England",
+"players": 2
+},
+{
+"league": "São Tomé Division 1",
+"nation": "São Tomé and Príncipe",
+"players": 2
+},
+{
+"league": "Sudanese Premier League",
+"nation": "Sudan",
+"players": 2
+},
+{
+"league": "Italian Eccellenza Umbria",
+"nation": "Italy",
+"players": 2
+},
+{
+"league": "Hainaut Provincial Division",
+"nation": "Belgium",
+"players": 2
+},
+{
+"league": "Maldivian Dhivehi League",
+"nation": "Maldives",
+"players": 2
+},
+{
+"league": "Limburg Provincial Division",
+"nation": "Belgium",
+"players": 2
+},
+{
+"league": "English Combined Counties League Premier North",
+"nation": "England",
+"players": 2
+},
+{
+"league": "English Southern League Division One Central",
+"nation": "England",
+"players": 2
+},
+{
+"league": "Polish Second Division",
+"nation": "Poland",
+"players": 2
+},
+{
+"league": "Anguillan FA Senior Male League",
+"nation": "Anguilla",
+"players": 2
+},
+{
+"league": "Martinican Trophee Gerard Janvion R1",
+"nation": "Martinique",
+"players": 2
+},
+{
+"league": "French Regional 1 - Normandie - Group B",
+"nation": "France",
+"players": 2
+},
+{
+"league": "Dutch Derde Divisie A",
+"nation": "Netherlands",
+"players": 2
+},
+{
+"league": "Kampionato Liga MCB - Promé Division",
+"nation": "Curaçao",
+"players": 2
+},
+{
+"league": "Dutch Tweede Divisie",
+"nation": "Netherlands",
+"players": 2
+},
+{
+"league": "Dutch Derde Divisie B",
+"nation": "Netherlands",
+"players": 2
+},
+{
+"league": "Indian Lower Division",
+"nation": "India",
+"players": 2
+},
+{
+"league": "Norwegian Third Division Group 3",
+"nation": "Norway",
+"players": 2
+},
+{
+"league": "Italian Eccellenza Campania Grp.B",
+"nation": "Italy",
+"players": 2
+},
+{
+"league": "Italian Eccellenza Veneto Grp.A",
+"nation": "Italy",
+"players": 2
+},
+{
+"league": "Italian Eccellenza Trentino-Alto Adige",
+"nation": "Italy",
+"players": 2
+},
+{
+"league": "Swiss Second League Interregio Gr 1",
+"nation": "Switzerland",
+"players": 2
+},
+{
+"league": "Belgian Second Amateur Division VV A",
+"nation": "Belgium",
+"players": 2
+},
+{
+"league": "French Regional 1 - Normandie - Group A",
+"nation": "France",
+"players": 2
+},
+{
+"league": "Mexican Expansion League",
+"nation": "Mexico",
+"players": 2
+},
+{
+"league": "Portuguese Third Division - North",
+"nation": "Portugal",
+"players": 2
+},
+{
+"league": "Spanish 1ª Autonómica Pref. Castilla-La Mancha G1",
+"nation": "Spain",
+"players": 2
+},
+{
+"league": "South African National First Division Championship",
+"nation": "South Africa",
+"players": 2
+},
+{
+"league": "Norwegian Fourth Division Østfold",
+"nation": "Norway",
+"players": 2
+},
+{
+"league": "Lithuanian I League",
+"nation": "Lithuania",
+"players": 2
+},
+{
+"league": "Liga Dominicana de Fútbol",
+"nation": "Dominican Republic",
+"players": 2
+},
+{
+"league": "Belgian Third Amateur Division ACFF A",
+"nation": "Belgium",
+"players": 2
+},
+{
+"league": "Peruvian Second Division",
+"nation": "Peru",
+"players": 2
+},
+{
+"league": "New Zealand Southern League",
+"nation": "New Zealand",
+"players": 2
+},
+{
+"league": "National Premier Leagues - Western Australia",
+"nation": "Australia",
+"players": 2
+},
+{
+"league": "Austrian Upper Austria League",
+"nation": "Austria",
+"players": 2
+},
+{
+"league": "Norwegian First Division",
+"nation": "Norway",
+"players": 2
+},
+{
+"league": "Belgian First National Division - VV",
+"nation": "Belgium",
+"players": 2
+},
+{
+"league": "Estonian Lower Leagues",
+"nation": "Estonia",
+"players": 1
+},
+{
+"league": "North Macedonian Fourth League",
+"nation": "North Macedonia",
+"players": 1
+},
+{
+"league": "Maldivian Second Division",
+"nation": "Maldives",
+"players": 1
+},
+{
+"league": "Austrian Area-League South (St)",
+"nation": "Austria",
+"players": 1
+},
+{
+"league": "Thai League Three Southern Region",
+"nation": "Thailand",
+"players": 1
+},
+{
+"league": "FQ Premier League - Northern",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Italian Promozione Marche Grp.B",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Serbian Lower League",
+"nation": "Serbia",
+"players": 1
+},
+{
+"league": "Spanish Primera Andaluza Gr. Cádiz",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "English Eastern Counties Premier Division",
+"nation": "England",
+"players": 1
+},
+{
+"league": "Hong Kong Second Division",
+"nation": "Hong Kong (China PR)",
+"players": 1
+},
+{
+"league": "Serbian Second League Belgrade",
+"nation": "Serbia",
+"players": 1
+},
+{
+"league": "Swedish Second Division North Svealand",
+"nation": "Sweden",
+"players": 1
+},
+{
+"league": "Italian Seconda Categoria",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Luxembourg Provincial Division",
+"nation": "Belgium",
+"players": 1
+},
+{
+"league": "Thai League Three Western Region",
+"nation": "Thailand",
+"players": 1
+},
+{
+"league": "Libyan First Division Group 5",
+"nation": "Libya",
+"players": 1
+},
+{
+"league": "Bamako District League",
+"nation": "Mali",
+"players": 1
+},
+{
+"league": "Rwandan Premier Division",
+"nation": "Rwanda",
+"players": 1
+},
+{
+"league": "Ecuadorian Serie B",
+"nation": "Ecuador",
+"players": 1
+},
+{
+"league": "Italian Prima Categoria Basilicata Grp. B",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "National Premier Leagues - Queensland",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Football Queensland Premier League",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "National Premier Leagues - NSW",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Austrian Under-League Central (K)",
+"nation": "Austria",
+"players": 1
+},
+{
+"league": "Austrian Lower Austria League",
+"nation": "Austria",
+"players": 1
+},
+{
+"league": "Austrian Upper-League Central West (St)",
+"nation": "Austria",
+"players": 1
+},
+{
+"league": "Austrian 2. County League East (NÖ)",
+"nation": "Austria",
+"players": 1
+},
+{
+"league": "Pakistani Lower Division",
+"nation": "Pakistan",
+"players": 1
+},
+{
+"league": "USSL D2 - South Central Division",
+"nation": "United States",
+"players": 1
+},
+{
+"league": "Macanese Second Division",
+"nation": "Macau (China PR)",
+"players": 1
+},
+{
+"league": "Chinese Taipei Second Division",
+"nation": "Chinese Taipei (China PR)",
+"players": 1
+},
+{
+"league": "Finnish Third Division Pohjoinen",
+"nation": "Finland",
+"players": 1
+},
+{
+"league": "Jordanian Second Division Group B",
+"nation": "Jordan",
+"players": 1
+},
+{
+"league": "Iraqi First Division League Group 1",
+"nation": "Iraq",
+"players": 1
+},
+{
+"league": "Iraqi First Division League",
+"nation": "Iraq",
+"players": 1
+},
+{
+"league": "Brabant Bruxelles Provincial Division (ACFF)",
+"nation": "Belgium",
+"players": 1
+},
+{
+"league": "Czech Fourth Division A",
+"nation": "Czechia",
+"players": 1
+},
+{
+"league": "Greek Amateur First Division - Kyklades",
+"nation": "Greece",
+"players": 1
+},
+{
+"league": "Portuguese Lisbon First Division",
+"nation": "Portugal",
+"players": 1
+},
+{
+"league": "NPSL East Region",
+"nation": "United States",
+"players": 1
+},
+{
+"league": "South Wales Premier League Premier Division",
+"nation": "Wales",
+"players": 1
+},
+{
+"league": "English Midland Football League Premier Division",
+"nation": "England",
+"players": 1
+},
+{
+"league": "Swedish Second Division South Svealand",
+"nation": "Sweden",
+"players": 1
+},
+{
+"league": "English Southern League Division One South",
+"nation": "England",
+"players": 1
+},
+{
+"league": "English Northern Counties East Division One",
+"nation": "England",
+"players": 1
+},
+{
+"league": "Antigua and Barbuda Premier Division",
+"nation": "Antigua and Barbuda",
+"players": 1
+},
+{
+"league": "Faroese Premier League",
+"nation": "Faroe Islands",
+"players": 1
+},
+{
+"league": "Namur Provincial Division",
+"nation": "Belgium",
+"players": 1
+},
+{
+"league": "Victorian Premier League 2",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Dutch Derde Klasse Zondag E",
+"nation": "Netherlands",
+"players": 1
+},
+{
+"league": "Dutch Eerste Klasse B",
+"nation": "Netherlands",
+"players": 1
+},
+{
+"league": "Dutch Vierde Divisie C",
+"nation": "Netherlands",
+"players": 1
+},
+{
+"league": "Belgian Second Amateur Division VV B",
+"nation": "Belgium",
+"players": 1
+},
+{
+"league": "Dutch Eerste Klasse C",
+"nation": "Netherlands",
+"players": 1
+},
+{
+"league": "Cypriot Lower Division",
+"nation": "Cyprus",
+"players": 1
+},
+{
+"league": "Italian Promozione Lazio Grp.B",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Prima Categoria Puglia Grp. C",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Eccellenza Piemonte Grp.A",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Eccellenza Abruzzo",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Prima Categoria Liguria Grp. C",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Promozione Veneto Grp.B",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Prima Categoria Lazio Grp. E",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Promozione Friuli-Venezia Giulia",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Eccellenza Basilicata",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Italian Promozione Toscana Grp.C",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "SKNFA Super League",
+"nation": "Saint Kitts and Nevis",
+"players": 1
+},
+{
+"league": "Thai League Three Eastern Region",
+"nation": "Thailand",
+"players": 1
+},
+{
+"league": "Norwegian Second Division Group 1",
+"nation": "Norway",
+"players": 1
+},
+{
+"league": "Nepali National League",
+"nation": "Nepal",
+"players": 1
+},
+{
+"league": "Kazakhstan First League",
+"nation": "Kazakhstan",
+"players": 1
+},
+{
+"league": "Bolivian Regional Leagues",
+"nation": "Bolivia",
+"players": 1
+},
+{
+"league": "Kuwaiti First Division",
+"nation": "Kuwait",
+"players": 1
+},
+{
+"league": "Malaysian A1 Semi-Professional League",
+"nation": "Malaysia",
+"players": 1
+},
+{
+"league": "Liga Nacional de Honduras",
+"nation": "Honduras",
+"players": 1
+},
+{
+"league": "Playr-Fit Championship",
+"nation": "Northern Ireland",
+"players": 1
+},
+{
+"league": "Northern Irish Ballymena Intermediate League 1",
+"nation": "Northern Ireland",
+"players": 1
+},
+{
+"league": "Playr-Fit Premier Intermediate League",
+"nation": "Northern Ireland",
+"players": 1
+},
+{
+"league": "Sal Premier Division",
+"nation": "Cape Verde Islands",
+"players": 1
+},
+{
+"league": "Italian Promozione Abruzzo Grp.A",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Fogo Premier Division",
+"nation": "Cape Verde Islands",
+"players": 1
+},
+{
+"league": "Portuguese Braga First Division",
+"nation": "Portugal",
+"players": 1
+},
+{
+"league": "Swiss Second League Interregio Gr 3",
+"nation": "Switzerland",
+"players": 1
+},
+{
+"league": "Portuguese Azores Islands Division",
+"nation": "Portugal",
+"players": 1
+},
+{
+"league": "Saudi Second Division Group A",
+"nation": "Saudi Arabia",
+"players": 1
+},
+{
+"league": "UAE Third Division",
+"nation": "United Arab Emirates",
+"players": 1
+},
+{
+"league": "Belgian Third Amateur Division VV B",
+"nation": "Belgium",
+"players": 1
+},
+{
+"league": "Romanian Third League Group 1",
+"nation": "Romania",
+"players": 1
+},
+{
+"league": "Welsh Ardal NW",
+"nation": "Wales",
+"players": 1
+},
+{
+"league": "East of Scotland First Division",
+"nation": "Scotland",
+"players": 1
+},
+{
+"league": "Federation of BiH Second League South",
+"nation": "Bosnia and Herzegovina",
+"players": 1
+},
+{
+"league": "Slovak Lower Division",
+"nation": "Slovakia",
+"players": 1
+},
+{
+"league": "Spanish Regional Preferente Cantabria",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Greek National C Division Group 6",
+"nation": "Greece",
+"players": 1
+},
+{
+"league": "Indian Third Division",
+"nation": "India",
+"players": 1
+},
+{
+"league": "Botswanan Premier Division",
+"nation": "Botswana",
+"players": 1
+},
+{
+"league": "Spanish Preferente Autonómica Galicia Sur",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Cypriot Third Division",
+"nation": "Cyprus",
+"players": 1
+},
+{
+"league": "Polish Third Division Group 2",
+"nation": "Poland",
+"players": 1
+},
+{
+"league": "Spanish División Honor Andalucía Gr. 2",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Irish Lower Division",
+"nation": "Republic of Ireland",
+"players": 1
+},
+{
+"league": "Indonesian Championship Group I",
+"nation": "Indonesia",
+"players": 1
+},
+{
+"league": "Spanish Primera Extremeña Gr. 1",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Spanish Primera Andaluza Gr. Sevilla",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Spanish Preferente Las Palmas",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Spanish Primera Federación Valenciana Gr.3",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Thai League Two",
+"nation": "Thailand",
+"players": 1
+},
+{
+"league": "Spanish 1ª Regional Castilla y León Gr.A",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Spanish Primera Federación Valenciana Gr.4",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Spanish Primera Autonómica Navarra",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Spanish Lliga Comunitat Valenciana 2",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Bahamian Senior League",
+"nation": "The Bahamas",
+"players": 1
+},
+{
+"league": "United States Adult Soccer Association",
+"nation": "United States",
+"players": 1
+},
+{
+"league": "El Salvador Primera División",
+"nation": "El Salvador",
+"players": 1
+},
+{
+"league": "Liga Nacional de Ascenso Panama",
+"nation": "Panama",
+"players": 1
+},
+{
+"league": "Antigua and Barbuda First Division",
+"nation": "Antigua and Barbuda",
+"players": 1
+},
+{
+"league": "USSL D2 - Metropolitan Division",
+"nation": "United States",
+"players": 1
+},
+{
+"league": "Ecuadorian Segunda Categoría de Loja",
+"nation": "Ecuador",
+"players": 1
+},
+{
+"league": "Korean K4 League",
+"nation": "South Korea",
+"players": 1
+},
+{
+"league": "Zanzibari Premier Division",
+"nation": "Zanzibar",
+"players": 1
+},
+{
+"league": "French Regional 1 - Pays de la Loire - Group A",
+"nation": "France",
+"players": 1
+},
+{
+"league": "Portugal Championship - Group B",
+"nation": "Portugal",
+"players": 1
+},
+{
+"league": "Egyptian Second Division B - Group 3",
+"nation": "Egypt",
+"players": 1
+},
+{
+"league": "French Regional 1 - Bourgogne-Franche Comté-GroupB",
+"nation": "France",
+"players": 1
+},
+{
+"league": "Bahrain First Division",
+"nation": "Bahrain",
+"players": 1
+},
+{
+"league": "French Regional 1 - Bretagne - Group B",
+"nation": "France",
+"players": 1
+},
+{
+"league": "Moroccan First Division",
+"nation": "Morocco",
+"players": 1
+},
+{
+"league": "Turkish 3. League Group 1",
+"nation": "Turkey",
+"players": 1
+},
+{
+"league": "French Regional 1 - Bourgogne-Franche Comté-GroupA",
+"nation": "France",
+"players": 1
+},
+{
+"league": "Liga de Ascenso de Honduras",
+"nation": "Honduras",
+"players": 1
+},
+{
+"league": "National Premier Leagues - Northern NSW",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Swedish First Division South",
+"nation": "Sweden",
+"players": 1
+},
+{
+"league": "English Isthmian League North Division",
+"nation": "England",
+"players": 1
+},
+{
+"league": "English United Counties League Premier South",
+"nation": "England",
+"players": 1
+},
+{
+"league": "Norwegian Third Division Group 5",
+"nation": "Norway",
+"players": 1
+},
+{
+"league": "Victorian State League 4 - West",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Finnish First Division",
+"nation": "Finland",
+"players": 1
+},
+{
+"league": "Kosovan First League",
+"nation": "Kosovo",
+"players": 1
+},
+{
+"league": "Turkish 3. League Group 3",
+"nation": "Turkey",
+"players": 1
+},
+{
+"league": "New Caledonian Championnat Super Ligue",
+"nation": "New Caledonia",
+"players": 1
+},
+{
+"league": "Ecuadorian Segunda Categoría de Pichincha",
+"nation": "Ecuador",
+"players": 1
+},
+{
+"league": "Spanish Preferente Autonómica Galicia Norte",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Luxembourg First Division - North",
+"nation": "Luxembourg",
+"players": 1
+},
+{
+"league": "Dutch Eerste Klasse H",
+"nation": "Netherlands",
+"players": 1
+},
+{
+"league": "USSL D2 - Great Lakes Division",
+"nation": "United States",
+"players": 1
+},
+{
+"league": "Slovenian Third League East",
+"nation": "Slovenia",
+"players": 1
+},
+{
+"league": "Ligue1 Québec",
+"nation": "Canada",
+"players": 1
+},
+{
+"league": "Spanish Regional Preferente Aragón Gr. 1",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Ghanaian Premier Division",
+"nation": "Ghana",
+"players": 1
+},
+{
+"league": "Spanish División Honor Vizcaya",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Norwegian Fourth Division Indre Østland",
+"nation": "Norway",
+"players": 1
+},
+{
+"league": "Ivorian Ligue 2 - Pool A",
+"nation": "Ivory Coast",
+"players": 1
+},
+{
+"league": "Uruguayan Second Professional Division",
+"nation": "Uruguay",
+"players": 1
+},
+{
+"league": "Victorian State League 1 South-East",
+"nation": "Australia",
+"players": 1
+},
+{
+"league": "Italian Eccellenza Lombardia Grp.C",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Lower Leagues",
+"nation": null,
+"players": 1
+},
+{
+"league": "Croatian Fourth League South",
+"nation": "Croatia",
+"players": 1
+},
+{
+"league": "German Div. Bremen",
+"nation": "Germany",
+"players": 1
+},
+{
+"league": "Armenian First League",
+"nation": "Armenia",
+"players": 1
+},
+{
+"league": "Albanian First Category",
+"nation": "Albania",
+"players": 1
+},
+{
+"league": "Spanish U19 Division 2 Group 17",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Ecuadorian Segunda Categoría de Guayas",
+"nation": "Ecuador",
+"players": 1
+},
+{
+"league": "Spanish U19 Division 2 Group 8",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Italian Promozione Sicilia Grp.C",
+"nation": "Italy",
+"players": 1
+},
+{
+"league": "Spanish U19 Division 1 Group 3",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Cameroonian Lower Divisions",
+"nation": "Cameroon",
+"players": 1
+},
+{
+"league": "Spanish U19 Division 1 Group 1",
+"nation": "Spain",
+"players": 1
+},
+{
+"league": "Ecuadorian Segunda Categoría de Santo Domingo",
+"nation": "Ecuador",
+"players": 1
+}
+]

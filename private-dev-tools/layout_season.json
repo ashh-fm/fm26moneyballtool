@@ -1,0 +1,356 @@
+{
+ "entry": {
+  "apps_starts": [
+   12,
+   "u8",
+   1
+  ],
+  "apps_sub": [
+   13,
+   "u8",
+   1
+  ],
+  "apps_complete": [
+   14,
+   "u8",
+   1
+  ],
+  "minutes": [
+   10,
+   "u16",
+   1
+  ],
+  "goals": [
+   15,
+   "u8",
+   1
+  ],
+  "assists": [
+   16,
+   "u8",
+   1
+  ],
+  "yellow_cards": [
+   22,
+   "u8",
+   1
+  ],
+  "red_cards": [
+   21,
+   "u8",
+   1
+  ],
+  "man_of_the_match": [
+   20,
+   "u8",
+   1
+  ],
+  "penalties_taken": [
+   18,
+   "u8",
+   1
+  ],
+  "penalties_scored": [
+   19,
+   "u8",
+   1
+  ],
+  "goals_conceded_gk": [
+   17,
+   "u8",
+   1
+  ],
+  "clean_sheets_gk": [
+   23,
+   "u8",
+   1
+  ]
+ },
+ "record": {
+  "passes_attempted": [
+   8,
+   "u16",
+   1
+  ],
+  "passes_completed": [
+   10,
+   "u16",
+   1
+  ],
+  "passes_progressive": [
+   100,
+   "u16",
+   1
+  ],
+  "key_passes": [
+   54,
+   "u16",
+   1
+  ],
+  "key_passes_open_play": [
+   106,
+   "u16",
+   1
+  ],
+  "clear_cut_chances": [
+   62,
+   "u16",
+   1
+  ],
+  "shots": [
+   26,
+   "u16",
+   1
+  ],
+  "shots_on_target": [
+   28,
+   "u16",
+   1
+  ],
+  "shots_outside_box": [
+   92,
+   "u16",
+   1
+  ],
+  "shots_blocked": [
+   116,
+   "u16",
+   1
+  ],
+  "goals_outside_box": [
+   82,
+   "u16",
+   1
+  ],
+  "free_kicks_taken": [
+   80,
+   "u16",
+   1
+  ],
+  "dribbles": [
+   20,
+   "u16",
+   1
+  ],
+  "crosses_attempted": [
+   112,
+   "u16",
+   1
+  ],
+  "crosses_completed": [
+   114,
+   "u16",
+   1
+  ],
+  "crosses_open_play_attempted": [
+   90,
+   "u16",
+   1
+  ],
+  "crosses_open_play_completed": [
+   52,
+   "u16",
+   1
+  ],
+  "tackles_attempted": [
+   12,
+   "u16",
+   1
+  ],
+  "tackles_completed": [
+   14,
+   "u16",
+   1
+  ],
+  "tackles_key": [
+   56,
+   "u16",
+   1
+  ],
+  "interceptions": [
+   60,
+   "u16",
+   1
+  ],
+  "clearances": [
+   76,
+   "u16",
+   1
+  ],
+  "blocks": [
+   64,
+   "u16",
+   1
+  ],
+  "headers_attempted": [
+   16,
+   "u16",
+   1
+  ],
+  "headers_won": [
+   18,
+   "u16",
+   1
+  ],
+  "headers_lost": [
+   118,
+   "u16",
+   1
+  ],
+  "fouls_committed": [
+   22,
+   "u16",
+   1
+  ],
+  "fouls_won": [
+   24,
+   "u16",
+   1
+  ],
+  "offsides": [
+   48,
+   "u16",
+   1
+  ],
+  "sprints": [
+   96,
+   "u16",
+   1
+  ],
+  "presses_attempted": [
+   102,
+   "u16",
+   1
+  ],
+  "presses_completed": [
+   104,
+   "u16",
+   1
+  ],
+  "distance_km": [
+   46,
+   "u16",
+   10
+  ],
+  "possession_won": [
+   70,
+   "u16",
+   1
+  ],
+  "possession_lost": [
+   68,
+   "u16",
+   1
+  ],
+  "xg": [
+   72,
+   "u16",
+   100
+  ],
+  "xa": [
+   74,
+   "u16",
+   100
+  ],
+  "npxg": [
+   108,
+   "u16",
+   100
+  ],
+  "xg_prevented_gk": [
+   94,
+   "i16",
+   100
+  ],
+  "team_goals_for_while_in_squad": [
+   0,
+   "u16",
+   1
+  ],
+  "team_goals_against_while_in_squad": [
+   2,
+   "u16",
+   1
+  ],
+  "team_wins_while_in_squad": [
+   4,
+   "u16",
+   1
+  ],
+  "team_losses_while_in_squad": [
+   6,
+   "u16",
+   1
+  ],
+  "gk_saves_held": [
+   16,
+   "u16",
+   1
+  ],
+  "gk_saves_parried": [
+   18,
+   "u16",
+   1
+  ],
+  "gk_saves_tipped": [
+   50,
+   "u16",
+   1
+  ],
+  "gk_penalties_faced": [
+   12,
+   "u16",
+   1
+  ],
+  "gk_penalties_saved": [
+   14,
+   "u16",
+   1
+  ],
+  "gk_xg_faced": [
+   38,
+   "u16",
+   100
+  ],
+  "gk_xg_shots_faced": [
+   52,
+   "u16",
+   100
+  ],
+  "headers_key": [
+   58,
+   "u16",
+   1
+  ],
+  "xg_overperformance": [
+   110,
+   "i16",
+   100
+  ],
+  "unknown_0x54": [
+   84,
+   "u16",
+   1
+  ],
+  "unknown_0x78": [
+   0,
+   "u16",
+   1
+  ],
+  "unknown_0x7A": [
+   2,
+   "u16",
+   1
+  ],
+  "unknown_0x7C": [
+   4,
+   "u16",
+   1
+  ],
+  "unknown_0x7E": [
+   6,
+   "u16",
+   1
+  ]
+ }
+}
