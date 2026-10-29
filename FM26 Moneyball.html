@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FM26 Moneyball Scout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f0;--panel:#fff;--ink:#16211b;--mute:#66736b;--line:#d9dfd8;--acc:#1b7a4b;--accbg:#e3f1e8;--warm:#a8661a;--bar:#bfe0cb;--c0:#2a9d63;--c1:#d98a2b;--c2:#4a82d6;--g0:#d6603c;--g1:#2a9d63;--g2:#4a82d6;--g3:#c9a227;--g4:#8b64c8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111815;--panel:#18211d;--ink:#e6ede8;--mute:#8d9a92;--line:#2b3830;--acc:#4fc083;--accbg:#1d3328;--warm:#e0a057;--bar:#24523a}}
+:root[data-theme="dark"]{--bg:#111815;--panel:#18211d;--ink:#e6ede8;--mute:#8d9a92;--line:#2b3830;--acc:#4fc083;--accbg:#1d3328;--warm:#e0a057;--bar:#24523a}
+*{box-sizing:border-box}html,body{margin:0}[hidden]{display:none!important}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:Barlow,system-ui,sans-serif;font-size:var(--fs,15px);line-height:1.4;font-variant-numeric:tabular-nums}
+h1,h2{font-family:"Barlow Condensed",Barlow,sans-serif;margin:0;font-weight:700;letter-spacing:.01em}
+header{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--panel);flex-wrap:wrap}
+h1{font-size:26px}header .sub{color:var(--mute);font-size:13px}header .sp{flex:1}
+button,select,input{font:inherit;color:inherit}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:7px 14px;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+#drop{margin:40px auto;max-width:620px;padding:40px 28px;border:2px dashed var(--line);border-radius:10px;text-align:center;background:var(--panel)}
+#drop.over{border-color:var(--acc);background:var(--accbg)}
+#drop h2{font-size:30px;margin-bottom:6px}#drop p{color:var(--mute);margin:6px 0}
+#drop ol{text-align:left;display:inline-block;color:var(--mute);margin:10px 0 18px;padding-left:20px}
+#app{display:none;grid-template-columns:minmax(0,1fr);min-height:calc(100vh - 64px)}
+aside{border-right:1px solid var(--line);background:var(--panel);padding:16px;overflow:auto;max-height:calc(100vh - 64px);position:sticky;top:0}
+aside h2{font-size:18px;margin:16px 0 8px}aside h2:first-child{margin-top:0}
+.row{display:flex;align-items:center;gap:8px;margin:6px 0}.row label{flex:1;font-size:13px}
+.row input[type=number],input[type=search],select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;width:100%}
+.row input[type=number]{width:84px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;border-radius:99px;padding:3px 12px;cursor:pointer;font-size:13px}
+.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.sl{display:grid;grid-template-columns:1fr 34px;gap:2px 8px;font-size:13px;margin:7px 0}
+.sl input{grid-column:1/3;width:100%;accent-color:var(--acc)}.sl b{text-align:right;color:var(--acc)}
+main{padding:16px 20px;min-width:0}
+.bar{display:flex;gap:12px;align-items:center;margin-bottom:10px;flex-wrap:wrap}.bar .cnt{color:var(--mute);font-size:13px}
+.wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:820px}
+th,td{padding:calc(var(--fs,15px)*.42) calc(var(--fs,15px)*.66);text-align:left;white-space:nowrap;border-bottom:1px solid var(--line)}
+th{position:sticky;top:0;background:var(--panel);font-weight:600;font-size:.87em;color:var(--mute);cursor:pointer;user-select:none}
+th.on{color:var(--acc)}tbody tr{cursor:pointer}tbody tr:hover{background:var(--accbg)}
+td.n{text-align:right}th.n{text-align:right}
+.sc{position:relative;min-width:110px;text-align:right;font-weight:600}
+.sc i{position:absolute;left:0;top:3px;bottom:3px;background:var(--bar);border-radius:3px;z-index:0}.sc span{position:relative;z-index:1}
+.val{color:var(--warm);font-weight:600}.mut{color:var(--mute)}
+dialog{border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);padding:20px;width:min(520px,94vw)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog h2{font-size:26px}.rb{display:grid;grid-template-columns:170px 1fr 36px;gap:8px;align-items:center;font-size:13px;margin:4px 0}
+.rb div{height:9px;background:var(--line);border-radius:5px;overflow:hidden}.rb div i{display:block;height:100%;background:var(--acc)}
+.note{color:var(--mute);font-size:12px;margin-top:14px}
+#err{color:#c0392b;margin-top:10px}
+.tabs{display:flex;gap:4px;margin:-4px 0 12px;border-bottom:1px solid var(--line)}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:8px 14px;font-weight:600;cursor:pointer;color:var(--mute)}
+.tabs button[aria-pressed="true"]{color:var(--acc);border-bottom-color:var(--acc)}
+.tabs.top{margin-bottom:8px}.tabs.top button{font-family:"Barlow Condensed",Barlow,sans-serif;font-size:1.25em;padding:6px 18px}
+.tabs b{font-weight:600;font-size:.8em;background:var(--accbg);color:var(--acc);border-radius:99px;padding:0 7px;margin-left:4px}.tabs b:empty{display:none}
+td.st{width:1%;padding-left:2px;padding-right:2px}
+.star{background:none;border:0;cursor:pointer;font-size:1.15em;line-height:1;padding:2px 4px;color:var(--mute)}.star[aria-pressed="true"]{color:var(--warm)}
+.ptab td:first-child,.ptab th:first-child{position:sticky;left:0;background:var(--panel);z-index:2;font-weight:600}.ptab tbody tr:hover td:first-child{background:var(--accbg)}
+#dbody.small .sg div i,.sc.small i{opacity:.45}.sc.small span{color:var(--mute);font-weight:500}
+.miss{display:flex;gap:10px;align-items:center;font-size:.9em;margin:4px 0}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}.ctl select{width:auto;min-width:190px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;margin:6px 0 8px}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.pad{padding:12px}.pz{display:flex;flex-wrap:wrap;gap:8px}.pz>div{flex:1 1 360px;min-width:300px}
+.info{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px 16px;font-size:13px;margin:10px 0}.info span{color:var(--mute)}
+.sg{display:grid;grid-template-columns:1fr 64px 110px 28px;gap:6px;align-items:center;font-size:13px;padding:2px 0}
+.sg div{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.sg div i{display:block;height:100%}.sg b{text-align:right}.sg em{font-style:normal;text-align:right}
+dialog{max-height:88vh;overflow:auto;width:min(760px,96vw)}h3{font-size:16px;margin:16px 0 4px;font-family:"Barlow Condensed",Barlow,sans-serif}
+@media(max-width:820px){#app{grid-template-columns:1fr}aside{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}}
+.tall{max-height:calc(100vh - 190px);min-height:220px;overflow:auto}
+#allt td:first-child,#allt th:first-child,#scoutt td:first-child,#scoutt th:first-child{position:sticky;left:0;background:var(--panel);z-index:2;font-weight:600}
+.hdr-ctl{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute)}.hdr-ctl input{width:90px;accent-color:var(--acc)}
+.gct{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}.gct label{font-size:13px;color:var(--mute);display:flex;gap:6px;align-items:center}.gct select{width:auto;min-width:150px}
+.sf{display:grid;grid-template-columns:1fr 1fr;gap:6px}.sf select,.sf input{width:100%}.sf input{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+small.mut{font-size:.8em;font-weight:400}
+#scoutt tbody tr:hover td:first-child{background:var(--accbg)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 4px 0 6px}
+.cmptiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,420px));gap:12px;justify-content:start}#cxdlg{width:min(900px,96vw)}
+.sdlg{width:min(900px,96vw)}.sbody{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px;margin-top:8px}
+.sleft h3,.sright h3{margin:12px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);font-family:Barlow,sans-serif}
+.pitch{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(6,42px);gap:6px 4px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.pp{border-radius:50%;width:38px;height:38px;justify-self:center;align-self:center;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:10px;font-weight:700;cursor:pointer;padding:0}
+.pp[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.sh{display:flex;align-items:center;justify-content:space-between;gap:10px}.sh select{width:auto;min-width:210px}
+.crow{display:grid;grid-template-columns:20px minmax(130px,1.5fr) 112px 104px 84px 26px;gap:6px;align-items:center;margin:7px 0}.crow select{width:100%}
+.crow input[type=number],.sage input{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;width:100%}
+.sage{display:flex;align-items:center;gap:8px}.sage input{width:84px}
+.sh2{margin-top:18px;border-top:1px solid var(--line);padding-top:4px}.crow.rrow{grid-template-columns:20px minmax(130px,1.5fr) 80px 84px 26px}
+#sq{width:100%}.pitch{grid-template-rows:repeat(6,38px)}
+.x{border:0;border-radius:50%;width:24px;height:24px;background:#c0392b;color:#fff;cursor:pointer;font-weight:700;line-height:1;padding:0}
+.sfoot{display:flex;gap:8px;margin-top:14px;align-items:center}
+@media(max-width:820px){.sbody{grid-template-columns:minmax(0,1fr)}.crow{grid-template-columns:20px 1fr 1fr 26px}}
+/* every dialog: header (name/title + close) stays pinned while the content scrolls */
+dialog{padding:0}
+.gdh{position:sticky;top:0;z-index:6;background:var(--panel);padding:14px 20px 10px;border-bottom:1px solid var(--line);border-radius:10px 10px 0 0}
+.gdh h2{margin:0}.hbtns{display:flex;gap:8px;align-items:center}
+.xbtn{width:36px;height:36px;padding:0;font-size:16px;line-height:1}
+dialog>:not(.gdh):not(.sfoot){margin-left:20px;margin-right:20px}
+dialog>.gdh+*{margin-top:12px}
+dialog>:last-child:not(.sfoot){margin-bottom:20px}
+.sfoot{position:sticky;bottom:0;z-index:6;background:var(--panel);padding:10px 20px;margin:14px 0 0;border-top:1px solid var(--line);border-radius:0 0 10px 10px}
+.gtabs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.gdash{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.gcard{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px 6px;cursor:pointer;position:relative;display:flex;flex-direction:column;gap:4px;text-align:left}
+.gcard:hover{border-color:var(--acc)}.gcard svg{display:block;width:100%;height:auto}
+.gch{display:flex;flex-direction:column;line-height:1.2}.gch b{font-size:.95em}.gch small{font-size:.78em}.gcf{font-size:.78em}
+.gnew{align-items:center;justify-content:center;min-height:200px;border-style:dashed}
+.gwrap{position:relative}
+.tip{position:absolute;z-index:30;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-shadow:0 6px 18px rgba(0,0,0,.4);min-width:170px;max-width:250px;font-size:.9em}
+.tip b{display:block}.tip small{display:block;color:var(--mute);margin-bottom:6px;font-size:.82em}
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.tg span{font-size:.68em;text-transform:uppercase;color:var(--mute);letter-spacing:.03em}.tg strong{font-size:1.05em}
+#gdlg{width:min(1040px,96vw)}.gdh{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gdb{display:grid;grid-template-columns:minmax(170px,240px) minmax(0,1fr);gap:16px}
+.lnk{background:none;border:0;padding:4px 0;color:var(--ink);text-align:left;cursor:pointer;font:inherit;display:block;width:100%}.lnk:hover b,.lnk:hover{color:var(--acc)}
+.cmpgrid{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:12px;align-items:start}.cmpgrid.wide{grid-template-columns:minmax(0,1fr)}
+#chart svg{display:block;max-width:600px;margin:0 auto}.pz>div{flex:1 1 300px;max-width:440px}
+@media(max-width:1000px){.cmpgrid{grid-template-columns:minmax(0,1fr)}}@media(max-width:820px){.gdb{grid-template-columns:minmax(0,1fr)}}
+.lgbox{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:12px}.lghead{display:flex;align-items:center;gap:12px;padding:8px 12px;flex-wrap:wrap}.lgbody{padding:0 12px 12px}.lgbox.min .lgbody{display:none}
+.lgtools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.lgtools input[type=search]{width:200px}
+.lgl{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:4px 14px;max-height:280px;overflow:auto}
+.gflt{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 8px;font-size:13px}
+.gflt input[type=number]{width:76px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 6px}.gflt select{width:auto}
+.gdd{position:relative}.gdd summary{list-style:none;cursor:pointer;display:inline-block}.gdd summary::-webkit-details-marker{display:none}
+.gdd summary b{font-weight:600;color:var(--acc)}.gdd[open] summary{border-color:var(--acc)}
+.gpop{position:absolute;z-index:25;top:calc(100% + 6px);left:0;width:min(560px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;box-shadow:0 10px 28px rgba(0,0,0,.45)}
+.gpop .lgtools input[type=search]{flex:1;min-width:160px}
+.slg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px 12px;max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--bg)}
+.slg label{display:flex;gap:6px;align-items:center;font-size:.9em;padding:2px 0;cursor:pointer}.slg small{color:var(--mute)}
+.lgr{display:grid;grid-template-columns:18px 34px 1fr 70px;gap:6px;align-items:center;font-size:.92em}.lgr input[type=number]{width:70px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:3px 6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>FM26 Moneyball Scout</h1><span class="sub" id="meta">Role scores from Fmplaya's FM24 Statistics Spreadsheet</span><span class="sp"></span>
+  <label class="hdr-ctl" for="fs">Text <input type="range" id="fs" min="9" max="18" step="1" value="15"></label>
+  <label class="hdr-ctl" for="scope2" id="scope2l" hidden>Stats <select id="scope2" style="width:auto"></select></label>
+  <button class="btn" id="reload" hidden>Reload from game</button>
+  <button class="btn ghost" id="again" hidden>Load file</button>
+</header>
+
+<section id="drop">
+  <h2>Load your save from FM26</h2>
+  <p>Have FM26 open with your save loaded, and keep <b>server.py</b> running.</p>
+  <div class="row" style="justify-content:center;margin:16px 0 8px"><label for="scope" style="flex:0">Stats</label><select id="scope" style="width:auto"></select></div>
+  <button class="btn" id="live">Load from game</button>
+  <p id="lstat" class="mut" role="status"></p>
+  <p style="margin-top:22px">Or load a saved file (an older FM .html export, or a players .json).</p>
+  <button class="btn ghost" id="pick">Choose file</button><input type="file" id="file" accept=".html,.htm,.json" hidden>
+  <p>Data is read from the game on this computer only. Nothing is uploaded.</p><div id="err" role="alert"></div>
+  <p style="margin-top:22px;font-size:12px">Role weightings from the <a href="https://community.sports-interactive.com/forums/topic/580105-fm24-statistics-spreadsheet-for-those-that-love-moneyball/" target="_blank" rel="noopener" style="color:var(--acc)">FM24 Statistics Spreadsheet by Fmplaya</a>. Free software under the GNU GPL v3. Not affiliated with Sports Interactive or SEGA.</p>
+</section>
+
+<div id="app">
+
+<main>
+  <nav class="tabs top" id="mtabs"><button data-t="club" aria-pressed="false">My Club</button><button data-t="world" aria-pressed="true">World Scout</button></nav>
+  <nav class="tabs" id="ctabs" hidden><button data-t="sq" aria-pressed="true">Squad</button><button data-t="sl" aria-pressed="false">Shortlist <b id="slnum"></b></button><button data-t="kc" aria-pressed="false">Compare</button><button data-t="kg" aria-pressed="false">Graphs</button></nav>
+  <div id="sq" hidden>
+    <div class="bar"><h2>Squad</h2><span class="cnt" id="qcnt"></span><span style="flex:1"></span>
+      <label class="mut" for="myclub">My club</label><select id="myclub" style="width:auto;max-width:240px" aria-label="My club"></select>
+      <label class="mut" for="qrole">Role</label><select id="qrole" style="width:auto" aria-label="Role shown and ranked"></select>
+      <label class="mut" for="qtv">Columns</label><select id="qtv" class="tvsel" style="width:auto"></select></div>
+    <div class="wrap tall"><table class="ptab"><thead id="qth"></thead><tbody id="qtb"></tbody></table></div>
+    <p class="note" id="qnote"></p>
+  </div>
+  <div id="sl" hidden>
+    <div class="bar"><h2>Shortlist</h2><span class="cnt" id="lcnt"></span><span style="flex:1"></span>
+      <label class="mut" for="lrole">Role</label><select id="lrole" style="width:auto" aria-label="Role shown and ranked"></select>
+      <label class="mut" for="ltv">Columns</label><select id="ltv" class="tvsel" style="width:auto"></select>
+      <button class="btn ghost" id="lclear">Clear shortlist</button></div>
+    <div class="wrap tall"><table class="ptab"><thead id="lth"></thead><tbody id="ltb"></tbody></table></div>
+    <div id="lmiss"></div>
+    <p class="note">Add players with the ☆ next to their name in World Scout, or from their profile. The shortlist is kept between sessions. Players are stored by their game ID, so it carries over when you reload from the game.</p>
+  </div>
+  <div id="kc" hidden>
+    <div class="bar"><h2>Compare</h2><span style="flex:1"></span><label class="mut" for="kpool">Players from</label>
+      <select id="kpool" style="width:auto"><option value="both">My squad and shortlist</option><option value="mine">My squad only</option><option value="short">Shortlist only</option></select></div>
+    <div class="ctl">
+      <select id="kc0" aria-label="Player A"></select><select id="kc1" aria-label="Player B"></select><select id="kc2" aria-label="Player C"></select>
+      <select id="kcm" aria-label="Stats to compare"></select>
+      <div class="chips" id="kct"><button class="chip" data-c="pizza" aria-pressed="false">Pizza</button><button class="chip" data-c="bar" aria-pressed="false">Bar</button><button class="chip" data-c="radar" aria-pressed="true">Radar</button></div>
+    </div>
+    <div class="legend" id="klg"></div>
+    <div class="cmptiles" id="kchart"></div>
+    <div class="wrap" id="kctab" style="margin-top:12px"></div>
+    <p class="note">Percentiles (0-99) are against every loaded player in the percentile pool. Players below the pool's minimum minutes show “–” and an empty chart.</p>
+  </div>
+  <nav class="tabs" id="tabs"><button data-t="scout" aria-pressed="true">Scout</button><button data-t="cmp" aria-pressed="false">Compare</button><button data-t="all" aria-pressed="false">All players</button><button data-t="gr" aria-pressed="false">Graphs</button><button data-t="rk" aria-pressed="false">Rank</button></nav>
+  <div id="scout">
+    <div class="bar"><h2 id="title">Players</h2><span class="cnt" id="cnt"></span><button class="btn" id="sedit">New search</button><button class="btn ghost" id="sclr" hidden>Clear search</button><span style="flex:1"></span>
+      <label class="mut" for="role">Role</label><select id="role" style="width:auto" aria-label="Role shown and ranked"></select>
+      <label class="mut" for="tv">Columns</label>
+      <select id="tv" class="tvsel" style="width:auto"></select></div>
+    <div class="cnt" id="ssum" hidden style="margin:-4px 0 8px"></div>
+    <div class="wrap tall"><table id="scoutt" class="ptab"><thead id="th"></thead><tbody id="tb"></tbody></table></div>
+    <p class="note">Every loaded player is listed. Scores are percentiles (0-99) against the percentile pool: players with at least the pool's minimum minutes (300 unless changed in Player search). Players below it are still placed within the pool but shown faded (a small sample) and sorted after pool players; players with no minutes or incomplete stats show “–” and sort to the bottom. Goalkeepers get stat percentiles but no role score. “Defensive actions” is approximated as tackles won + interceptions + blocks + clearances. Pts/£10k is the role score per £10k of weekly wage. Market value is FM’s estimate range, sorted by its lower end. Average rating, market value and age come straight from the game; positions list every position rated Accomplished (15+) or better. ☆ adds a player to your shortlist (My Club).</p>
+  </div>
+  <div id="cmp" hidden>
+    <div class="bar"><h2>Compare players</h2></div>
+    <div class="ctl">
+      <select id="c0" aria-label="Player A"></select><select id="c1" aria-label="Player B"></select><select id="c2" aria-label="Player C"></select>
+      <select id="cm" aria-label="Stats to compare"></select>
+      <div class="chips" id="ct"><button class="chip" data-c="pizza" aria-pressed="false">Pizza</button><button class="chip" data-c="bar" aria-pressed="false">Bar</button><button class="chip" data-c="radar" aria-pressed="true">Radar</button></div>
+    </div>
+    <div class="legend" id="lg"></div>
+    <div class="cmptiles" id="chart"></div>
+    <div class="wrap" id="ctab" style="margin-top:12px"></div>
+    <p class="note">Charts show percentiles (0-99) against every loaded player who meets the minutes limit set in Scout. For fouls, cards, offsides and goals conceded, lower is better, so the percentile is flipped.</p>
+  </div>
+  <div id="all" hidden>
+    <div class="bar"><h2>All players</h2><span class="cnt" id="acnt"></span><span style="flex:1"></span>
+      <input type="search" id="aq" placeholder="Name or club" style="width:190px" aria-label="Search"><select id="am" style="width:auto" aria-label="Columns"><option>Both</option><option>Raw</option><option>Calculated</option></select></div>
+    <div class="wrap tall"><table id="allt" style="min-width:0"><thead id="ath"></thead><tbody id="atb"></tbody></table></div>
+    <p class="note">Raw columns are the values read from the game (or from your file). Calculated columns are per-90 stats and role scores (role scores only for players who meet the minutes limit set in Scout).</p>
+  </div>
+  <div id="gr" hidden>
+    <div class="bar"><h2>Graphs</h2><span class="cnt" id="gcap">Click a card to enlarge it. Hover a dot to see the player.</span><span style="flex:1"></span>
+      <label class="mut" id="gpoolw" hidden>Players from <select id="gpool" style="width:auto"><option value="both">My squad and shortlist</option><option value="mine">My squad only</option><option value="short">Shortlist only</option></select>
+        <span class="gflt" style="display:inline-flex;margin:0 0 0 10px">Age <input type="number" id="gaamin" min="14" max="60" placeholder="min" aria-label="Minimum age"> – <input type="number" id="gaamax" min="14" max="60" placeholder="max" aria-label="Maximum age"></span></label></div>
+    <div class="gtabs" id="gtabs"><button class="chip" data-t="All" aria-pressed="true">All players</button><button class="chip" data-t="GK" aria-pressed="false">Goalkeepers</button><button class="chip" data-t="DEF" aria-pressed="false">Defenders</button><button class="chip" data-t="MID" aria-pressed="false">Midfielders</button><button class="chip" data-t="FWD" aria-pressed="false">Forwards</button><span style="flex:1"></span><label class="hdr-ctl">Highlight <select id="ghl" style="width:auto;min-width:180px"></select></label></div>
+    <div class="gflt" id="gflt">
+      <details class="gdd" id="gfl"><summary class="chip">Leagues <b id="gfln">any</b> ▾</summary>
+        <div class="gpop"><div class="lgtools"><input type="search" id="gflq" placeholder="Search leagues or countries" aria-label="Search leagues"><button class="chip" id="gflany">Any</button><button class="chip" id="gfltop">Top 5</button></div><div class="slg" id="gfll"></div></div></details>
+      <details class="gdd" id="gfc"><summary class="chip">Clubs <b id="gfcn">any</b> ▾</summary>
+        <div class="gpop"><div class="lgtools"><input type="search" id="gfcq" placeholder="Search clubs" aria-label="Search clubs"><button class="chip" id="gfcany">Any</button></div><div class="slg" id="gfcl"></div></div></details>
+      <label class="mut">Minutes <input type="number" id="gfmin" min="0" step="90" placeholder="min" aria-label="Minimum minutes"> – <input type="number" id="gfmax" min="0" step="90" placeholder="max" aria-label="Maximum minutes"></label>
+      <label class="mut">Age <input type="number" id="gfamin" min="14" max="60" placeholder="min" aria-label="Minimum age"> – <input type="number" id="gfamax" min="14" max="60" placeholder="max" aria-label="Maximum age"></label>
+      <label class="mut">Match <select id="gfmode" aria-label="How filters combine"><option value="and">All filters (AND)</option><option value="or">Any filter (OR)</option></select></label>
+      <button class="chip" id="gfclr" hidden>Clear filters</button>
+      <span class="cnt" id="gfsum"></span>
+    </div>
+    <div class="legend" id="glg"></div>
+    <div class="gdash" id="gdash"></div>
+  </div>
+  <div id="rk" hidden>
+    <div class="bar"><h2>Rank</h2><span class="cnt" id="rcnt"></span></div>
+    <div class="ctl"><select id="rs" aria-label="Rank by"></select><select id="rg" aria-label="Position group"><option>All</option><option>DEF</option><option>MID</option><option>AM</option><option>ST</option><option>GK</option></select><label class="mut"><input type="checkbox" id="rw"> Apply league weights</label></div>
+    <div class="lgbox" id="lgbox">
+      <div class="lghead"><b>League filter and weights</b><span class="cnt" id="lgsum"></span><span style="flex:1"></span><button class="btn ghost" id="lgmin">Minimise ▴</button></div>
+      <div class="lgbody">
+        <div class="lgtools"><input type="search" id="lq" placeholder="Search leagues" aria-label="Search leagues"><button class="chip" id="lgall">All</button><button class="chip" id="lgnone">None</button><button class="chip" id="lgtop">Top 5</button><button class="chip" id="lgreset">Reset weights</button><label class="mut"><input type="checkbox" id="lgshow"> Show every league in the game</label></div>
+        <div class="lgl" id="lgl"></div>
+      </div>
+    </div>
+    <div class="wrap tall"><table style="min-width:0"><thead id="rth"></thead><tbody id="rtb"></tbody></table></div>
+    <p class="note" id="rnote"></p>
+  </div>
+</main>
+</div>
+
+<dialog id="sdlg" class="sdlg">
+  <div class="gdh"><h2>Player search <span class="cnt" id="scount"></span></h2></div>
+  <div class="sbody">
+    <div class="sleft">
+      <h3>Name or club</h3><input type="search" id="sq" placeholder="Search players or clubs" aria-label="Name or club">
+      <h3>Positions</h3><div class="pitch" id="pitch"></div>
+      <h3>Aged between</h3><div class="sage"><input type="number" id="samin" min="14" max="60" aria-label="Minimum age"> and <input type="number" id="samax" min="14" max="60" aria-label="Maximum age"></div>
+      <h3>Minutes between</h3><div class="sage"><input type="number" id="smmin" min="0" step="90" placeholder="any" aria-label="Minimum minutes"> and <input type="number" id="smmax" min="0" step="90" placeholder="any" aria-label="Maximum minutes"></div>
+      <h3>Percentile pool</h3><div class="sage">At least <input type="number" id="spool" min="0" step="90" aria-label="Minimum minutes to be in the percentile pool"> mins</div>
+      <p class="mut" style="font-size:.82em;margin:4px 0 0">Players are scored against everyone with at least this many minutes. It applies to every tab.</p>
+      <h3>Wage between (£k a week)</h3><div class="sage"><input type="number" id="swmin" min="0" placeholder="any" aria-label="Minimum wage"> and <input type="number" id="swmax" min="0" placeholder="any" aria-label="Maximum wage"></div>
+      <label class="mut" style="display:flex;gap:8px;align-items:center;margin-top:14px"><input type="checkbox" id="swithin"> Rank percentiles within position group</label>
+    </div>
+    <div class="sright">
+      <div class="sh"><h3>Stat conditions</h3><select id="sadd" aria-label="Add stat condition"></select></div>
+      <div id="sconds"></div>
+      <div class="sh sh2"><h3>Minimum role score</h3><select id="sradd" aria-label="Add role condition"></select></div>
+      <div id="srconds"></div>
+      <div class="sh sh2"><h3>Leagues <span class="cnt" id="slgn"></span></h3><div class="hbtns"><button class="chip" id="slall">Any league</button><button class="chip" id="sltop">Top 5</button></div></div>
+      <input type="search" id="slq" placeholder="Search leagues or countries" aria-label="Search leagues" style="margin:4px 0 6px">
+      <div class="slg" id="slg"></div>
+    </div>
+  </div>
+  <div class="sfoot"><button class="btn ghost" id="sclear">Clear</button><span style="flex:1"></span><button class="btn ghost" id="scancel">Cancel</button><button class="btn" id="sok">OK</button></div>
+</dialog>
+<dialog id="cxdlg">
+  <div class="gdh"><h2 id="cxt">Chart</h2><button class="btn ghost" id="cxclose">Close</button></div>
+  <div class="legend" id="cxs"></div><div id="cxchart"></div>
+</dialog>
+<dialog id="gdlg">
+  <div class="gdh"><h2 id="gdt">Graph</h2><button class="btn ghost" id="mclose">Close</button></div>
+  <p class="mut" id="gds" style="margin:2px 0 10px"></p>
+  <div class="gct"><label>Graph <select id="mt"><option value="sc">Scatter</option><option value="bar">Top 15 bar</option></select></label><label>X / stat <select id="mx"></select></label><label id="myl">Y <select id="my"></select></label><label>Players <select id="mg"><option value="preset">Card default</option><option value="All">All</option><option value="GK">Goalkeepers</option><option value="DEF">Defenders</option><option value="MID">Midfielders</option><option value="FWD">Forwards</option></select></label></div>
+  <div class="gdb"><div id="gdside"></div><div class="gwrap" id="gdchart"></div></div>
+</dialog>
+<dialog id="dlg">
+  <div class="gdh"><div><h2 id="dname"></h2><div class="mut" id="dsub"></div></div><div class="hbtns"><button class="btn ghost" id="toSl">☆ Shortlist</button><button class="btn ghost" id="toCmp">Compare</button><button class="btn ghost xbtn" id="close" aria-label="Close player profile" title="Close">✕</button></div></div>
+  <div id="dbody"></div>
+</dialog>
+
+<script>
+// Role weights from Fmplaya's FM24 Statistics Spreadsheet v4 ("Percentiles Table (X)"):
+// https://community.sports-interactive.com/forums/topic/580105-fm24-statistics-spreadsheet-for-those-that-love-moneyball/
+const ROLES={
+"Finisher":{"npG/90":.6,"npG-npxG/90":.3,"SoT%":.1},
+"Aerial Threat":{"Hdr%":.75,"HdrWon/90":.25},
+"Winger":{"Drb/90":.4,"xA/90":.1,"OP-KP/90":.1,"CCC/90":.1,"OP-CrC/90":.3},
+"Direct":{"Drb/90":.4,"npxG/90":.25,"xA/90":.15,"OP-KP/90":.1,"CCC/90":.1},
+"Pressing Forward":{"PresC/90":.3,"TckWon/90":.2,"Int/90":.2,"PossWon/90":.2,"Dist/90":.1},
+"Advanced Playmaker":{"xA/90":.4,"OP-KP/90":.4,"CCC/90":.2},
+"Box-to-Box":{"Dist/90":.4,"DefActions/90":.35,"OP-KP/90":.075,"CCC/90":.075,"npxG/90":.1},
+"Ball-Winner":{"Dist/90":.15,"PossWon/90":.1,"Blk/90":.05,"Clr/90":.05,"Int/90":.15,"TckWon/90":.25,"PresC/90":.25},
+"Deep-Lying Playmaker":{"OP-KP/90":.15,"CCC/90":.15,"PrPass/90":.35,"PsC/90":.35},
+"Reader (Midfield)":{"PossWon/90":.15,"Int/90":.65,"DefActions/90":.2},
+"Progressor":{"PrPass/90":.5,"Drb/90":.5},
+"Anchor":{"PsC/90":.3,"PossLost/90":.15,"Pas%":.15,"DefActions/90":.15,"Int/90":.15,"PossWon/90":.1},
+"Overlapper":{"OP-KP/90":.125,"CCC/90":.125,"OP-CrC/90":.3,"Dist/90":.3,"Sprints/90":.15},
+"Wing-Back":{"Drb/90":.25,"OP-KP/90":.1,"CCC/90":.1,"OP-CrC/90":.2,"Dist/90":.2,"Sprints/90":.15},
+"Ball-Playing Defender":{"PsC/90":.3,"PrPass/90":.3,"Int/90":.05,"PossWon/90":.15,"Hdr%":.1,"TckWon/90":.05,"ShBlk/90":.05},
+"Destroyer":{"PossWon/90":.4,"ShBlk/90":.15,"Int/90":.1,"TckWon/90":.2,"Hdr%":.15},
+"Reader (Defensive)":{"PossWon/90":.4,"Int/90":.6}
+};
+const INVERT=new Set(["PossLost/90"]);
+// My own grouping (not from the spreadsheet): which roles make sense for which positions, used for "Best fit"
+const GROUP_ROLES={
+ DEF:["Ball-Playing Defender","Destroyer","Reader (Defensive)","Wing-Back","Overlapper","Aerial Threat"],
+ MID:["Box-to-Box","Ball-Winner","Deep-Lying Playmaker","Reader (Midfield)","Progressor","Anchor","Advanced Playmaker"],
+ AM:["Advanced Playmaker","Winger","Direct","Progressor","Finisher"],
+ ST:["Finisher","Aerial Threat","Pressing Forward","Direct"]};
+const POS_MAP={GK:"GK",D:"DEF","D/WB":"DEF",WB:"DEF",DM:"MID",M:"MID",AM:"AM",ST:"ST"};
+const BEST="Best fit";
+// [group, key, label, lowerIsBetter]. Mirrors the "Statistics Profile" sheet.
+const STAT_LIST=[
+["Shooting","G/90","Goals/90"],["Shooting","npG/90","npG/90"],["Shooting","npxG/90","npxG/90"],["Shooting","npG-npxG/90","npG-npxG/90"],["Shooting","Shots/90","Shots/90"],["Shooting","SoT/90","Shots on Target/90"],["Shooting","ShOut/90","Shots Outside Box/90"],["Shooting","SoT%","Shots on Target %"],["Shooting","npG/Shot","npG/Shot"],["Shooting","xG/Shot","xG/Shot"],["Shooting","GOut/90","Goals Outside Box/90"],
+["Creating","Drb/90","Dribbles Made/90"],["Creating","FoulsWon/90","Fouls Won/90"],["Creating","Ast/90","Assists/90"],["Creating","xA/90","xA/90"],["Creating","GC/90","Goal Contributions/90"],["Creating","npxG+xA/90","npxG+xA/90"],["Creating","PsC/90","Passes Completed/90"],["Creating","Pas%","Pass Completion %"],["Creating","PrPass/90","Progressive Passes/90"],["Creating","KP/90","Key Passes/90"],["Creating","OP-KP/90","Open Play Key Passes/90"],["Creating","CCC/90","Chances Created/90"],["Creating","CrA/90","Crosses Attempted/90"],["Creating","CrC/90","Crosses Completed/90"],["Creating","OP-CrA/90","OP Crosses Attempted/90"],["Creating","OP-CrC/90","OP Crosses Completed/90"],["Creating","Cr%","Cross Completion %"],["Creating","OP-Cr%","OP Cross Completion %"],["Creating","PossLost/90","Possession Lost/90",1],
+["Defending","DefActions/90","Defensive Actions/90"],["Defending","PresA/90","Pressure Attempts/90"],["Defending","PresC/90","Successful Pressures/90"],["Defending","TckWon/90","Tackles Won/90"],["Defending","Tck%","Tackle Completion %"],["Defending","KTck/90","Key Tackles/90"],["Defending","Int/90","Interceptions/90"],["Defending","Clr/90","Clearances/90"],["Defending","Blk/90","Blocks/90"],["Defending","ShBlk/90","Shots Blocked Defending/90"],["Defending","PossWon/90","Possession Won/90"],["Defending","HdrWon/90","Headers Won/90"],["Defending","KHdr/90","Key Headers/90"],["Defending","Hdr%","Headers Won %"],
+["Physical","Dist/90","Distance Covered/90"],["Physical","Sprints/90","Sprints/90"],["Physical","Mins/Gm","Mins/Game"],["Physical","Fouls/90","Fouls/90",1],["Physical","Yel/90","Yellow Cards/90",1],["Physical","Red/90","Red Cards/90",1],["Physical","Off/90","Offsides/90",1],
+["Goalkeeping","Conc/90","Conceded/90",1],["Goalkeeping","CS/90","Clean Sheets/90"],["Goalkeeping","Saves/90","Saves/90"],["Goalkeeping","Sv%","Save %"],["Goalkeeping","xSv%","xSave %"],["Goalkeeping","xGP/90","xG Prevented/90"],["Goalkeeping","PenSv%","Penalty Save %"]];
+const STATS={},LOW=new Set(),GC={Shooting:"var(--g0)",Creating:"var(--g1)",Defending:"var(--g2)",Physical:"var(--g3)",Goalkeeping:"var(--g4)"};
+STAT_LIST.forEach(([g,k,l,low])=>{STATS[k]={g,label:l};if(low)LOW.add(k);});
+let sel=[null,null,null],chart="radar",cmpInit=false;
+const f0=v=>isNaN(v)?"–":Math.round(v);
+const FMT=(v,k)=>isNaN(v)?"–":k==="#"?(Number.isInteger(v)?String(v):v.toFixed(2)):/%$/.test(k)?v.toFixed(0)+"%":Math.abs(v)>=100?v.toFixed(0):v.toFixed(2);
+const expNum=s=>{const m=String(s||"").match(/(\d+)\/(\d+)\/(\d+)/);return m?+m[3]*1e4+m[2]*100+ +m[1]:NaN;};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let P=[],sortKey="score",sortDir=-1,posSel="All",mins={};
+
+function num(x){
+  if(x==null)return NaN;let s=String(x).trim();
+  if(s===""||s==="-"||s==="N/A")return NaN;
+  s=s.split("(")[0].trim();
+  const m=s.match(/-?[\d,]*\.?\d+/);if(!m)return NaN;
+  let v=parseFloat(m[0].replace(/,/g,""));
+  if(/\dM\b/.test(s))v*=1e6;else if(/\dK\b/.test(s))v*=1e3;
+  return v;
+}
+const TEXT=new Set(["Transfer Value","Name","Position","Nat","Personality","Club","Division","Style","Preferred Foot","Expires","Loaned From"]);
+
+function parseExport(html){
+  const doc=new DOMParser().parseFromString(html,"text/html");
+  const tr=[...doc.querySelectorAll("table tr")];
+  if(tr.length<2)throw new Error("No table found. Export the view with Print to web page.");
+  const head=[...tr[0].children].map(c=>c.textContent.trim());
+  if(!head.includes("Name")||!head.includes("Mins"))throw new Error("This doesn’t look like an FMSS export (no Name or Mins column). Use the FMSS Squad or Player Search view.");
+  return tr.slice(1).map(r=>{
+    const o={};[...r.children].forEach((c,i)=>{const h=head[i];if(h&&!(h in o)){const t=c.textContent.trim();o[h]=TEXT.has(h)?t:num(t);}});return o;
+  }).filter(o=>o.Name);
+}
+
+function derive(r){
+  const m=r.Mins,s={};
+  s["npG/90"]=(r.Gls-r["Pens S"])*90/m;
+  s["npxG/90"]=r["NP-xG/90"];
+  s["npG-npxG/90"]=s["npG/90"]-s["npxG/90"];
+  s["SoT%"]=r.ShT/r.Shots*100;
+  s["Hdr%"]=r["Hdr %"];s["HdrWon/90"]=r["Hdrs W/90"];
+  s["Drb/90"]=r["Drb/90"];s["xA/90"]=r["xA/90"];s["OP-KP/90"]=r["OP-KP/90"];
+  s["CCC/90"]=r.CCC*90/m;s["OP-CrC/90"]=r["OP-Crs C/90"];
+  s["PresC/90"]=r["Pres C/90"];s["TckWon/90"]=r["Tck/90"];s["Int/90"]=r["Int/90"];
+  s["PossWon/90"]=r["Poss Won/90"];s["PossLost/90"]=r["Poss Lost/90"];
+  s["Dist/90"]=r["Dist/90"];s["Sprints/90"]=r["Sprints/90"];
+  s["Blk/90"]=r["Blk/90"];s["Clr/90"]=r["Clr/90"];s["ShBlk/90"]=r["Shts Blckd/90"];
+  s["PrPass/90"]=r["Pr passes/90"];s["PsC/90"]=r["Ps C/90"];s["Pas%"]=r["Pas %"];
+  s["DefActions/90"]=s["TckWon/90"]+s["Int/90"]+s["Blk/90"]+s["Clr/90"];
+  s["G/90"]=r.Gls*90/m;s["Shots/90"]=r["Shot/90"];s["SoT/90"]=r["ShT/90"];s["ShOut/90"]=r["Shots Outside Box/90"];
+  s["npG/Shot"]=(r.Gls-r["Pens S"])/r.Shots;s["xG/Shot"]=r["xG/shot"];s["GOut/90"]=r["Goals Outside Box"]*90/m;
+  s["FoulsWon/90"]=r.FA*90/m;s["Ast/90"]=r["Asts/90"];s["GC/90"]=(r.Gls+r.Ast)*90/m;s["npxG+xA/90"]=s["npxG/90"]+s["xA/90"];
+  s["KP/90"]=r["K Ps/90"];s["CrA/90"]=r["Crs A/90"];s["CrC/90"]=r["Cr C/90"];s["OP-CrA/90"]=r["OP-Crs A/90"];s["Cr%"]=r["Cr C/A"];s["OP-Cr%"]=r["OP-Cr %"];
+  s["PresA/90"]=r["Pres A/90"];s["Tck%"]=r["Tck R"];s["KTck/90"]=r["K Tck/90"];s["KHdr/90"]=r["K Hdrs/90"];
+  s["Fouls/90"]=r.Fls*90/m;s["Yel/90"]=r.Yel*90/m;s["Red/90"]=r.Red*90/m;s["Off/90"]=r.Off*90/m;s["Mins/Gm"]=r["Mins/Gm"];
+  s["Conc/90"]=r["Con/90"];s["CS/90"]=r["Cln/90"];s["Saves/90"]=r["Saves/90"];s["Sv%"]=r["Sv %"];s["xSv%"]=r["xSv %"];s["xGP/90"]=r["xGP/90"];s["PenSv%"]=r["Pens Saved Ratio"];
+  return s;
+}
+function groups(pos){
+  const g=[];(pos||"").split(",").forEach(t=>{const k=POS_MAP[t.replace(/\(.*\)/,"").trim()];if(k&&!g.includes(k))g.push(k);});return g;
+}
+function lower(a,v){let lo=0,hi=a.length;while(lo<hi){const m=(lo+hi)>>1;if(a[m]<v)lo=m+1;else hi=m}return lo}
+
+function compute(M=SR){
+  const minM=M.pool,within=M.within;cMin=minM;cWithin=within;
+  P.forEach(p=>{p.gk=p.groups.includes("GK");p.ok=p.r.Mins>=minM;});
+  const stats=STAT_LIST.map(x=>x[1]);
+  const pools={};
+  P.filter(p=>p.ok).forEach(p=>{const k=pk(p,within);(pools[k]??={});
+    stats.forEach(st=>{const v=p.s[st];if(!isNaN(v))(pools[k][st]??=[]).push(v)});});
+  Object.values(pools).forEach(o=>Object.values(o).forEach(a=>a.sort((x,y)=>x-y)));
+  // players below the pool's minutes are still placed within it (a small sample: shown faded, ranked after the pool)
+  P.forEach(p=>{p.roles={};p.small=!p.ok&&p.r.Mins>0;if(!p.ok&&!p.small){p.pct={};p.best=null;return;}
+    const pool=pools[pk(p,within)]||{},pc={};
+    stats.forEach(st=>{const v=p.s[st],a=pool[st];
+      if(isNaN(v)||!a){pc[st]=NaN;return}
+      let x=Math.floor(((lower(a,v)+1)/(a.length+1))*100+1e-9);pc[st]=LOW.has(st)?100-x:x;});
+    p.pct=pc;
+    if(!p.gk)for(const [role,w] of Object.entries(ROLES)){let t=0;for(const st in w)t+=pc[st]*w[st];p.roles[role]=t;}
+    const cand=new Set(p.groups.flatMap(g=>GROUP_ROLES[g]||[]));
+    let best=null;cand.forEach(r=>{const v=p.roles[r];if(!isNaN(v)&&(best==null||v>p.roles[best]))best=r;});
+    p.best=best;});fillCmp("");fillCmp("k");
+}
+
+const pk=(p,w)=>p.gk?"GK":(w?p.groups[0]:"all");
+const sv=(p,k)=>{const o={name:p.r.Name,pos:p.r.Position,age:p.r.Age,club:p.r.Club,status:status(p),star:inSL(p)?0:1,mins:p.r.Mins||NaN,rat:p.r["Av Rat"],val:p.vlo,wage:p.r.Wage,exp:p.exp,role:p.role||"",score:p.score,value:p.value};
+  return k in o?o[k]:p.s[k.slice(2)];};
+function cell(p,k){const r=p.r;switch(k){
+  case"name":return `<td><b>${esc(r.Name)}</b></td>`;
+  case"star":{const on=inSL(p);return `<td class="st"><button class="star" data-star="${p.i}" aria-pressed="${on}" title="${on?"Remove from":"Add to"} shortlist" aria-label="${on?"Remove from":"Add to"} shortlist">${on?"★":"☆"}</button></td>`;}
+  case"pos":return `<td class="mut">${esc(r.Position)}</td>`;
+  case"age":return `<td class="n">${f0(r.Age)}</td>`;
+  case"club":return `<td>${esc(r.Club)}${r["Loaned From"]?` <small class="mut">on loan from ${esc(r["Loaned From"])}</small>`:""}</td>`;
+  case"status":return `<td class="mut">${esc(status(p)||"–")}</td>`;
+  case"mins":return `<td class="n">${r.Mins?f0(r.Mins):"–"}</td>`;
+  case"rat":return `<td class="n">${isNaN(r["Av Rat"])?"–":r["Av Rat"].toFixed(2)}</td>`;
+  case"val":return `<td class="n">${esc(r["Transfer Value"]||"–")}</td>`;
+  case"wage":return `<td class="n">${isNaN(r.Wage)?"–":r.Wage.toLocaleString()}</td>`;
+  case"exp":return `<td>${esc(r.Expires||"–")}</td>`;
+  case"role":return `<td>${esc(p.role||"–")}</td>`;
+  case"score":return `<td class="sc${p.small?" small":""}"${p.small?` title="Small sample: under ${cMin} minutes"`:""}><i style="width:${isNaN(p.score)?0:p.score}%"></i><span>${isNaN(p.score)?"–":p.score.toFixed(1)}</span></td>`;
+  case"value":return `<td class="n val">${isFinite(p.value)?p.value.toFixed(1):"–"}</td>`;
+  default:{const st=k.slice(2);return `<td class="n">${FMT(p.s[st],st)}</td>`;}}}
+
+// One player table (Scout, Squad, Shortlist). st holds that table's sort column and direction.
+const ST={scout:{k:"score",d:-1},sq:{k:"score",d:-1},sl:{k:"score",d:-1}};
+function drawTable(o){
+  const {rows,role,tv,st}=o;
+  rows.forEach(p=>{p.role=role===BEST?p.best:role;p.score=p.role?p.roles[p.role]:NaN;p.value=p.score/((p.r.Wage||NaN)/1e4);});
+  const cols=[["name","Name"],["star","☆","st"],["pos","Position"],["age","Age","n"],o.club?["status","Status"]:["club","Club"],["mins","Mins","n"],["rat","Av Rat","n"],["val","Market value","n"],["wage","Wage £/wk","n"]];
+  if(tv==="Overview")cols.push(["exp","Expires"],["role","Role"],["score","Score","n"],["value","Pts/£10k wage","n"]);
+  else cols.push(...STAT_LIST.filter(x=>x[0]===tv).map(x=>["s:"+x[1],x[2],"n"]));
+  if(!cols.some(c=>c[0]===st.k)){st.k=tv==="Overview"?"score":cols[9][0];st.d=-1;}
+  // ties and missing values: most minutes first, then name
+  const tie=(a,b)=>(b.r.Mins||0)-(a.r.Mins||0)||a.r.Name.localeCompare(b.r.Name);
+  rows.sort((a,b)=>{const x=sv(a,st.k),y=sv(b,st.k);
+    if(o.poolFirst&&typeof x==="number"&&a.ok!==b.ok)return b.ok-a.ok;
+    const nx=typeof x==="number"&&isNaN(x),ny=typeof y==="number"&&isNaN(y);if(nx||ny)return nx-ny||tie(a,b);
+    return (x>y?1:x<y?-1:0)*st.d||tie(a,b);});
+  o.th.innerHTML="<tr>"+cols.map(([k,l,c])=>`<th data-k="${k}" class="${c||""} ${k===st.k?"on":""}">${l}${k===st.k?(st.d<0?" ↓":" ↑"):""}</th>`).join("")+"</tr>";
+  o.tb.innerHTML=rows.slice(0,o.limit||400).map(p=>`<tr data-i="${p.i}">${cols.map(c=>cell(p,c[0])).join("")}</tr>`).join("")
+    ||`<tr><td colspan="${cols.length}" class="mut" style="padding:18px">${o.empty||"No players match."}</td></tr>`;
+}
+function view(){
+  const role=$("role").value,tv=$("tv").value,rows=P.filter(p=>matchSR(p,SR));
+  drawTable({rows,role,tv,st:ST.scout,th:$("th"),tb:$("tb"),poolFirst:true});
+  $("cnt").textContent=`${rows.length.toLocaleString()} of ${P.length.toLocaleString()} players`+(rows.length>400?" (top 400 shown, narrow with Player search)":"");
+  $("title").textContent=tv==="Overview"?(role===BEST?"Best-fit role":role):tv+" stats (per 90)";
+}
+
+function detail(i){
+  const p=P[i],r=p.r,dim=v=>v||"–";
+  $("dname").textContent=r.Name;$("dsub").textContent=r.Position+" · "+r.Club+(r["Loaned From"]?` (on loan from ${r["Loaned From"]})`:"");$("toCmp").dataset.i=i;$("toSl").dataset.i=i;slBtn();
+  const info=[["Position",r.Position],["Age",f0(r.Age)],["Nationality",r.Nat],["Height / weight",`${f0(r.Height)} cm / ${f0(r.Weight)} kg`],["Club",r.Club],["Market value",dim(r["Transfer Value"])],
+   ["Wage",isNaN(r.Wage)?"–":"£"+r.Wage.toLocaleString()+" p/w"],["Contract expires",dim(r.Expires)],["Preferred foot",dim(r["Preferred Foot"])],["Personality",dim(r.Personality)],["Division",dim(r.Division)],["Style",dim(r.Style)],
+   ["Appearances",r.Apps?f0(r.Apps):"–"],["Minutes",r.Mins?f0(r.Mins):"–"],["Goals / assists",r.Mins?`${f0(r.Gls)} / ${f0(r.Ast)}`:"–"],["Average rating",isNaN(r["Av Rat"])?"–":r["Av Rat"].toFixed(2)]];
+  let h=`<div class="info">${info.map(([a,b])=>`<div><span>${a}</span><br>${esc(b)}</div>`).join("")}</div>`;
+  if(!p.ok)h+=`<p class="mut">${r.Mins?`Small sample: ${f0(r.Mins)} minutes, under the percentile pool's ${cMin}. Percentiles and role scores place these stats within the pool but can swing a lot, so they are shown faded.`:"No minutes in the chosen competitions yet, so no stats or percentiles."} “–” means no data.</p>`;
+  const rs=Object.entries(p.roles).filter(([,v])=>!isNaN(v)).sort((a,b)=>b[1]-a[1]);
+  if(rs.length)h+=`<h3>Role scores</h3>`+rs.map(([k,v])=>`<div class="sg"><span>${esc(k)}</span><b>${v.toFixed(0)}</b><div><i style="width:${v}%;background:var(--acc)"></i></div><span></span></div>`).join("");
+  Object.keys(GC).filter(g=>p.gk?g==="Goalkeeping":g!=="Goalkeeping").forEach(g=>{
+    h+=`<h3>${g}</h3>`+STAT_LIST.filter(x=>x[0]===g).map(([,k,l])=>{const pc=p.pct[k];
+      return `<div class="sg"><span>${esc(l)}</span><b>${FMT(p.s[k],k)}</b><div><i style="width:${isNaN(pc)?0:pc}%;background:${GC[g]}"></i></div><em class="mut">${isNaN(pc)?"–":pc}</em></div>`}).join("");});
+  $("dbody").innerHTML=h;$("dbody").className=p.small?"small":"";$("dlg").showModal();
+}
+
+// Two sections, each with its own sub-tabs; the last sub-tab of each is remembered.
+// My Club's Graphs ("kg") reuses the World Scout graphs view in club mode.
+const WORLD=["scout","cmp","all","gr","rk"],CLUB=["sq","sl","kc","kg"];
+let lastW="scout",lastC="sq",GCLUB=false;
+function tab(t){
+  if(t==="world")t=lastW;if(t==="club")t=lastC;
+  const club=CLUB.includes(t);if(club)lastC=t;else lastW=t;
+  const sec=t==="kg"?"gr":t;GCLUB=t==="kg";
+  $("app").dataset.tab=t;[...WORLD,...CLUB].forEach(id=>{if($(id))$(id).hidden=id!==sec;});
+  $("tabs").hidden=club;$("ctabs").hidden=!club;
+  $("gflt").hidden=GCLUB;$("gpoolw").hidden=!GCLUB;
+  $("gcap").textContent=GCLUB?"Only your squad and shortlist players with minutes. Dashed lines are their median.":"Click a card to enlarge it. Hover a dot to see the player.";
+  if(t==="kg")renderGr();
+  document.querySelectorAll("#mtabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===(club?"club":"world")));
+  document.querySelectorAll("#tabs button,#ctabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===t));
+  if(t==="cmp")renderCmp("");if(t==="all")renderAll();if(t==="gr")renderGr();if(t==="rk"){renderLg();renderRk();}
+  if(t==="sq")renderSquad();if(t==="sl")renderShort();if(t==="kc")fillCmp("k");
+}
+// Compare lists: World Scout offers every player, My Club only the squad and/or the shortlist.
+const cmpDone={"":false,k:false};
+function cmpList(x,m=$("kpool").value){
+  if(!x)return P;
+  return P.filter(p=>(m!=="short"&&inClub(p))||(m!=="mine"&&inSL(p)));
+}
+function fillCmp(x){
+  if(!$(x+"cm").options.length)$(x+"cm").innerHTML=Object.keys(GC).map(g=>`<option>${g}</option>`).join("")+Object.keys(ROLES).map(k=>`<option value="Role: ${esc(k)}">Role: ${esc(k)}</option>`).join("");
+  const list=[...cmpList(x)].sort((a,b)=>(!!b.ok-!!a.ok)*(x?0:1)||a.r.Name.localeCompare(b.r.Name));
+  const ids=new Set(list.map(p=>String(p.i))),top=[...list].sort((a,b)=>!!b.ok-!!a.ok||(b.r.Mins||0)-(a.r.Mins||0));
+  const opts=list.map(p=>`<option value="${p.i}">${x&&inSL(p)?"★ ":""}${esc(p.r.Name)} · ${esc(p.r.Position)} (${esc(p.r.Club)})${p.ok?"":p.small?" – small sample":" – no minutes"}</option>`).join("");
+  [0,1,2].forEach(j=>{const el=$(x+"c"+j),old=el.value;el.innerHTML=(j||!list.length?'<option value="">No player</option>':"")+opts;
+    if(old&&ids.has(old))el.value=old;
+    else if(!cmpDone[x]&&j<2&&top[j])el.value=top[j].i;else if(j||!list.length)el.value="";});
+  cmpDone[x]=true;renderCmp(x);
+}
+const short=(s,n=18)=>s.length>n?s.slice(0,n-1)+"…":s;
+const pt=(cx,cy,r,a)=>[cx+r*Math.sin(a),cy-r*Math.cos(a)];
+const gridSvg=(cx,cy,R)=>[25,50,75,100].map(q=>`<circle cx="${cx}" cy="${cy}" r="${R*q/100}" fill="none" stroke="var(--line)"/>`).join("");
+function axisLabels(cx,cy,R,keys,mid,fs=11,len=18){return keys.map((k,i)=>{const a=(i+(mid?.5:0))/keys.length*2*Math.PI,[x,y]=pt(cx,cy,R+8,a),sn=Math.sin(a);
+  return `<text x="${x}" y="${y}" text-anchor="${Math.abs(sn)<.2?"middle":sn>0?"start":"end"}" dominant-baseline="middle" font-size="${fs}" fill="var(--mute)">${esc(short(STATS[k].label,len))}</text>`}).join("");}
+function radar(ps,keys,pv,mini){const W=mini?440:680,H=mini?400:540,cx=W/2,cy=H/2+(mini?4:0),R=mini?125:180,n=keys.length,ang=i=>i/n*2*Math.PI;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Radar chart">`+gridSvg(cx,cy,R);
+  keys.forEach((k,i)=>{const [x,y]=pt(cx,cy,R,ang(i));s+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--line)"/>`;});
+  ps.forEach((p,j)=>{s+=`<polygon points="${keys.map((k,i)=>pt(cx,cy,R*pv(p,k)/100,ang(i)).join(",")).join(" ")}" fill="var(--c${j})" fill-opacity=".2" stroke="var(--c${j})" stroke-width="2"/>`;});
+  return s+axisLabels(cx,cy,R,keys,false,mini?10:11,mini?15:18)+"</svg>";}
+function pizza1(p,keys,pv,mini){const W=mini?440:640,H=mini?400:500,cx=W/2,cy=H/2+(mini?4:0),R=mini?125:165,n=keys.length,d=2*Math.PI/n;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Pizza chart for ${esc(p.r.Name)}">`+gridSvg(cx,cy,R);
+  keys.forEach((k,i)=>{const v=pv(p,k),r=Math.max(R*v/100,1),[x0,y0]=pt(cx,cy,r,i*d),[x1,y1]=pt(cx,cy,r,(i+1)*d),[tx,ty]=pt(cx,cy,Math.max(r-13,16),(i+.5)*d);
+    s+=`<path d="M${cx},${cy} L${x0},${y0} A${r},${r} 0 0 1 ${x1},${y1} Z" fill="${GC[STATS[k].g]}" stroke="var(--panel)" stroke-width="1.5"><title>${esc(STATS[k].label)}: ${FMT(p.s[k],k)} (percentile ${isNaN(p.pct[k])?"n/a":p.pct[k]})</title></path><text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="middle" font-size="${mini?9:10}" font-weight="700" fill="#fff" pointer-events="none">${Math.round(v)}</text>`;});
+  return s+axisLabels(cx,cy,R,keys,true,mini?10:11,mini?15:18)+"</svg>";}
+function bars(ps,keys,pv,mini){const bh=mini?9:11,rh=ps.length*bh+(mini?9:12),L=mini?150:200,W=mini?230:400,VW=mini?440:680,H=keys.length*rh+8,fs=mini?10:12;
+  let s=`<svg viewBox="0 0 ${VW} ${H}" width="100%" role="img" aria-label="Bar chart">`;
+  keys.forEach((k,i)=>{const y=i*rh+4;s+=`<text x="${L-8}" y="${y+ps.length*bh/2}" text-anchor="end" dominant-baseline="middle" font-size="${fs}" fill="var(--ink)">${esc(mini?short(STATS[k].label,22):STATS[k].label)}</text>`;
+    ps.forEach((p,j)=>{const v=pv(p,k),yy=y+j*bh;s+=`<rect x="${L}" y="${yy}" width="${W}" height="${bh-2}" rx="2" fill="var(--line)"/><rect x="${L}" y="${yy}" width="${W*v/100}" height="${bh-2}" rx="2" fill="var(--c${j})"><title>${esc(p.r.Name)}: ${FMT(p.s[k],k)} (percentile ${isNaN(p.pct[k])?"n/a":p.pct[k]})</title></rect><text x="${L+W+8}" y="${yy+(bh-2)/2}" dominant-baseline="middle" font-size="10" fill="var(--mute)">${Math.round(v)}</text>`;});});
+  return s+"</svg>";}
+let CX={};const CHART={"":"radar",k:"radar"};
+function renderCmp(x=""){
+  const $$=id=>$(x+id),chart=CHART[x];
+  const ps=[0,1,2].map(j=>$$("c"+j).value).filter(v=>v!=="").map(v=>P[+v]).filter(Boolean);
+  const m=$$("cm").value;if(!m)return;const keys=m.startsWith("Role: ")?Object.keys(ROLES[m.slice(6)]):STAT_LIST.filter(x=>x[0]===m).map(x=>x[1]);
+  if(!ps.length){$$("chart").innerHTML=x&&!cmpList(x).length?"<p class='mut'>No players here yet. Choose your club in Squad, or add players to the shortlist from World Scout.</p>":"<p class='mut'>Choose at least one player.</p>";$$("ctab").innerHTML="";$$("lg").innerHTML="";return;}
+  const pv=(p,k)=>{const v=(p.pct||{})[k];return isNaN(v)?0:v};
+  const tiny=chart!=="bar"&&keys.length<3;CX[x]={ps,keys,pv,m};
+  const nop=p=>p.ok?"":` <small class="mut">(${p.small?`small sample, ${f0(p.r.Mins)} mins`:"no minutes"})</small>`;
+  $$("lg").innerHTML=chart==="pizza"?[...new Set(keys.map(k=>STATS[k].g))].map(g=>`<span><i style="background:${GC[g]}"></i>${g}</span>`).join(""):ps.map((p,i)=>`<span><i style="background:var(--c${i})"></i>${esc(p.r.Name)} <small class="mut">${esc(p.r.Position)}</small>${nop(p)}</span>`).join("");
+  const tile=(title,sub,svg,id)=>`<div class="gcard ctile" role="button" tabindex="0" data-t="${id}" aria-label="${esc(sub)}. Press to enlarge."><div class="gch"><b>${title}</b><small class="mut">${esc(sub)}</small></div><div class="gwrap">${svg}</div><div class="gcf mut">Click to enlarge</div></div>`;
+  const names=ps.map((p,i)=>`<i class="dot" style="background:var(--c${i})"></i>${esc(p.r.Name)}`).join(" ");
+  $$("chart").innerHTML=tiny?"<p class='mut'>This set has fewer than 3 stats. Pick a larger set or use the bar chart.</p>":
+    chart==="pizza"?ps.map((p,i)=>tile(`${esc(p.r.Name)} <small class="mut">${esc(p.r.Position)}</small>`,m+" · pizza",pizza1(p,keys,pv,true),"p"+i)).join(""):
+    chart==="radar"?tile(names,m+" · radar",radar(ps,keys,pv,true),"radar"):tile(names,m+" · bars",bars(ps,keys,pv,true),"bar");
+  const info=[["Club",p=>status(p)||p.r.Club||"–"],["Position",p=>p.r.Position],["Age",p=>f0(p.r.Age)],["Market value",p=>p.r["Transfer Value"]||"–"],["Wage £/wk",p=>isNaN(p.r.Wage)?"–":p.r.Wage.toLocaleString()],["Contract expires",p=>p.r.Expires||"–"],["Minutes",p=>p.r.Mins?f0(p.r.Mins):"–"],["Av Rat",p=>isNaN(p.r["Av Rat"])?"–":p.r["Av Rat"].toFixed(2)],["Best role",p=>p.best?`${p.best} (${p.roles[p.best].toFixed(0)})`:"–"]];
+  let t=`<table style="min-width:0"><thead><tr><th>Stat</th>${ps.map((p,i)=>`<th class="n" style="color:var(--c${i})">${esc(p.r.Name)}<br><small class="mut">${esc(p.r.Position)}</small></th>`).join("")}</tr></thead><tbody>`;
+  info.forEach(([l,f])=>{t+=`<tr><td class="mut">${l}</td>${ps.map(p=>`<td class="n">${esc(f(p))}</td>`).join("")}</tr>`;});
+  keys.forEach(k=>{const top=Math.max(...ps.map(p=>pv(p,k)));t+=`<tr><td>${esc(STATS[k].label)}</td>${ps.map(p=>{const pc=(p.pct||{})[k];return `<td class="n" ${ps.length>1&&pv(p,k)===top&&top>0?'style="font-weight:700"':""}>${FMT(p.s[k],k)} <span class="mut">(${isNaN(pc)?"–":pc})</span></td>`;}).join("")}</tr>`;});
+  $$("ctab").innerHTML=t+"</tbody></table>";
+}
+function openCx(id,x=""){
+  const {ps,keys,pv,m}=CX[x]||{};if(!ps)return;let svg,title;
+  if(id==="radar"){svg=radar(ps,keys,pv,false);title="Radar · "+m;}
+  else if(id==="bar"){svg=bars(ps,keys,pv,false);title="Bars · "+m;}
+  else{const p=ps[+id.slice(1)];svg=pizza1(p,keys,pv,false);title=p.r.Name+" · "+m;}
+  $("cxt").textContent=title;$("cxs").innerHTML=$(x+"lg").innerHTML;$("cxchart").innerHTML=svg;$("cxdlg").showModal();
+}
+
+function build(){
+  ["role","qrole","lrole"].forEach(id=>{const old=$(id).value;$(id).innerHTML=`<option>${BEST}</option>`+Object.keys(ROLES).map(k=>`<option>${esc(k)}</option>`).join("");if(old)$(id).value=old;});
+  document.querySelectorAll(".tvsel").forEach(s=>{if(!s.options.length)s.innerHTML=["Overview",...Object.keys(GC)].map(g=>`<option>${g}</option>`).join("");});
+  buildGr();buildSearch();
+}
+
+// Every source (live game, saved .json, FM24 .html export) ends up as rows keyed by the FM24 column names.
+function start(raw,meta){
+  P=raw.map((r,i)=>({r,i,s:derive(r),groups:groups(r.Position),pset:psetOf(r.Position),key:norm(r.Name+" "+r.Club),vlo:num(r["Transfer Value"]),exp:expNum(r.Expires)}));
+  $("drop").style.display="none";$("app").style.display="grid";$("again").hidden=false;
+  $("meta").textContent=meta||`${P.length} players loaded`;initLg();mins={};posSel="All";sfs=[];SR=defSR();cmpDone[""]=cmpDone.k=false;build();clubOpts();srSummary();compute();view();
+  tab($("app").dataset.tab||"scout");
+}
+function load(html){try{DETECTED=null;start(parseExport(html));}catch(e){$("err").textContent=e.message;}}
+// JSON rows use null where FM printed "-": make those NaN so the maths treats them as missing, not zero
+function fromJSON(rows){
+  if(!Array.isArray(rows)||!rows.length)throw new Error("No players in this data.");
+  return rows.map(r=>{const o={};for(const k in r){const v=r[k];o[k]=TEXT.has(k)?(v??""):(v==null?NaN:v);}return o;}).filter(o=>o.Name);
+}
+function loadJSON(text){
+  try{const d=JSON.parse(text);DETECTED=(d.my_clubs||[])[0]||null;start(fromJSON(Array.isArray(d)?d:d.rows),d.date?metaText(d):undefined);}
+  catch(e){$("err").textContent=e.message;}
+}
+function readFile(f){if(!f)return;const fr=new FileReader();fr.onload=()=>/\.json$/i.test(f.name)?loadJSON(fr.result):load(fr.result);fr.readAsText(f);}
+
+// ---- live loading from the game (server.py) ----
+const API=location.protocol==="file:"?"http://127.0.0.1:8626":"";
+const SCOPES=[["competitive","All competitive games"],["league","League only"],["cups","Domestic cups"],["continental","Continental"],["all","Everything incl. friendlies"]];
+let scope="competitive";try{scope=localStorage.getItem("fm_scope")||scope}catch(e){}
+["scope","scope2"].forEach(id=>{$(id).innerHTML=SCOPES.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");$(id).value=scope;});
+const fmtDate=s=>{const [y,m,d]=s.split("-");return `${+d}/${+m}/${y}`};
+const metaText=d=>`${d.everyone?`${d.count.toLocaleString()} players (${d.played.toLocaleString()} with minutes)`:`${d.count} players with minutes`} · in-game date ${d.date?fmtDate(d.date):"?"} · ${(SCOPES.find(s=>s[0]===d.scope)||[,""])[1]}`;
+let liveBusy=false;
+async function loadGame(rescan){
+  if(liveBusy)return;liveBusy=true;
+  const btns=[$("live"),$("reload")],say=t=>{$("lstat").textContent=t;$("meta").textContent=t;};
+  btns.forEach(b=>b.disabled=true);$("err").textContent="";
+  say("Reading the game… (the first load takes about 15 seconds)");
+  try{
+    const res=await fetch(`${API}/api/players?scope=${scope}&all=1${rescan?"&rescan=1":""}`,{cache:"no-store"});
+    const d=await res.json();
+    if(!d.ok)throw new Error(d.error||"The game could not be read.");
+    DETECTED=(d.my_clubs||[])[0]||null;
+    start(fromJSON(d.rows),metaText(d));
+    $("reload").hidden=false;$("scope2l").hidden=false;$("lstat").textContent="";
+  }catch(e){
+    const msg=e instanceof TypeError?"Can’t reach the reader. Start server.py, then try again.":/not running/i.test(e.message)?"FM26 isn’t running. Open the game and load your save.":e.message;
+    $("err").textContent=msg;$("lstat").textContent="";if($("app").style.display==="grid")$("meta").textContent=msg;
+  }finally{btns.forEach(b=>b.disabled=false);liveBusy=false;}
+}
+function setScope(v){scope=v;["scope","scope2"].forEach(id=>$(id).value=v);try{localStorage.setItem("fm_scope",v)}catch(e){}}
+$("live").onclick=()=>loadGame(false);
+$("reload").onclick=()=>loadGame(false);
+$("scope").onchange=e=>setScope(e.target.value);
+$("scope2").onchange=e=>{setScope(e.target.value);loadGame(false);};
+
+$("pick").onclick=()=>$("file").click();
+$("file").onchange=e=>readFile(e.target.files[0]);
+$("again").onclick=()=>{$("app").style.display="none";$("drop").style.display="block";$("again").hidden=true;$("err").textContent="";};
+const dz=$("drop");
+["dragover","dragenter"].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add("over")}));
+["dragleave","drop"].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove("over")}));
+dz.addEventListener("drop",e=>readFile(e.dataTransfer.files[0]));
+document.addEventListener("dragover",e=>e.preventDefault());document.addEventListener("drop",e=>e.preventDefault());
+$("role").addEventListener("input",view);
+$("close").onclick=()=>$("dlg").close();
+
+// ---------- My Club: which club is yours, the squad, and the shortlist ----------
+const isNum=v=>typeof v==="number"&&!isNaN(v);
+const cidOf=p=>isNum(p.r["Club ID"])?String(p.r["Club ID"]):p.r.Club;              // game data has ids; FM24 files only names
+const ownerOf=p=>isNum(p.r["Loaned From ID"])?String(p.r["Loaned From ID"]):(p.r["Loaned From"]||null);
+const pid=p=>isNum(p.r.UID)?String(p.r.UID):"n:"+p.r.Name+"|"+p.r.Club;
+let DETECTED=null,MY=null,SL={};
+try{SL=JSON.parse(localStorage.getItem("fm_short")||"{}")||{}}catch(e){}
+const inClub=p=>MY!=null&&(cidOf(p)===MY||ownerOf(p)===MY);
+const inSL=p=>pid(p) in SL;
+function status(p){const r=p.r;
+  if(MY==null)return r.Club;
+  if(ownerOf(p)===MY)return "On loan at "+r.Club;
+  if(cidOf(p)===MY&&r["Loaned From"])return "On loan from "+r["Loaned From"];
+  return cidOf(p)===MY?"Squad":r.Club;}
+function saveSL(){try{localStorage.setItem("fm_short",JSON.stringify(SL))}catch(e){}$("slnum").textContent=Object.keys(SL).length||"";}
+function toggleSL(p){const k=pid(p);if(k in SL)delete SL[k];else SL[k]={name:p.r.Name,club:p.r.Club,pos:p.r.Position};saveSL();redrawLists();}
+function slBtn(){const i=$("toSl").dataset.i,on=i!=null&&inSL(P[+i]);$("toSl").textContent=on?"★ Shortlisted":"☆ Shortlist";$("toSl").setAttribute("aria-pressed",on);}
+function redrawLists(){const t=$("app").dataset.tab;if(t==="scout")view();if(t==="sq")renderSquad();if(t==="sl")renderShort();fillCmp("k");}
+// Your club: the one the game says you manage, unless you picked another for this same save
+function clubOpts(){
+  let pick=null;try{pick=JSON.parse(localStorage.getItem("fm_myclub")||"null")}catch(e){}
+  const det=DETECTED?String(DETECTED.uid):null,names={};
+  P.forEach(p=>{const c=cidOf(p);if(c&&!(c in names))names[c]=p.r.Club;const o=ownerOf(p);if(o&&!(o in names))names[o]=p.r["Loaned From"];});
+  MY=pick&&pick.det===det&&pick.club in names?pick.club:det&&det in names?det:null;
+  const ks=Object.keys(names).sort((a,b)=>names[a].localeCompare(names[b]));
+  $("myclub").innerHTML=(MY==null?'<option value="">Choose your club…</option>':"")+ks.map(k=>`<option value="${esc(k)}">${esc(names[k])}${k===det?" (detected)":""}</option>`).join("");
+  $("myclub").value=MY??"";
+}
+$("myclub").addEventListener("change",e=>{MY=e.target.value||null;
+  try{localStorage.setItem("fm_myclub",JSON.stringify({det:DETECTED?String(DETECTED.uid):null,club:MY}))}catch(x){}
+  cmpDone.k=false;clubOpts();renderSquad();fillCmp("k");});
+function renderSquad(){
+  const rows=P.filter(inClub),out=rows.filter(p=>ownerOf(p)===MY).length;
+  drawTable({rows,role:$("qrole").value,tv:$("qtv").value,st:ST.sq,th:$("qth"),tb:$("qtb"),club:true,limit:1000,
+    empty:MY==null?"Choose your club above. It is detected automatically when you load from the game.":"No players found for this club."});
+  $("qcnt").textContent=MY==null?"":`${rows.length} players`+(out?`, ${out} out on loan`:"");
+  $("qnote").textContent=`Every player whose contract is with your club, including youth and reserve players and players out on loan, plus players on loan to you. Role scores and percentiles are measured against the whole world's percentile pool (players with ${cMin}+ minutes).`;
+}
+function renderShort(){
+  const rows=P.filter(inSL),found=new Set(rows.map(pid)),miss=Object.keys(SL).filter(k=>!found.has(k));
+  drawTable({rows,role:$("lrole").value,tv:$("ltv").value,st:ST.sl,th:$("lth"),tb:$("ltb"),limit:1000,
+    empty:"Your shortlist is empty. Click ☆ next to a player in World Scout to add them."});
+  $("lcnt").textContent=`${rows.length} players`;
+  $("lmiss").innerHTML=miss.length?`<h3>Not in the loaded data</h3><p class="mut" style="font-size:.85em;margin:0 0 4px">These players could not be found in this save's data (a different save, or retired).</p>`+miss.map(k=>`<div class="miss"><button class="x" data-miss="${esc(k)}" aria-label="Remove from shortlist" title="Remove">−</button><span>${esc(SL[k].name)} <small class="mut">${esc(SL[k].pos||"")} · ${esc(SL[k].club||"")}</small></span></div>`).join(""):"";
+}
+$("lmiss").addEventListener("click",e=>{const k=e.target.dataset.miss;if(k==null)return;delete SL[k];saveSL();renderShort();});
+$("lclear").onclick=()=>{if(!Object.keys(SL).length||!confirm("Remove every player from your shortlist?"))return;SL={};saveSL();redrawLists();};
+$("kpool").addEventListener("change",()=>{cmpDone.k=false;fillCmp("k");});
+[["qrole","sq"],["qtv","sq"],["lrole","sl"],["ltv","sl"]].forEach(([id,t])=>$(id).addEventListener("change",()=>t==="sq"?renderSquad():renderShort()));
+// Player tables: header click sorts, ☆ toggles the shortlist, anything else opens the profile
+[["th","tb","scout",view],["qth","qtb","sq",()=>renderSquad()],["lth","ltb","sl",()=>renderShort()]].forEach(([th,tb,s,draw])=>{
+  $(th).addEventListener("click",e=>{const k=e.target.closest("th")?.dataset.k;if(!k)return;const st=ST[s];st.d=k===st.k?-st.d:(["name","pos","club","status","role","star"].includes(k)?1:-1);st.k=k;draw();});
+  $(tb).addEventListener("click",e=>{const b=e.target.closest(".star");if(b){toggleSL(P[+b.dataset.star]);return;}const tr=e.target.closest("tr[data-i]");if(tr)detail(+tr.dataset.i);});
+});
+saveSL();
+// ---------- Search window (v0.6: includes everything the old side panel had) ----------
+// mmin/mmax only filter the list; pool is the minimum minutes to be in the percentile pool
+const POOL=300;
+const defSR=()=>({q:"",pos:new Set(),lg:new Set(),amin:14,amax:60,mmin:null,mmax:null,pool:POOL,wmin:null,wmax:null,within:false,conds:[],rconds:[]});
+let SR=defSR(),SD=defSR(),cMin=300,cWithin=false,srTimer=0;
+const cloneS=s=>({...s,pos:new Set(s.pos),lg:new Set(s.lg),conds:s.conds.map(c=>({...c})),rconds:s.rconds.map(c=>({...c}))});
+const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const nv=v=>{const x=parseFloat(v);return isNaN(x)?null:x;};
+function matchSR(p,S){
+  if((S.amin>14||S.amax<60)&&!(p.r.Age>=S.amin&&p.r.Age<=S.amax))return false;
+  if(S.mmin!=null&&!(p.r.Mins>=S.mmin))return false;
+  if(S.mmax!=null&&p.r.Mins>S.mmax)return false;
+  const w=(p.r.Wage||0)/1000;if(S.wmin!=null&&w<S.wmin)return false;if(S.wmax!=null&&w>S.wmax)return false;
+  if(S.q&&!p.key.includes(norm(S.q).trim()))return false;
+  if(S.pos.size&&![...S.pos].some(k=>p.pset.has(k)))return false;
+  if(S.lg.size&&!S.lg.has(lkey(p.r.Division)))return false;
+  if(!S.conds.every(c=>{if(!c.on||isNaN(c.v))return true;const v=c.m==="pct"?(p.pct||{})[c.k]:p.s[c.k];if(v==null||isNaN(v))return false;return c.op==="le"?v<=c.v:v>=c.v;}))return false;
+  return S.rconds.every(c=>{if(!c.on||isNaN(c.v))return true;const v=(p.roles||{})[c.role];return v!=null&&!isNaN(v)&&v>=c.v;});
+}
+const ensureCompute=S=>{if(S.pool!==cMin||S.within!==cWithin)compute(S);};
+const PITCH=[["ST(C)","ST",1,3],["AM(L)","AML",2,1],["AM(C)","AMC",2,3],["AM(R)","AMR",2,5],["M(L)","ML",3,1],["M(C)","MC",3,3],["M(R)","MR",3,5],["DM","DM",4,3],["WB(L)","WBL",4,1],["WB(R)","WBR",4,5],["D(L)","DL",5,1],["D(C)","DC",5,3],["D(R)","DR",5,5],["GK","GK",6,3]];
+const statOpts=sel=>Object.keys(GC).map(g=>`<optgroup label="${g}">`+STAT_LIST.filter(x=>x[0]===g).map(x=>`<option value="${esc(x[1])}"${x[1]===sel?" selected":""}>${esc(x[2])}</option>`).join("")+"</optgroup>").join("");
+const roleOpts=sel=>Object.keys(ROLES).map(k=>`<option${k===sel?" selected":""}>${esc(k)}</option>`).join("");
+const srActive=S=>(S.q.trim()?1:0)+(S.pos.size?1:0)+(S.lg.size?1:0)+((S.amin>14||S.amax<60)?1:0)+((S.mmin!=null||S.mmax!=null)?1:0)+(S.pool!==POOL?1:0)+((S.wmin!=null||S.wmax!=null)?1:0)+(S.within?1:0)+S.conds.filter(c=>c.on).length+S.rconds.filter(c=>c.on).length;
+function srText(S){const t=[];if(S.q.trim())t.push(`“${S.q.trim()}”`);if(S.pos.size)t.push("Positions: "+[...S.pos].join(", "));
+  if(S.lg.size){const n=[...S.lg].map(k=>(LS[k]||{}).name||k);t.push("Leagues: "+(n.length>3?n.slice(0,3).join(", ")+` +${n.length-3} more`:n.join(", ")));}if(S.amin>14||S.amax<60)t.push(`Age ${S.amin}–${S.amax}`);
+  if(S.mmin!=null||S.mmax!=null)t.push(`Minutes ${S.mmin??0}–${S.mmax==null?"any":S.mmax}`);if(S.pool!==POOL)t.push(`Percentile pool ≥ ${S.pool} mins`);if(S.wmin!=null||S.wmax!=null)t.push(`Wage £${S.wmin??0}k–${S.wmax==null?"any":"£"+S.wmax+"k"}`);if(S.within)t.push("Percentiles within position group");
+  S.conds.filter(c=>c.on).forEach(c=>t.push(`${STATS[c.k].label} ${c.op==="le"?"≤":"≥"} ${isNaN(c.v)?"?":c.v}${c.m==="pct"?" pct":""}`));
+  S.rconds.filter(c=>c.on).forEach(c=>t.push(`${c.role} score ≥ ${isNaN(c.v)?"?":c.v}`));return t.join(" · ");}
+function srSummary(){const n=srActive(SR),lbl=n?`Edit search (${n})`:"New search";$("sedit").textContent=lbl;$("sclr").hidden=!n;$("ssum").hidden=!n;$("ssum").textContent=srText(SR);}
+function buildSearch(){
+  $("sadd").innerHTML='<option value="">Add stat condition…</option>'+statOpts("");
+  $("sradd").innerHTML='<option value="">Add role condition…</option>'+roleOpts("");
+}
+function srPitch(){$("pitch").innerHTML=PITCH.map(([k,l,r,c])=>`<button class="pp" data-p="${k}" style="grid-row:${r};grid-column:${c}" aria-pressed="${SD.pos.has(k)}" title="${k}" aria-label="${k}">${l}</button>`).join("");}
+const crow=(c,i,mid)=>`<div class="crow${mid.r?" rrow":""}" data-i="${i}"><input type="checkbox" data-f="on" ${c.on?"checked":""} aria-label="Condition enabled">${mid.html}<input type="number" data-f="v" step="any" value="${c.v}" aria-label="Threshold"><button class="x" data-del="${i}" aria-label="Remove condition" title="Remove">−</button></div>`;
+function srConds(){
+  $("sconds").innerHTML=SD.conds.length?SD.conds.map((c,i)=>crow(c,i,{html:`<select data-f="k" aria-label="Stat">${statOpts(c.k)}</select><select data-f="op" aria-label="Operator"><option value="ge"${c.op==="ge"?" selected":""}>Is at least</option><option value="le"${c.op==="le"?" selected":""}>Is at most</option></select><select data-f="m" aria-label="Compare as"><option value="pct"${c.m==="pct"?" selected":""}>Percentile</option><option value="raw"${c.m==="raw"?" selected":""}>Value</option></select>`})).join(""):"<p class='mut'>No conditions yet. Pick a stat from “Add stat condition”. Every field stays editable afterwards.</p>";
+  $("srconds").innerHTML=SD.rconds.length?SD.rconds.map((c,i)=>crow(c,i,{r:1,html:`<select data-f="role" aria-label="Role">${roleOpts(c.role)}</select><span class="mut">Is at least</span>`})).join(""):"<p class='mut'>No role conditions yet. Role scores run 0 to 99.</p>";
+}
+// league picker: leagues of the loaded players, best-ranked first; nothing ticked = any league
+function srLeagues(){
+  const q=norm($("slq").value).trim(),cnt={};
+  P.forEach(p=>{const k=lkey(p.r.Division);if(k)cnt[k]=(cnt[k]||0)+1;});
+  const ks=Object.keys(LS).sort((a,b)=>(LIDX[a]??1e9)-(LIDX[b]??1e9)||(cnt[b]||0)-(cnt[a]||0));
+  const nat=k=>k in LIDX?LEAGUES[LIDX[k]][1]:"";
+  const shown=ks.filter(k=>!q||norm(LS[k].name+" "+nat(k)).includes(q));
+  $("slg").innerHTML=shown.map(k=>`<label><input type="checkbox" data-k="${esc(k)}" ${SD.lg.has(k)?"checked":""}><span>${esc(LS[k].name)} <small>${esc(nat(k))}${nat(k)?" · ":""}${cnt[k]||0}</small></span></label>`).join("")||"<p class='mut'>No leagues match.</p>";
+  const miss=TOP5.filter(k=>!(k in LS)).map(k=>LEAGUES[LIDX[k]][0]);
+  if(miss.length&&!q)$("slg").insertAdjacentHTML("beforeend",`<p class="mut" style="grid-column:1/-1;margin:6px 0 2px;font-size:.85em">No minutes played yet in ${esc(miss.join(", "))} in this save, so none of their players are loaded. Tick “Include unplayed” in the header to list them (profile only); their stats and role scores appear after their first matches.</p>`);
+  $("slgn").textContent=SD.lg.size?`· ${SD.lg.size} selected`:"· any";
+  $("sltop").setAttribute("aria-pressed",TOP5.every(k=>!(k in LS)||SD.lg.has(k))&&SD.lg.size>0&&[...SD.lg].every(k=>TOP5.includes(k)));
+}
+function srCount(){ensureCompute(SD);$("scount").textContent=`${P.filter(p=>matchSR(p,SD)).length.toLocaleString()} results`;}
+function srRender(){srPitch();$("sq").value=SD.q;$("samin").value=SD.amin;$("samax").value=SD.amax;$("smmin").value=SD.mmin??"";$("spool").value=SD.pool;$("smmax").value=SD.mmax??"";$("swmin").value=SD.wmin??"";$("swmax").value=SD.wmax??"";$("swithin").checked=SD.within;$("slq").value="";srLeagues();srConds();srCount();}
+function srOpen(){SD=cloneS(SR);srRender();$("sdlg").showModal();}
+$("sedit").onclick=srOpen;
+$("sclr").onclick=()=>{SR=defSR();ensureCompute(SR);srSummary();view();};
+$("pitch").addEventListener("click",e=>{const k=e.target.dataset.p;if(!k)return;SD.pos.has(k)?SD.pos.delete(k):SD.pos.add(k);srPitch();srCount();});
+$("sq").addEventListener("input",e=>{SD.q=e.target.value;srCount();});
+$("samin").addEventListener("input",e=>{SD.amin=nv(e.target.value)??14;srCount();});
+$("samax").addEventListener("input",e=>{SD.amax=nv(e.target.value)??60;srCount();});
+$("smmax").addEventListener("input",e=>{SD.mmax=nv(e.target.value);srCount();});
+$("swmin").addEventListener("input",e=>{SD.wmin=nv(e.target.value);srCount();});
+$("swmax").addEventListener("input",e=>{SD.wmax=nv(e.target.value);srCount();});
+$("smmin").addEventListener("input",e=>{SD.mmin=nv(e.target.value);srCount();});
+$("spool").addEventListener("input",e=>{SD.pool=nv(e.target.value)??0;clearTimeout(srTimer);srTimer=setTimeout(srCount,250);});
+$("swithin").addEventListener("change",e=>{SD.within=e.target.checked;srCount();});
+$("slg").addEventListener("change",e=>{const k=e.target.dataset.k;if(k==null)return;e.target.checked?SD.lg.add(k):SD.lg.delete(k);srLeagues();srCount();});
+$("slq").addEventListener("input",srLeagues);
+$("slall").onclick=()=>{SD.lg.clear();srLeagues();srCount();};
+$("sltop").onclick=()=>{SD.lg=new Set(TOP5.filter(k=>k in LS));srLeagues();srCount();};
+const srEdit=key=>e=>{const f=e.target.dataset.f,row=e.target.closest(".crow");if(!f||!row)return;const c=SD[key][+row.dataset.i];c[f]=f==="on"?e.target.checked:f==="v"?parseFloat(e.target.value):e.target.value;srCount();};
+["sconds","srconds"].forEach(id=>{const key=id==="sconds"?"conds":"rconds";$(id).addEventListener("input",srEdit(key));$(id).addEventListener("change",srEdit(key));
+  $(id).addEventListener("click",e=>{const i=e.target.dataset.del;if(i==null)return;SD[key].splice(+i,1);srConds();srCount();});});
+$("sadd").addEventListener("change",e=>{const k=e.target.value;if(!k)return;SD.conds.push({on:true,k,op:"ge",m:"pct",v:50});e.target.value="";srConds();srCount();});
+$("sradd").addEventListener("change",e=>{const k=e.target.value;if(!k)return;SD.rconds.push({on:true,role:k,v:50});e.target.value="";srConds();srCount();});
+$("sclear").onclick=()=>{SD=defSR();srRender();};
+$("scancel").onclick=()=>$("sdlg").close();
+$("sok").onclick=()=>{SR=cloneS(SD);$("sdlg").close();srSummary();view();};
+$("sdlg").addEventListener("close",()=>ensureCompute(SR));
+["","k"].forEach(x=>{
+  $(x+"chart").addEventListener("click",e=>{const t=e.target.closest(".ctile");if(t)openCx(t.dataset.t,x);});
+  $(x+"chart").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=e.target.closest(".ctile");if(t){e.preventDefault();openCx(t.dataset.t,x);}});
+  [0,1,2].map(j=>x+"c"+j).concat(x+"cm").forEach(id=>$(id).addEventListener("change",()=>renderCmp(x)));
+  $(x+"ct").addEventListener("click",e=>{const t=e.target.dataset.c;if(!t)return;CHART[x]=t;document.querySelectorAll(`#${x}ct .chip`).forEach(c=>c.setAttribute("aria-pressed",c.dataset.c===t));renderCmp(x);});
+});
+$("cxclose").onclick=()=>$("cxdlg").close();
+
+// ---------- v0.3 additions ----------
+let sfs=[],aSort="r:Name",aDir=1;
+const GCOL={DEF:"var(--c2)",MID:"var(--c0)",AM:"var(--c1)",ST:"var(--g0)",GK:"var(--g4)"};
+function psetOf(pos){const s=new Set();(pos||"").split(",").forEach(t=>{const m=t.trim().match(/^([A-Z\/]+)\s*(?:\(([RLC]+)\))?$/);if(!m)return;
+  m[1].split("/").forEach(n=>{if(m[2])[...m[2]].forEach(c=>s.add(n+"("+c+")"));else s.add(n);});});return s;}
+const gv=(p,k)=>k[0]==="r"?p.r[k.slice(2)]:k[0]==="s"?p.s[k.slice(2)]:(p.roles||{})[k.slice(2)];
+const isN=v=>v==null||(typeof v==="number"&&isNaN(v));
+function renderAll(){
+  const m=$("am").value,q=$("aq").value.toLowerCase();
+  const raw=Object.keys(P[0].r).map(k=>["r:"+k,k]);
+  const calc=STAT_LIST.map(x=>["s:"+x[1],x[2]]).concat(Object.keys(ROLES).map(k=>["o:"+k,k+" score"]));
+  const cols=m==="Raw"?raw:m==="Calculated"?[["r:Name","Name"],["r:Position","Position"],["r:Club","Club"],...calc]:[...raw,...calc];
+  if(!cols.some(c=>c[0]===aSort))aSort="r:Name";
+  const rows=P.filter(p=>(p.r.Name+" "+p.r.Club).toLowerCase().includes(q));
+  rows.sort((a,b)=>{const x=gv(a,aSort),y=gv(b,aSort);if(isN(x)||isN(y))return isN(x)-isN(y);return (x>y?1:x<y?-1:0)*aDir;});
+  const f=v=>isN(v)?"–":typeof v==="number"?(Number.isInteger(v)?v.toLocaleString():v.toFixed(2)):esc(v);
+  $("ath").innerHTML="<tr>"+cols.map(([k,l])=>`<th data-k="${esc(k)}" class="${k===aSort?"on":""}">${esc(l)}${k===aSort?(aDir<0?" ↓":" ↑"):""}</th>`).join("")+"</tr>";
+  $("atb").innerHTML=rows.slice(0,500).map(p=>`<tr data-i="${p.i}">${cols.map(([k])=>`<td>${f(gv(p,k))}</td>`).join("")}</tr>`).join("");
+  $("acnt").textContent=`${rows.length} players, ${cols.length} columns`+(rows.length>500?" (first 500 shown, use search)":"");
+}
+// season totals (raw counts, not per 90)
+const TOT={Gls:["Goals",r=>r.Gls],Ast:["Assists",r=>r.Ast],GA:["Goals + Assists",r=>r.Gls+r.Ast],npG:["Non-penalty goals",r=>r.Gls-r["Pens S"]],
+  xG:["xG",r=>r.xG],xA:["xA",r=>r.xA],Apps:["Appearances",r=>r.Apps]};
+// [key, label, picker group]
+const GM=()=>[["age","Age","Player"],["wage","Wage £/wk","Player"],["val","Market value (low end)","Player"],["mins","Minutes","Player"],["rat","Av Rat","Player"],
+  ...Object.entries(TOT).map(([k,[l]])=>["t:"+k,l,"Totals"]),...STAT_LIST.map(x=>["s:"+x[1],x[2],x[0]]),...Object.keys(ROLES).map(k=>["o:"+k,k+" score","Role scores"])];
+const gm=(p,k)=>k==="age"?p.r.Age:k==="wage"?p.r.Wage:k==="val"?p.vlo:k==="mins"?p.r.Mins:k==="rat"?p.r["Av Rat"]:k[0]==="t"?TOT[k.slice(2)][1](p.r):k[0]==="s"?p.s[k.slice(2)]:p.roles[k.slice(2)];
+function buildGr(){let o="",g0="";GM().forEach(([k,l,g])=>{if(g!==g0){o+=(g0?"</optgroup>":"")+`<optgroup label="${esc(g)}">`;g0=g;}o+=`<option value="${esc(k)}">${esc(l)}</option>`;});o+="</optgroup>";
+  $("mx").innerHTML=o;$("my").innerHTML=o;
+  $("rs").innerHTML=`<option>${BEST}</option><option value="__rat">Av Rat (performance)</option>`+Object.keys(ROLES).map(k=>`<option>${esc(k)}</option>`).join("");}
+const buildRk=()=>{};
+const ticks=(a,b)=>{const s=(b-a)/5,m=Math.pow(10,Math.floor(Math.log10(s))),f=s/m,st=(f<1.5?1:f<3?2:f<7?5:10)*m,o=[];for(let v=Math.ceil(a/st)*st;v<=b+1e-9;v+=st)o.push(+v.toFixed(4));return o;};
+// ---------- Graphs dashboard (v0.4) ----------
+const GP=[
+ {t:"Shooting",x:"s:SoT%",y:"s:Shots/90",g:["MID","AM","ST"]},
+ {t:"Finishing",x:"s:npxG/90",y:"s:npG/90",g:["AM","ST"]},
+ {t:"Goal output",x:"s:xA/90",y:"s:npG/90",g:["AM","ST"]},
+ {t:"Chance creation",x:"s:KP/90",y:"s:xA/90",g:["MID","AM"]},
+ {t:"Dribbling",x:"s:Drb/90",y:"s:FoulsWon/90",g:["MID","AM","ST"]},
+ {t:"Passing",x:"s:Pas%",y:"s:PrPass/90",g:["DEF","MID"]},
+ {t:"Crossing",x:"s:Cr%",y:"s:CrA/90",g:["DEF","MID","AM"]},
+ {t:"Tackling",x:"s:Tck%",y:"s:TckWon/90",g:["DEF","MID"]},
+ {t:"Ball winning",x:"s:Int/90",y:"s:PossWon/90",g:["DEF","MID"]},
+ {t:"Aerial duels",x:"s:Hdr%",y:"s:HdrWon/90",g:["DEF","ST"]},
+ {t:"Pressing",x:"s:PresA/90",y:"s:PresC/90",g:["MID","AM","ST"]},
+ {t:"Work rate",x:"s:Dist/90",y:"s:Sprints/90",g:["DEF","MID","AM","ST"]},
+ {t:"Shot stopping",x:"s:Saves/90",y:"s:xGP/90",g:["GK"]},
+ {t:"Clean sheets",x:"s:Sv%",y:"s:Conc/90",g:["GK"]}];
+const TABG={All:null,GK:["GK"],DEF:["DEF"],MID:["MID"],FWD:["AM","ST"]};
+let gTab="All",gHl="",M={},lastPT="mouse";
+// Graph filters: each active filter is one test; "and" needs every test, "or" needs any one.
+// A minimum-minutes filter may go below the Scout minutes limit, so then any player with minutes is a candidate.
+const GF={lg:new Set(),cl:new Set(),mmin:null,mmax:null,amin:null,amax:null,mode:"and"};
+const GA={amin:null,amax:null};  // My Club graphs: age only
+const ckey=p=>p.r.Club+"|"+lkey(p.r.Division);
+// unknown ages fail an active age filter
+const ageOk=(p,a)=>(a.amin==null||p.r.Age>=a.amin)&&(a.amax==null||p.r.Age<=a.amax);
+function gfTests(p){
+  const t=[];
+  if(GF.lg.size)t.push(GF.lg.has(lkey(p.r.Division)));
+  if(GF.cl.size)t.push(GF.cl.has(ckey(p)));
+  if(GF.mmin!=null||GF.mmax!=null)t.push((GF.mmin==null||p.r.Mins>=GF.mmin)&&(GF.mmax==null||p.r.Mins<=GF.mmax));
+  if(GF.amin!=null||GF.amax!=null)t.push(ageOk(p,GF));
+  return t;
+}
+const gfPass=p=>{const t=gfTests(p);return !t.length||(GF.mode==="and"?t.every(Boolean):t.some(Boolean));};
+const gfBase=p=>GF.mmin!=null?p.r.Mins>0:p.ok;
+const inGs=(p,gs)=>!gs||p.groups.some(x=>gs.includes(x));
+// club mode: only your players with any minutes; an empty background keeps scat's club styling (big labelled dots)
+const poolFor=gs=>GCLUB?cmpList("k",$("gpool").value).filter(p=>p.r.Mins>0&&inGs(p,gs)&&ageOk(p,GA)):P.filter(p=>gfBase(p)&&inGs(p,gs)&&gfPass(p));
+const bgFor=gs=>GCLUB?[]:null;
+function gfLists(){
+  // every loaded league and club is listed; the count is players with minutes (only they can be plotted)
+  const cntL={},cntC={},cname={};
+  P.forEach(p=>{const m=p.r.Mins>0?1:0,k=lkey(p.r.Division);if(k)cntL[k]=(cntL[k]||0)+m;if(p.r.Club){const c=ckey(p);cntC[c]=(cntC[c]||0)+m;cname[c]=[p.r.Club,p.r.Division];}});
+  const nat=k=>k in LIDX?LEAGUES[LIDX[k]][1]:"";
+  const ql=norm($("gflq").value).trim(),qc=norm($("gfcq").value).trim();
+  const ls=Object.keys(cntL).filter(k=>k in LS&&(!ql||norm(LS[k].name+" "+nat(k)).includes(ql))).sort((a,b)=>(LIDX[a]??1e9)-(LIDX[b]??1e9)||cntL[b]-cntL[a]);
+  $("gfll").innerHTML=ls.map(k=>`<label><input type="checkbox" data-k="${esc(k)}" ${GF.lg.has(k)?"checked":""}><span>${esc(LS[k].name)} <small>${esc(nat(k))}${nat(k)?" · ":""}${cntL[k]} played</small></span></label>`).join("")||"<p class='mut'>No leagues match.</p>";
+  if(ls.some(k=>!cntL[k])&&!ql)$("gfll").insertAdjacentHTML("beforeend",`<p class="mut" style="grid-column:1/-1;margin:6px 0 2px;font-size:.85em">Leagues showing “0 played” have no minutes in this save yet, so they have nothing to plot until their first matches.</p>`);
+  // clubs: ticked ones first, then the biggest squads; cap the list so typing stays fast
+  const cs=Object.keys(cntC).filter(c=>!qc||norm(cname[c].join(" ")).includes(qc)).sort((a,b)=>GF.cl.has(b)-GF.cl.has(a)||cntC[b]-cntC[a]||cname[a][0].localeCompare(cname[b][0]));
+  $("gfcl").innerHTML=cs.slice(0,300).map(c=>`<label><input type="checkbox" data-k="${esc(c)}" ${GF.cl.has(c)?"checked":""}><span>${esc(cname[c][0])} <small>${esc(cname[c][1]||"")} · ${cntC[c]} played</small></span></label>`).join("")
+    +(cs.length>300?`<p class="mut" style="grid-column:1/-1;font-size:.85em">Showing 300 of ${cs.length} clubs. Type to narrow the list.</p>`:"")||"<p class='mut'>No clubs match.</p>";
+  gfSummary();
+}
+function gfSummary(){
+  $("gfln").textContent=GF.lg.size?GF.lg.size:"any";$("gfcn").textContent=GF.cl.size?GF.cl.size:"any";
+  const n=(GF.lg.size?1:0)+(GF.cl.size?1:0)+(GF.mmin!=null||GF.mmax!=null?1:0)+(GF.amin!=null||GF.amax!=null?1:0);
+  $("gfclr").hidden=!n;$("gfmode").disabled=n<2;
+  $("gfsum").textContent=n?`${P.filter(p=>gfBase(p)&&gfPass(p)).length} players match`:"";
+}
+function gfChanged(){gfSummary();renderGr();if($("gdlg").open)renderG();}
+$("gfll").addEventListener("change",e=>{const k=e.target.dataset.k;if(k==null)return;e.target.checked?GF.lg.add(k):GF.lg.delete(k);gfChanged();});
+$("gfcl").addEventListener("change",e=>{const k=e.target.dataset.k;if(k==null)return;e.target.checked?GF.cl.add(k):GF.cl.delete(k);gfChanged();});
+$("gflq").addEventListener("input",gfLists);$("gfcq").addEventListener("input",gfLists);
+$("gflany").onclick=()=>{GF.lg.clear();gfLists();gfChanged();};
+$("gfltop").onclick=()=>{GF.lg=new Set(TOP5.filter(k=>k in LS));gfLists();gfChanged();};
+$("gfcany").onclick=()=>{GF.cl.clear();gfLists();gfChanged();};
+let gfTimer=0;
+["gfmin","gfmax"].forEach(id=>$(id).addEventListener("input",()=>{GF.mmin=nv($("gfmin").value);GF.mmax=nv($("gfmax").value);clearTimeout(gfTimer);gfTimer=setTimeout(gfChanged,250);}));
+$("gfmode").addEventListener("change",e=>{GF.mode=e.target.value;gfChanged();});
+$("gfclr").onclick=()=>{GF.lg.clear();GF.cl.clear();GF.mmin=GF.mmax=GF.amin=GF.amax=null;["gfmin","gfmax","gfamin","gfamax"].forEach(id=>$(id).value="");gfLists();gfChanged();};
+["gfamin","gfamax"].forEach(id=>$(id).addEventListener("input",()=>{GF.amin=nv($("gfamin").value);GF.amax=nv($("gfamax").value);clearTimeout(gfTimer);gfTimer=setTimeout(gfChanged,250);}));
+["gaamin","gaamax"].forEach(id=>$(id).addEventListener("input",()=>{GA.amin=nv($("gaamin").value);GA.amax=nv($("gaamax").value);clearTimeout(gfTimer);gfTimer=setTimeout(()=>{renderGr();if($("gdlg").open)renderG();},250);}));
+["gfl","gfc"].forEach(id=>$(id).addEventListener("toggle",e=>{if(e.target.open){["gfl","gfc"].forEach(o=>{if(o!==id)$(o).open=false;});gfLists();}}));
+document.addEventListener("click",e=>{["gfl","gfc"].forEach(id=>{if($(id).open&&!$(id).contains(e.target))$(id).open=false;});});
+const med=a=>{const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;};
+const fk=k=>k.slice(0,2)==="s:"?k.slice(2):k.slice(0,2)==="t:"?"#":"";  // "#" = a season total
+const gdata=(kx,ky,nm)=>`data-xl="${esc(nm[kx])}" data-yl="${esc(nm[ky])}" data-xk="${esc(fk(kx))}" data-yk="${esc(fk(ky))}"`;
+// bg: optional background players (grey, not interactive); with it, axes and medians come from bg + pool
+function scat(pool,kx,ky,mini,bg){
+  const pts=pool.map(p=>[p,gm(p,kx),gm(p,ky)]).filter(a=>isFinite(a[1])&&isFinite(a[2]));
+  const bgp=(bg||[]).map(p=>[gm(p,kx),gm(p,ky)]).filter(a=>isFinite(a[0])&&isFinite(a[1]));
+  if(pts.length<(bg?1:2))return{svg:`<p class='mut' style='padding:34px 8px;font-size:.85em;margin:0'>${bg?"None of your players have both stats yet.":"Not enough players with both stats."}</p>`,pts};
+  const W=mini?280:700,H=mini?180:460,L=mini?8:66,R=mini?8:16,T=mini?8:14,B=mini?8:52;
+  const lim=(a,f)=>a.reduce((m,v)=>f(m,v),a[0]);
+  const ext=a=>{let lo=lim(a,Math.min),hi=lim(a,Math.max);if(lo===hi){lo-=1;hi+=1;}const q=(hi-lo)*.07;return[lo-q,hi+q];};
+  const xs=pts.map(a=>a[1]),ys=pts.map(a=>a[2]),axs=xs.concat(bgp.map(a=>a[0])),ays=ys.concat(bgp.map(a=>a[1])),[x0,x1]=ext(axs),[y0,y1]=ext(ays);
+  const sx=v=>L+(v-x0)/(x1-x0)*(W-L-R),sy=v=>H-B-(v-y0)/(y1-y0)*(H-T-B);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Scatter chart with ${pts.length} players">`;
+  if(!mini){
+    ticks(x0,x1).forEach(v=>{s+=`<line x1="${sx(v)}" x2="${sx(v)}" y1="${T}" y2="${H-B}" stroke="var(--line)"/><text x="${sx(v)}" y="${H-B+16}" text-anchor="middle" font-size="11" fill="var(--mute)">${v}</text>`;});
+    ticks(y0,y1).forEach(v=>{s+=`<line y1="${sy(v)}" y2="${sy(v)}" x1="${L}" x2="${W-R}" stroke="var(--line)"/><text x="${L-6}" y="${sy(v)}" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--mute)">${v}</text>`;});
+    const nm=Object.fromEntries(GM());
+    s+=`<text x="${(L+W-R)/2}" y="${H-10}" text-anchor="middle" font-size="12" fill="var(--ink)">${esc(nm[kx])}</text><text transform="translate(14 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink)">${esc(nm[ky])}</text>`;
+  }else s+=`<rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="none" stroke="var(--line)"/>`;
+  s+=bgp.map(([x,y])=>`<circle cx="${sx(x).toFixed(1)}" cy="${sy(y).toFixed(1)}" r="${mini?1.6:2.6}" fill="var(--mute)" fill-opacity=".22" pointer-events="none"/>`).join("");
+  const mx=sx(med(bgp.length?bgp.map(a=>a[0]):xs)),my=sy(med(bgp.length?bgp.map(a=>a[1]):ys));
+  s+=`<line x1="${mx}" x2="${mx}" y1="${T}" y2="${H-B}" stroke="var(--mute)" stroke-opacity=".6" stroke-dasharray="4 3"/><line y1="${my}" y2="${my}" x1="${L}" x2="${W-R}" stroke="var(--mute)" stroke-opacity=".6" stroke-dasharray="4 3"/>`;
+  const sd=a=>{const m=a.reduce((u,v)=>u+v,0)/a.length;return[m,Math.sqrt(a.reduce((u,v)=>u+(v-m)**2,0)/a.length)||1];},[mxx,sdx]=sd(xs),[myy,sdy]=sd(ys);
+  const z=a=>(a[1]-mxx)/sdx+(a[2]-myy)/sdy,ranked=[...pts].sort((a,b)=>z(b)-z(a));
+  const lab=new Set(mini&&!bg?[]:ranked.slice(0,mini?3:bg?12:6).map(a=>a[0].i));
+  const dots=[...pts].sort((a,b)=>(String(a[0].i)===gHl)-(String(b[0].i)===gHl));
+  dots.forEach(([p,x,y])=>{const hl=String(p.i)===gHl;
+    s+=`<circle data-i="${p.i}" data-x="${x}" data-y="${y}" cx="${sx(x)}" cy="${sy(y)}" r="${hl?(mini?5.5:8):bg?(mini?4.6:7):(mini?3.4:5.5)}" fill="${hl?"var(--ink)":GCOL[p.groups[0]]||"var(--acc)"}" fill-opacity="${hl||bg?1:.8}" stroke="${hl?"var(--acc)":bg?"var(--ink)":"var(--panel)"}" stroke-width="${hl?2:bg?1.5:1}" style="cursor:pointer"/>`;
+    if(hl||lab.has(p.i))s+=`<text x="${Math.min(sx(x)+8,W-4)}" y="${sy(y)-7}" ${sx(x)>W-90?'text-anchor="end" dx="-14"':""} font-size="${mini?9:11}" fill="var(--ink)" pointer-events="none">${esc(p.r.Name)}</text>`;});
+  return{svg:s+"</svg>",pts,ranked};
+}
+function barsG(pool,kx){
+  const nm=Object.fromEntries(GM()),top=pool.map(p=>[p,gm(p,kx)]).filter(a=>isFinite(a[1])).sort((a,b)=>b[1]-a[1]).slice(0,15);
+  if(!top.length)return{svg:"<p class='mut'>No players with this stat.</p>",pts:[]};
+  const mx=Math.max(...top.map(a=>a[1]))||1;
+  return{pts:top,svg:`<svg viewBox="0 0 700 ${top.length*26+28}" width="100%" role="img" aria-label="Top ${top.length} bar chart"><text x="4" y="15" font-size="12" fill="var(--mute)">${esc(nm[kx])}, top ${top.length}</text>`+top.map(([p,v],i)=>`<g data-i="${p.i}" class="bg" style="cursor:pointer"><text x="206" y="${i*26+41}" text-anchor="end" font-size="12" fill="var(--ink)">${esc(p.r.Name)} <tspan fill="var(--mute)" font-size="10">${esc(p.r.Position.split(",")[0])}</tspan></text><rect x="214" y="${i*26+28}" width="${Math.max(v/mx*400,1)}" height="16" rx="3" fill="${GCOL[p.groups[0]]||"var(--acc)"}"/><text x="${220+v/mx*400}" y="${i*26+41}" font-size="11" fill="var(--mute)">${FMT(v,fk(kx))}</text></g>`).join("")+"</svg>"};
+}
+function renderGr(){
+  document.querySelectorAll("#gtabs .chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.t===gTab));gfSummary();
+  const hl=$("ghl"),old=hl.value,list=(GCLUB?poolFor(null):P.filter(p=>p.ok)).sort((a,b)=>a.r.Name.localeCompare(b.r.Name));
+  hl.innerHTML='<option value="">No highlight</option>'+list.map(p=>`<option value="${p.i}">${esc(p.r.Name)} · ${esc(p.r.Position)}</option>`).join("");
+  hl.value=list.some(p=>String(p.i)===old)?old:"";gHl=hl.value;
+  $("glg").innerHTML=Object.entries(GCOL).map(([k,c])=>`<span><i style="background:${c}"></i>${k}</span>`).join("")+`<span class="mut">Dashed lines = median</span>`;
+  const tg=TABG[gTab],nm=Object.fromEntries(GM());
+  $("gdash").innerHTML=GP.map((c,i)=>[c,i]).filter(([c])=>!tg||c.g.some(x=>tg.includes(x))).map(([c,i])=>{
+    const gs=tg?c.g.filter(x=>tg.includes(x)):c.g,r=scat(poolFor(gs),c.x,c.y,true,bgFor(gs));
+    return `<div class="gcard" role="button" tabindex="0" data-c="${i}" aria-label="${esc(c.t)}: ${esc(nm[c.y])} against ${esc(nm[c.x])}, ${r.pts.length} players. Press to enlarge."><div class="gch"><b>${esc(c.t)}</b><small class="mut">${esc(nm[c.y])} vs ${esc(nm[c.x])}</small></div><div class="gwrap" ${gdata(c.x,c.y,nm)}>${r.svg}<div class="tip" hidden></div></div><div class="gcf mut">${r.pts.length} players · ${gs.join(", ")}</div></div>`;}).join("")
+   +`<div class="gcard gnew" role="button" tabindex="0" data-c="-1" aria-label="Create a custom graph"><b>＋ Custom graph</b><small class="mut">Pick any two stats</small></div>`;
+}
+function openG(ci){
+  const c=ci>=0?GP[ci]:null,tg=TABG[gTab];
+  M=c?{title:c.t,groups:tg?c.g.filter(x=>tg.includes(x)):c.g}:{title:"Custom graph",groups:null};
+  $("mt").value="sc";$("mx").value=c?c.x:"s:xA/90";$("my").value=c?c.y:"s:npxG/90";
+  [...$("mg").options].find(o=>o.value==="preset").hidden=!c;$("mg").value=c?"preset":"All";
+  $("gdt").textContent=M.title;$("gdlg").showModal();renderG();
+}
+function renderG(){
+  const t=$("mt").value,kx=$("mx").value,ky=$("my").value,gs=$("mg").value,nm=Object.fromEntries(GM());
+  $("myl").style.display=t==="sc"?"":"none";
+  const g2=gs==="preset"?M.groups:TABG[gs],pool=poolFor(g2);
+  const r=t==="sc"?scat(pool,kx,ky,false,bgFor(g2)):barsG(pool,kx);
+  $("gdchart").innerHTML=r.svg+'<div class="tip" hidden></div>';
+  Object.assign($("gdchart").dataset,{xl:nm[kx],yl:nm[ky],xk:fk(kx),yk:fk(ky)});
+  $("gds").textContent=t==="sc"?`${nm[ky]} against ${nm[kx]} · ${r.pts.length} players`:`${nm[kx]} · top ${r.pts.length}`;
+  const btn=(a,x,y)=>`<button class="lnk" data-i="${a.i}">${esc(a.r.Name)} <small class="mut">${esc(a.r.Position.split(",")[0])}</small><br><small class="mut">${FMT(x,fk(kx))}${t==="sc"?" · "+FMT(y,fk(ky)):""}</small></button>`;
+  $("gdside").innerHTML=t==="sc"&&r.ranked?`<p class="mut" style="margin-top:0">Dashed lines are the median. Hover a dot for details, click it to open the profile.</p><b>Standouts (high on both)</b>${r.ranked.slice(0,6).map(a=>btn(a[0],a[1],a[2])).join("")}<b style="display:block;margin-top:10px">Lowest on both</b>${r.ranked.slice(-3).reverse().map(a=>btn(a[0],a[1],a[2])).join("")}`:`<p class="mut" style="margin-top:0">Click a bar to open the profile.</p>`;
+}
+function tipShow(e){
+  if(lastPT!=="mouse"&&e.type==="mousemove")return;
+  const wrap=e.target.closest(".gwrap");if(!wrap)return;
+  const tip=wrap.querySelector(".tip"),c=e.target.closest("circle[data-i]");
+  document.querySelectorAll(".tip").forEach(t=>{if(t!==tip)t.hidden=true;});
+  if(!c){tip.hidden=true;return;}
+  const p=P[+c.dataset.i],D=wrap.dataset;tip.dataset.i=c.dataset.i;
+  tip.innerHTML=`<b>${esc(p.r.Name)}</b><small>${esc(p.r.Position)} · ${esc(p.r.Club)}</small><div class="tg"><span>${esc(D.xl)}</span><span>${esc(D.yl)}</span><strong>${FMT(+c.dataset.x,D.xk)}</strong><strong>${FMT(+c.dataset.y,D.yk)}</strong></div>`;
+  tip.hidden=false;const r=wrap.getBoundingClientRect();let x=e.clientX-r.left+14,y=e.clientY-r.top+14;
+  if(x+tip.offsetWidth>r.width)x=e.clientX-r.left-tip.offsetWidth-14;if(x<0)x=0;
+  if(y+tip.offsetHeight>r.height)y=e.clientY-r.top-tip.offsetHeight-14;if(y<0)y=0;
+  tip.style.left=x+"px";tip.style.top=y+"px";
+}
+document.addEventListener("pointerdown",e=>{lastPT=e.pointerType||"mouse";},true);
+["gdash","gdchart"].forEach(id=>{$(id).addEventListener("mousemove",tipShow);$(id).addEventListener("mouseleave",()=>$(id).querySelectorAll(".tip").forEach(t=>t.hidden=true));});
+$("gdash").addEventListener("click",e=>{const c=e.target.closest(".gcard");if(c)openG(+c.dataset.c);});
+$("gdash").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const c=e.target.closest(".gcard");if(c){e.preventDefault();openG(+c.dataset.c);}});
+$("gdchart").addEventListener("click",e=>{
+  const c=e.target.closest("circle[data-i],g[data-i]");if(!c)return;
+  const tip=$("gdchart").querySelector(".tip");
+  if(c.tagName==="circle"&&lastPT!=="mouse"&&tip.dataset.i!==c.dataset.i){tipShow(e);return;}
+  detail(+c.dataset.i);});
+$("gdside").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(b)detail(+b.dataset.i);});
+["mt","mx","my","mg"].forEach(id=>$(id).addEventListener("change",renderG));
+$("mclose").onclick=()=>$("gdlg").close();
+$("gtabs").addEventListener("click",e=>{const t=e.target.dataset.t;if(!t)return;gTab=t;renderGr();});
+$("ghl").addEventListener("change",renderGr);
+$("gpool").addEventListener("change",renderGr);
+
+const LEAGUES=[["Premier League","England",1.15],["LALIGA EA SPORTS","Spain",1.138],["Serie A Enilive","Italy",1.13],["Bundesliga","Germany",1.13],["Eredivisie","The Netherlands",1.109],["Ligue 1 McDonald's","France",1.109],["Brasileirão Assaí Série A","Brazil",1.105],["Liga Portugal Betclic","Portugal",1.105],["Jupiler Pro League","Belgium",1.087],["Liga Profesional de Fútbol","Argentina",1.086],["Trendyol Süper Lig","Türkiye",1.073],["Liga MX","Mexico",1.073],["William Hill Premiership","Scotland",1.073],["Admiral Bundesliga","Austria",1.073],["Mozzart Bet SuperLiga","Serbia",1.073],["Raiffeisen Super League","Switzerland",1.073],["3F Superliga","Denmark",1.066],["Chance Liga","Czechia",1.066],["Eliteserien","Norway",1.066],["Sky Bet Championship","England",1.066],["Major League Soccer","United States",1.064],["FavBet Liha","Ukraine",1.064],["Tinkoff Russian Premier League","Russia",1.063],["Roshn Saudi League","Saudi Arabia",1.063],["Meiji Yasuda J1 League","Japan",1.061],["SuperSport Hrvatska nogometna liga","Croatia",1.061],["Stoiximan Super League","Greece",1.059],["Cyprus League by Stoiximan","Cyprus",1.059],["Ligat ONE ZERO","Israel",1.059],["Hana 1Q K League 1","South Korea",1.054],["Liga BetPlay Dimayor","Colombia",1.054],["Copa de Primera TIGO-Visión Banco","Paraguay",1.054],["Allsvenskan","Sweden",1.051],["PKO Ekstraklasa","Poland",1.051],["LigaPro Banco Pichincha","Ecuador",1.051],["2. Bundesliga","Germany",1.051],["QNB Stars League","Qatar",1.049],["OTP Bank Liga","Hungary",1.049],["SuperLiga","Romania",1.049],["Iran Pro League","Iran",1.048],["efbet League","Bulgaria",1.048],["Fortuna Liga","Slovakia",1.048],["Torneo Uruguayo Copa Coca-Cola","Uruguay",1.046],["Campeonato AFP PlanVital","Chile",1.043],["Serie BKT","Italy",1.043],["ADNOC Pro League","United Arab Emirates",1.041],["The WE League","Egypt",1.04],["Misli Premyer Liqası","Azerbaijan",1.04],["Brasileirão Serie B Chevrolet","Brazil",1.04],["Ping An Chinese Football Association Super League","China PR",1.038],["Priemjer Ligasy","Kazakhstan",1.038],["Ligue 2 BKT","France",1.037],["LALIGA HYPERMOTION","Spain",1.036],["Liga 1 Movistar","Peru",1.033],["Championnat de la Ligue Professionnelle 1","Tunisia",1.033],["Primera Nacional","Argentina",1.031],["Toyota Thai League","Thailand",1.03],["PrvaLiga Telemach","Slovenia",1.026],["Super Liga","Moldova",1.026],["Liga Promérica","Costa Rica",1.026],["Keuken Kampioen Divisie","The Netherlands",1.026],["Botola Pro 1","Morocco",1.025],["OBOS-ligaen","Norway",1.023],["DSTV Premiership","South Africa",1.021],["Sky Bet League One","England",1.021],["Liga FUTVE","Venezuela",1.02],["Veikkausliiga","Finland",1.018],["Belarusbank Vyšejšaja Liha","Belarus",1.017],["WWIN Liga","Bosnia and Herzegovina",1.017],["Fastex Premier League","Armenia",1.016],["Liga Portugal 2 Meu Super","Portugal",1.015],["Brack.ch Challenge League","Switzerland",1.015],["Ligue Professionnelle 1 Mobilis","Algeria",1.012],["Trendyol 1. Lig","Türkiye",1.011],["División de Fútbol Profesional","Bolivia",1.01],["Liga Salva-Vida","Honduras",1.01],["Isuzu UTE A-League","Australia",1.008],["Meiji Yasuda J2 League","Japan",1.008],["Brasileirão Série C","Brazil",1.007],["Besta-deild karla","Iceland",1.005],["Uzbekistan Superleague","Uzbekistan",1.005],["SuperSport Prva nogometa liga","Croatia",1.005],["Challenger Pro League","Belgium",1.003],["Chance Národní Liga","Czechia",1.003],["Admiral 2. Liga","Austria",1.003],["Thai League 2 M-150 Championship","Thailand",1.003],["Prva liga Srbija","Serbia",1.003],["Nigeria Professional Football League","Nigeria",1.002],["Superettan","Sweden",1.002],["Primera B Metropolitana/Torneo Argentino A","Argentina",1.002],["Brazilian State Championships","Brazil",1.002],["Abissnet Superiore","Albania",1.002],["William Hill Championship","Scotland",1.002],["3. Liga","Germany",1.002],["Liga 3 Placard","Portugal",1.002],["Torneo BetPlay Dimayor","Colombia",1.002],["Mexican Expansion League","Mexico",1.002],["Ykkösliiga","Finland",1.002],["Prva Makedonska Fudbalska Liga","North Macedonia",1.002],["Super League 2 Betsson","Greece",1.002],["Liga Leumit","Israel",1.002],["KEB Hana Bank K League 2","South Korea",1.002],["Canadian Premier League","Canada",1.002],["Liga Nacional de Fútbol de Guatemala","Guatemala",1.002],["NordicBet Liga","Denmark",1.002],["Betclic I liga","Poland",1.002],["Campeonato Juegaenlinea.com","Chile",1.002],["Meridianbet 1.CFL","Montenegro",1.002],["Sudanese Premier League","Sudan",1.002],["Yelo League","Saudi Arabia",1.002],["Merkantil Bank Liga","Hungary",1.002],["Primera Federación Versus e-Learning","Spain",1.002],["Kosovan Superleague","Kosovo",1.002],["Regionalliga","Germany",1.002],["Campeonato Nacional Prio","Portugal",1.002],["Libyan First Division","Libya",1.002],["Tanzanian Mainland Premier Division","Tanzania",1.002],["Championnat National","France",1.002],["PostNord-ligaen","Norway",1.002],["Nationale 1","Belgium",1.002],["Sky Bet League Two","England",1.002],["Brasileirão Série D","Brazil",1.002],["SSE Airtricity League Premier Division","Republic of Ireland",1.002],["Optibet Virslīga","Latvia",1.002],["Olimp-Russian Football Championship","Russia",1.002],["Liga 2 Casa Pariurilor","Romania",1.002],["Primera C/Torneo Argentino B","Argentina",1.001],["Ykkönen","Finland",1.001],["GladAfrica Championship","South Africa",1.001],["Azadegan League","Iran",1.001],["Championnat de la Ligue Professionnelle 2","Tunisia",1.001],["Optibet A lyga","Lithuania",1.001],["Red Stripe Premier League","Jamaica",1.001],["Vtora Liga","Bulgaria",1.001],["Botola 2","Morocco",1.001],["Nesine 2. Lig","Türkiye",1.001],["Chinese Jia League","China PR",1.001],["Ligue Professionnelle 2","Algeria",1.001],["DR Congolese Premier Division","Democratic Republic of Congo",1.001],["Dawri Al-Nokhba","Iraq",1.001],["TT Pro League","Trinidad and Tobago",1.001],["New Zealand National League","New Zealand",1.001],["2. Slovenska Nogometna Liga","Slovenia",1.001],["Serie C Sky Wifi","Italy",1.001],["New Zealand National League - Championship","New Zealand",1.001],["BGL Ligue","Luxembourg",1.001],["2. Liga","Slovakia",1.001],["Liga de Ascenso de Costa Rica","Costa Rica",1.001],["Betri deildin menn","Faroe Islands",1.001],["Primera Categoría Serie B","Ecuador",1.001],["Sports Direct Premiership","Northern Ireland",1.001],["BOV Premier League","Malta",1.001],["Egyptian Second Division","Egypt",1.001],["MTN/FAZ Super Division","Zambia",1.001],["Cameroonian MTN Elite One Group A","Cameroon",1.001],["Digicel Championnat Haitienne","Haiti",1.001],["USL Championship","United States",1.001],["Treća nogometna liga","Croatia",1.001],["Mexican Independent League","Mexico",1.001],["CampoBet 2.division","Denmark",1.001],["SuperSport Druga nogometna liga","Croatia",1.001],["Russian Second Division A","Russia",1.001],["Astro Liga Super Malaysia","Malaysia",1.001],["Al-Manaseer Jordanian Pro League 1st Division","Jordan",1.001],["A. Le Coq Premium Liiga","Estonia",1.001],["Eximbank Giải Bóng đá Vô địch Quốc Gia V.League","Vietnam",1.001],["Fußball-Regionalliga","Austria",1.001],["Meiji Yasuda J3 League","Japan",1.001],["Segunda Federación","Spain",1.001],["Liga Pepsi","El Salvador",1.001],["Persha Liha","Ukraine",1.001],["Segunda División Profesional","Uruguay",1.001],["First Division League","United Arab Emirates",1.001],["Kategoria e Parë","Albania",1.001],["Tweede Divisie","The Netherlands",1.001],["Enterprise National League","England",1.001],["Hong Kong First Division League","Hong Kong (China PR)",1.001],["Lengjudeild karla","Iceland",1.001],["Ethiopian Premier Division","Ethiopia",1.001],["Hero Indian Super League","India",1.001],["Crystalbet Erovnuli Liga","Georgia",1.001],["LDF Banco Popular","Dominican Republic",1.001],["Liga Panameña de Fútbol","Panama",1.001],["Qatargas League","Qatar",1.001],["Uzbekistan Pro League","Uzbekistan",1.001],["Primera División de Ascenso","Guatemala",1.001],["William Hill League One","Scotland",1.001],["Kakkonen","Finland",1.001],["G Ethniki","Greece",1.001],["Kahramonhoi Todżikiston","Tajikistan",1.001],["Liga 2","Peru",1.001],["K3 League","South Korea",1.001],["Guinean Premier Division","Guinea",1.001],["Liga Nacional de Ascenso","Honduras",1.001],["German Div. Lower","Germany",1.001],["JD Cymru Premier","Wales",1.001],["Nasser bin Hamad Premier League","Bahrain",1.001],["Pieršaja Liha","Belarus",1.001],["Druha Liha","Ukraine",1.001],["Japan Football League","Japan",1.001],["Kuwaiti Premier League","Kuwait",1.001],["Martinican Trophee Gerard Janvion R1","Martinique",1.001],["Betclic II liga","Poland",1.001],["Promotion League","Switzerland",1.001],["Nesine 3. Lig","Türkiye",1.001],["Championnat National 2","France",1.001],["Football League","Gibraltar",1.001],["GFF Elite League","Guyana",1.001],["Liga Puerto Rico","Puerto Rico",1.001],["Division 1","Sweden",1.001],["2. CFL","Montenegro",1.001],["TT Super League","Trinidad and Tobago",1.001],["Segunda División Profesional de Chile","Chile",1.001],["Türkmenistanyň Ýokary Ligasy","Turkmenistan",1.001],["Ligue 1","Ivory Coast",1.001],["Byrynszy liga","Kazakhstan",1.001],["División Intermedia","Paraguay",1.001],["Primera D/Torneo Argentino C","Argentina",1.001],["Rwandan Premier Division","Rwanda",1.001],["Lliga Multisegur Assegurances","Andorra",1.001],["Copa Ac2","Venezuela",1.001],["Srpska liga","Serbia",1.001],["Aradżin Chumb","Armenia",1.001],["Liga 1","Moldova",1.001],["Kosovan First League Group A","Kosovo",1.001],["Liga Premier Serie A","Mexico",1.001],["Girabola ZAP","Angola",1.001],["First Capital Plus Premier League","Ghana",1.001],["Congolese Championnat National","Congo",1.001],["Botswanan Premier Division","Botswana",1.001],["Campeonato Nacional de Fútbol de Cuba","Cuba",1.001],["SVB Topklasse","Suriname",1.001],["StarTimes Uganda Premier League","Uganda",1.001],["French Guianese Régional 1","French Guiana",1.001],["Jamaican Football Federation Championship","Jamaica",1.001],["Prva nogometna liga Federacije Bosne i Hercegovine/Republike Srpske","Bosnia and Herzegovina",1.001],["Kosovan First League Group B","Kosovo",1.001],["MLS Next Pro","United States",1.001],["League1 Canada","Canada",1.001],["CampoBet 3. division","Denmark",1.001],["Philippines Football League","Philippines",1.001],["Lotto Sport Italia NRFL Premier","New Zealand",1.001],["Moravskoslezská fotbalová liga","Czechia",1.001],["Nemzeti Bajnokság III","Hungary",1.001],["Division 2","Belgium",1.001],["Guadeloupe Ligue Régionale 1","Guadeloupe",1.001],["Liga III","Romania",1.001],["ABC Motsepe League","South Africa",1.001],["Norsk Tipping-ligaen","Norway",1.001],["Russian Second Division B","Russia",1.001],["Ukrainian Reg Div - Kyiv Weekend Superleague D2","Ukraine",1.001],["Lebanese Premier League","Lebanon",1.001],["Great Eastern Yeo's S League","Singapore",1.001],["Syrian Premier League","Syria",1.001],["Vodafone Premier League","Fiji",1.001],["Lough 41 Championship","Northern Ireland",1.001],["Birinci Liqası","Azerbaijan",1.001],["Segunda B Amateur","Uruguay",1.001],["Malian Ligue 1","Mali",1.001],["Mozambican Premier Division","Mozambique",1.001],["Kenyan Premier Division","Kenya",1.001],["Equatoguinean Premier Division","Equatorial Guinea",1.001],["Digicel/Red Stripe Premier Division","Antigua and Barbuda",1.001],["Éierepromotioun","Luxembourg",1.001],["Erovnuli Liga 2","Georgia",1.001],["Liga de Plata","El Salvador",1.001],["USL League One","United States",1.001],["2. deild karla","Iceland",1.001],["Vtora Makedonska Fudbalska Liga","North Macedonia",1.001],["William Hill League Two","Scotland",1.001],["Local football Championships","Greece",1.001],["Championnat National 3","France",1.001],["Ligue 1 Vini","Tahiti",1.001],["Nigerien Premier Division","Niger",1.001],["Liga 1 Indonesia","Indonesia",1.001],["Iran Football's 2nd Division","Iran",1.001],["Japanese University League","Japan",1.001],["Zimbabwean Premier Division","Zimbabwe",1.001],["Pirma Lyga","Lithuania",1.001],["Championnat de la Ligue Professionnelle 3","Tunisia",1.001],["Thai League Three","Thailand",1.001],["Ecuadorian Ascenso Nacional","Ecuador",1.001],["Uruguayan Interior Zone","Uruguay",1.001],["Japanese National Regional League","Japan",1.001],["Grameenphone Bangladesh Premier League","Bangladesh",1.001],["SKNFA National Bank Premier League","Saint Kitts and Nevis",1.001],["NLA SVGFF Club Championship","Saint Vincent and the Grenadines",1.001],["SLFA First Division","Saint Lucia",1.001],["Liga MCB 1st Division","Curaçao",1.001],["Grenadian Premier Division","Grenada",1.001],["Hero I-League","India",1.001],["Segunda División de Ascenso","Guatemala",1.001],["Bölgesel Amatör Lig","Türkiye",1.001],["Kumul Petroleum National Soccer League","Papua New Guinea",1.001],["Gabonese Premier Division","Gabon",1.001],["Togolese First Division","Togo",1.001],["Digicel Premier League","Barbados",1.001],["Aruban Division di Honor","Aruba",1.001],["Division 1","Zambia",1.001],["Cameroonian Elite Two","Cameroon",1.001],["National Premier Leagues","Australia",1.001],["Copa Simón Bolívar","Bolivia",1.001],["ELITBET Treta liga","Bulgaria",1.001],["Derde Divisie A","The Netherlands",1.001],["Highland-Lowland Leagues","Scotland",1.001],["Senegalese Ligue 1","Senegal",1.001],["Gambian Premier Division","The Gambia",1.001],["Ligue nationale du football amateur","Algeria",1.001],["Serie D","Italy",1.001],["Derde Divisie B","The Netherlands",1.001],["Mobil Super Ligue","New Caledonia",1.001],["Beninese Ligue 1","Benin",1.001],["Burkinabé D1","Burkina Faso",1.001],["Omantel League","Oman",1.001],["Ethiopian Higher League","Ethiopia",1.001],["Chinese National Second Division","China PR",1.001],["Korean K4 League","South Korea",1.001],["Ukrainian Extinct Division","Ukraine",1.001],["Telekom S-League","Solomon Islands",1.001],["Categoría Primera C","Colombia",1.001],["Copa Perú","Peru",1.001],["O‘zbekiston Birinchi Ligasi","Uzbekistan",1.001],["III Liga","Poland",1.001],["3. deild karla","Iceland",1.001],["Campeonato Distrital","Portugal",1.001],["Enterprise National League North/South","England",1.001],["Burundian Premier Division","Burundi",1.001],["Namibian Premier Division","Namibia",1.001],["Premier League of Eswatini","Eswatini",1.001],["Réunion Regional 1","Réunion",1.001],["Digicel Premier Division","Bermuda",1.001],["Esiliiga","Estonia",1.001],["Second Division","Saudi Arabia",1.001],["Division 2","Sweden",1.001],["Tercera División de Chile","Chile",1.001],["Al-Manaseer Jordanian Pro League 2nd Division","Jordan",1.001],["New Zealand Regional First Divisions","New Zealand",1.001],["Norwegian Fourth Division","Norway",1.001],["Dhivehi League","Maldives",1.001],["B' Katigoria","Cyprus",1.001],["Ukrainian Amateur League","Ukraine",1.001],["Optibet Nākotnes Līga","Latvia",1.001],["Lough 41 Premier Intermediate League","Northern Ireland",1.001],["1. Liga Classic","Switzerland",1.001],["Fußball-Landesliga","Austria",1.001],["Kosovan Third League","Kosovo",1.001],["East of Scotland First Division","Scotland",1.001],["West of Scotland First Division","Scotland",1.001],["Myanmar National League","Myanmar",1.001],["Campionato Sammarinese di Calcio","San Marino",1.001],["Primera Division Nicaraguense","Nicaragua",1.001],["Uruguayan Second Amateur Division","Uruguay",1.001],["Lesothoan Premier Division","Lesotho",1.001],["Kurdistani Premier League","Iraq",1.001],["BFA Senior League","The Bahamas",1.001],["Bonaire Kampionato","Bonaire",1.001],["Hong Kong First Division","Hong Kong (China PR)",1.001],["Division One League","Ghana",1.001],["Cuban Provincial Leagues","Cuba",1.001],["Malaysian Division Three League","Malaysia",1.001],["Tanzanian Championship","Tanzania",1.001],["Confederation Super Leagues","Jamaica",1.001],["French Regional 1","France",1.001],["Madagascar Orange Pro League","Madagascar",1.001],["Syrian Second Division","Syria",1.001],["Tretja slovenska nogometna liga","Slovenia",1.001],["Liga Alef","Israel",1.001],["Liga Premier Serie B","Mexico",1.001],["North Caledonian League","Scotland",1.001],["West of Scotland Second Division","Scotland",1.001],["East of Scotland Second Division","Scotland",1.001],["SSE Airtricity League First Division","Republic of Ireland",1.001],["DPR Korea League","North Korea",1.001],["Haitian Championnat National D2","Haiti",1.001],["Tercera División","Paraguay",1.001],["Central African Premier Division","Central African Republic",1.0],["Cayman Islands League","Cayman Islands",1.0],["Dominica Premiere League","Dominica",1.0],["BVI Premier League","British Virgin Islands",1.0],["Eximbank Giải Bóng đá Hạng Nhất Quốc Gia","Vietnam",1.0],["Bosnian Second League","Bosnia and Herzegovina",1.0],["Croatian Regional League","Croatia",1.0],["Hoofdklasse Zondag A","The Netherlands",1.0],["Hoofdklasse Zondag B","The Netherlands",1.0],["Vierde Divisie C","The Netherlands",1.0],["Vierde Divisie D","The Netherlands",1.0],["Bissau-Guinean Premier Division","Guinea-Bissau",1.0],["Malawian Premier Division","Malawi",1.0],["Chadian Premier Division","Chad",1.0],["Sierra Leonean Premier Division","Sierra Leone",1.0],["West Bank Premier League","Palestine",1.0],["Gaza Strip League","Palestine",1.0],["Ugandan Big League","Uganda",1.0],["Segunda División de Nicaragua","Nicaragua",1.0],["Iraqi First Division","Iraq",1.0],["Championnat National Amateur","Morocco",1.0],["Luxembourg First Division","Luxembourg",1.0],["Liga 3","Georgia",1.0],["Regional Premier Divisions","England",1.0],["Metfone C-League","Cambodia",1.0],["JD Cymru North/South","Wales",1.0],["Liga 2 Indonesia","Indonesia",1.0],["Martinican Trophee de Charles-Alfred R2","Martinique",1.0],["Hero 2nd Division League","India",1.0],["Çempionatının Həvəskarlar Liqası","Azerbaijan",1.0],["West of Scotland Third Division","Scotland",1.0],["East of Scotland Third Division","Scotland",1.0],["US Virgin Islands Association Club Championship","US Virgin Islands",1.0],["Brazilian São Paulo Second Division","Brazil",1.0],["BOV Challenge League","Malta",1.0],["1. deild","Faroe Islands",1.0],["USL Professional Division","Antigua and Barbuda",1.0],["Second Division league","United Arab Emirates",1.0],["Divize","Czechia",1.0],["Icelandic Fourth Division","Iceland",1.0],["Fußball-Landesliga 2","Austria",1.0],["Russian Third Division","Russia",1.0],["Ukrainian Regional Division D1","Ukraine",1.0],["IV Liga","Poland",1.0],["Turks and Caicos Islands Premier League","Turks and Caicos Islands",1.0],["Brazilian Rio de Janeiro Second Division","Brazil",1.0],["USL Premier Development League","United States",1.0],["Football Queensland Premier League 3 - Metro","Australia",1.0],["Korean Amateur League","South Korea",1.0],["Shoro Top League","Kyrgyzstan",1.0],["Egyptian Third Division","Egypt",1.0],["Campeonato da 1ª Divisão","Macau (China PR)",1.0],["Cape Verdean Competition","Cape Verde Islands",1.0],["Djiboutian Premier Division","Djibouti",1.0],["Somali Premier Division","Somalia",1.0],["South Sudanese Premier Division","South Sudan",1.0],["Saint-Martin Championship","Saint Martin",1.0],["Sint Maarten Championship","Sint Maarten",1.0],["Premier League of Belize","Belize",1.0],["Ligue 2","Ivory Coast",1.0],["Kenyan Second Division","Kenya",1.0],["Equatoguinean Second Division","Equatorial Guinea",1.0],["SVB Hoofdklasse","Suriname",1.0],["Réunion D2 Regionale","Réunion",1.0],["French Guianese Régional 2","French Guiana",1.0],["Puerto Rican Soccer League 2nd Division","Puerto Rico",1.0],["Libyan Second Division","Libya",1.0],["Kategoria e Dytë","Albania",1.0],["North Macedonian Third League","North Macedonia",1.0],["Cuarta División","Paraguay",1.0],["Tunisian Amateur League 2","Tunisia",1.0],["Belgian Third Amateur Division","Belgium",1.0],["Süper Amatör Lig","Türkiye",1.0],["Regional First Divisions","England",1.0],["Brazilian State Second Division","Brazil",1.0],["Chinese Taipei Football Premier League","Chinese Taipei (China PR)",1.0],["Senegalese Ligue 2","Senegal",1.0],["Kuwaiti Division One","Kuwait",1.0],["Guadeloupe Ligue Régionale 2","Guadeloupe",1.0],["G' Katigoria","Cyprus",1.0],["Liga IV","Romania",1.0],["Zonske lige","Serbia",1.0],["Danmarksserien","Denmark",1.0],["Eccellenza","Italy",1.0],["West of Scotland Fourth Division","Scotland",1.0],["Indian Calcutta Premier Division","India",1.0],["Lao Premier League","Laos",1.0],["2nd Division","Bahrain",1.0],["TVS Championship League","Bangladesh",1.0],["Lliga UNIDA","Andorra",1.0],["O‘zbekiston Ikkinchi Ligasi","Uzbekistan",1.0],["Liga 4","Georgia",1.0],["Esiliiga B","Estonia",1.0],["Altero.lv LIIGA","Latvia",1.0],["Tercera Federación","Spain",1.0],["Ukrainian Reg Div - Kryvyi Rih","Ukraine",1.0],["Ukrainian Reg Div - Dnipro","Ukraine",1.0],["Indian Goan Professional League","India",1.0],["Vans Premiership","Cook Islands",1.0],["AFA Senior Male League","Anguilla",1.0],["Lebanese Second Division","Lebanon",1.0],["SLFA Second Division","Saint Lucia",1.0],["Druhaja Liha","Belarus",1.0],["LFF II lyga","Lithuania",1.0],["Japanese National Regional League Division Two","Japan",1.0],["Korean U League","South Korea",1.0],["Liberian Premier League","Liberia",1.0],["São Toméan Football Premier Division","São Tomé and Príncipe",1.0],["Martyr's Memorial A-Division League","Nepal",1.0],["Montserratian Championship","Montserrat",1.0],["Nepali Super League","Nepal",1.0],["Togolese Second Division","Togo",1.0],["Guyanese Regional Member Associations","Guyana",1.0],["SKNFA Division 1","Saint Kitts and Nevis",1.0],["Curaçao Segundo Division","Curaçao",1.0],["Grenadian Conferences","Grenada",1.0],["Aruban Division Uno","Aruba",1.0],["BFA Division One","Barbados",1.0],["Honiara Championship League","Solomon Islands",1.0],["Saint Lucia Regional Divisions","Saint Lucia",1.0],["Victorian Premier League 1","Australia",1.0],["Football NSW League One","Australia",1.0],["Division 3","Sweden",1.0],["Greek Amateur Lower Division","Greece",1.0],["Austrian Level 6","Austria",1.0]];  // [name, nation, default weight], in game ranking order (Premier League first)
+const LIDX={};LEAGUES.forEach((l,i)=>{const k=l[0].trim().toLowerCase();if(!(k in LIDX))LIDX[k]=i;});
+let LS={},lgShowAll=false,lgOver={};
+try{lgOver=JSON.parse(localStorage.getItem("fm_lgw")||"{}")}catch(e){}
+// FM26 uses generic league names; map them onto the ranking table's names so weights and Top 5 work
+const LALIAS={"Albanian First Category": "Kategoria e Parë", "Albanian Superleague": "Abissnet Superiore", "Algerian League 1": "Ligue Professionnelle 1 Mobilis", "Anguillan FA Senior Male League": "AFA Senior Male League", "Antigua and Barbuda Premier Division": "Digicel/Red Stripe Premier Division", "Argentine Premier Division": "Liga Profesional de Fútbol", "Argentine Second Division": "Primera Nacional", "Armenian First League": "Aradżin Chumb", "Armenian Premier League": "Fastex Premier League", "Austrian First Division": "Admiral 2. Liga", "Austrian Premier Division": "Admiral Bundesliga", "Azeri Premier League": "Misli Premyer Liqası", "Bahamian Senior League": "BFA Senior League", "Bahrain Premier League": "Nasser bin Hamad Premier League", "Belarusian Highest League": "Belarusbank Vyšejšaja Liha", "Belgian Challenger Pro League": "Challenger Pro League", "Betinia Liga": "NordicBet Liga", "Bolivian Premier Division": "División de Fútbol Profesional", "Bosnian Premier League": "WWIN Liga", "Brazilian National First Division": "Brasileirão Assaí Série A", "Brazilian National Second Division": "Brasileirão Serie B Chevrolet", "Bulgarian First League": "efbet League", "Bulgarian Second League": "Vtora Liga", "Bundesliga 2": "2. Bundesliga", "Cambodian Premier League": "Metfone C-League", "CampoBet 2. Division": "CampoBet 2.division", "Chilean First Division": "Campeonato AFP PlanVital", "Chinese National First Division": "Chinese Jia League", "Chinese Super League": "Ping An Chinese Football Association Super League", "Colombian First Division": "Liga BetPlay Dimayor", "Colombian Second Division": "Torneo BetPlay Dimayor", "Croatian First League": "SuperSport Hrvatska nogometna liga", "Croatian Second League": "SuperSport Prva nogometa liga", "Croatian Third League": "Treća nogometna liga", "Cypriot First Division": "Cyprus League by Stoiximan", "Cypriot Second Division": "B' Katigoria", "Cypriot Third Division": "G' Katigoria", "Czech First Division": "Chance Liga", "Czech Second Division": "Chance Národní Liga", "Dutch Derde Divisie A": "Derde Divisie A", "Dutch Derde Divisie B": "Derde Divisie B", "Dutch Tweede Divisie": "Tweede Divisie", "Dutch Vierde Divisie C": "Vierde Divisie C", "Ecuadorian Serie A": "LigaPro Banco Pichincha", "Ecuadorian Serie B": "Primera Categoría Serie B", "Egyptian Premier Division": "The WE League", "El Salvador Primera División": "Liga Pepsi", "Faroese Premier League": "Betri deildin menn", "Finnish First Division Championship": "Ykkönen", "Finnish Premier League": "Veikkausliiga", "French National": "Championnat National", "Georgian National League": "Crystalbet Erovnuli Liga", "Ghanaian Premier Division": "First Capital Plus Premier League", "Greek Super League 1": "Stoiximan Super League", "Haitian Championnat National D1": "Digicel Championnat Haitienne", "Hana Bank K League 1": "Hana 1Q K League 1", "Hana Bank K League 2": "KEB Hana Bank K League 2", "Hungarian Division I": "OTP Bank Liga", "Icelandic First Division": "Lengjudeild karla", "Icelandic Premier Division": "Besta-deild karla", "Icelandic Second Division": "2. deild karla", "Indonesian Super League": "Liga 1 Indonesia", "Iraqi First Division League": "Iraqi First Division", "Iraqi Stars League": "Dawri Al-Nokhba", "Irish First Division": "SSE Airtricity League First Division", "Irish Premier Division": "SSE Airtricity League Premier Division", "Israeli National League": "Liga Leumit", "Israeli Premier League": "Ligat ONE ZERO", "Italian Serie A": "Serie A Enilive", "J1 League": "Meiji Yasuda J1 League", "J2 League": "Meiji Yasuda J2 League", "J3 League": "Meiji Yasuda J3 League", "Jamaican Premier League": "Red Stripe Premier League", "Kazakhstan First League": "Byrynszy liga", "Kazakhstan Premier League": "Priemjer Ligasy", "Korean K3 League": "K3 League", "Kuwaiti First Division": "Kuwaiti Division One", "Kyrgyzstani High League": "Shoro Top League", "Liga Dominicana de Fútbol": "LDF Banco Popular", "Liga Nacional de Guatemala": "Liga Nacional de Fútbol de Guatemala", "Liga Nacional de Honduras": "Liga Salva-Vida", "Liga Panameña de Futbol": "Liga Panameña de Fútbol", "Liga de Ascenso de Honduras": "Liga Nacional de Ascenso", "Ligue Professionnelle 1": "Championnat de la Ligue Professionnelle 1", "Lithuanian I League": "Pirma Lyga", "Luxembourg National Division": "BGL Ligue", "Malaysian Super League": "Astro Liga Super Malaysia", "Maldivian Dhivehi League": "Dhivehi League", "Mexican First Division": "Liga MX", "Moroccan First Division": "Botola 2", "Moroccan Premier Division": "Botola Pro 1", "New Caledonian Championnat Super Ligue": "Mobil Super Ligue", "North Macedonian First League": "Prva Makedonska Fudbalska Liga", "Norwegian First Division": "OBOS-ligaen", "Norwegian Premier Division": "Eliteserien", "Omani Professional League": "Omantel League", "PKO Bank Polski Ekstraklasa": "PKO Ekstraklasa", "Paraguay First Division Primera División": "Copa de Primera TIGO-Visión Banco", "Persian Gulf Premier League": "Iran Pro League", "Peruvian First Division": "Liga 1 Movistar", "Peruvian Second Division": "Liga 2", "Playr-Fit Championship": "Lough 41 Championship", "Playr-Fit Premier Intermediate League": "Lough 41 Premier Intermediate League", "Polish First Division": "Betclic I liga", "Polish Second Division": "Betclic II liga", "Portuguese Premier League": "Liga Portugal Betclic", "Portuguese Second League": "Liga Portugal 2 Meu Super", "Primera División de Costa Rica": "Liga Promérica", "Qatar Stars League": "QNB Stars League", "Romanian First League": "SuperLiga", "Romanian Second League": "Liga 2 Casa Pariurilor", "Russian Premier League": "Tinkoff Russian Premier League", "SKNFA Super League": "SKNFA National Bank Premier League", "Saudi First Division League": "Yelo League", "Saudi Premier Division": "Roshn Saudi League", "Serbian First League": "Prva liga Srbija", "Serbian SuperLeague": "Mozzart Bet SuperLiga", "Singaporean Premier League": "Great Eastern Yeo's S League", "Slovak First Division": "Fortuna Liga", "Slovak Second Division": "2. Liga", "Slovenian First League": "PrvaLiga Telemach", "Slovenian Second League": "2. Slovenska Nogometna Liga", "South African National First Division Championship": "GladAfrica Championship", "South African Premier Soccer League": "DSTV Premiership", "Spanish First Division": "LALIGA EA SPORTS", "Spanish Second Division": "LALIGA HYPERMOTION", "Swedish Premier Division": "Allsvenskan", "Swiss Challenge League": "Brack.ch Challenge League", "Swiss Promotion League": "Promotion League", "Swiss Super League": "Raiffeisen Super League", "TOPsport A lyga": "Optibet A lyga", "Tajikistani High League": "Kahramonhoi Todżikiston", "Thai League One": "Toyota Thai League", "Thai League Two": "Thai League 2 M-150 Championship", "Tonybet Virsliga": "Optibet Virslīga", "Turkish 1. League": "Trendyol 1. Lig", "Turkish Super League": "Trendyol Süper Lig", "UAE First Division": "First Division League", "UAE Second Division": "Second Division league", "Ukrainian Premier League": "FavBet Liha", "Uruguayan First Division": "Torneo Uruguayo Copa Coca-Cola", "Uruguayan Second Professional Division": "Segunda División Profesional", "V.League One": "Eximbank Giải Bóng đá Vô địch Quốc Gia V.League", "Venezuelan Premier Division": "Liga FUTVE", "VriendenLoterij Eredivisie": "Eredivisie", "William Hill League 1": "William Hill League One", "William Hill League 2": "William Hill League Two"};
+const LAK={};for(const k in LALIAS)LAK[k.trim().toLowerCase()]=LALIAS[k].trim().toLowerCase();
+const lkey=d=>{const k=(d||"").trim().toLowerCase();return LAK[k]||k;};
+const TOP5=["premier league","laliga ea sports","serie a enilive","bundesliga","ligue 1 mcdonald's"];
+const ldef=k=>k in LIDX?LEAGUES[LIDX[k]][2]:1;
+const lw=k=>k in LS?LS[k].w:(lgOver[k]??ldef(k));
+function initLg(){LS={};P.forEach(p=>{const k=lkey(p.r.Division);if(k&&!(k in LS))LS[k]={name:p.r.Division,on:true,w:lgOver[k]??ldef(k)};});}
+function lgSum(){const ks=Object.keys(LS),on=ks.filter(k=>LS[k].on).length;$("lgsum").textContent=`${on} of ${ks.length} leagues with loaded players selected`;}
+function renderLg(){
+  const q=$("lq").value.toLowerCase(),cnt={},tot={};
+  P.forEach(p=>{const k=lkey(p.r.Division);tot[k]=(tot[k]||0)+1;if(p.ok)cnt[k]=(cnt[k]||0)+1;});
+  const rows=[];
+  LEAGUES.forEach((l,i)=>{const k=lkey(l[0]);if(LIDX[k]!==i)return;if(lgShowAll||k in LS)rows.push({k,name:k in LS?LS[k].name:l[0],nat:l[1],rk:i+1});});
+  Object.keys(LS).forEach(k=>{if(!(k in LIDX))rows.push({k,name:LS[k].name,nat:"not in ranking",rk:"–"});});
+  const shown=rows.filter(r=>(r.name+" "+r.nat).toLowerCase().includes(q));
+  $("lgl").innerHTML=shown.map(r=>{const e=LS[r.k],inD=!!e;
+    return `<div class="lgr${inD?"":" mut"}"><input type="checkbox" data-k="${esc(r.k)}" ${inD&&e.on?"checked":""} ${inD?"":"disabled"} aria-label="Include ${esc(r.name)}"><span class="mut">#${r.rk}</span><span>${esc(r.name)} <small class="mut">${esc(r.nat)}${inD?` · ${tot[r.k]||0} players`+((cnt[r.k]||0)<(tot[r.k]||0)?`, ${cnt[r.k]||0} with enough minutes`:""):""}</small></span><input type="number" step="0.01" min="0.5" max="2" data-w="${esc(r.k)}" value="${lw(r.k).toFixed(3)}" aria-label="Weight for ${esc(r.name)}"></div>`;}).join("")||"<p class='mut'>No leagues match.</p>";
+  lgSum();
+}
+function renderRk(){
+  const s=$("rs").value,g=$("rg").value,w=$("rw").checked;
+  const rows=P.filter(p=>p.ok&&(g==="All"||p.groups.includes(g))&&(LS[lkey(p.r.Division)]||{on:true}).on).map(p=>{
+    const base=s==="__rat"?p.r["Av Rat"]:s===BEST?(p.best?p.roles[p.best]:NaN):p.roles[s],m=lw(lkey(p.r.Division));
+    return{p,base,m,w:base*m};}).filter(r=>!isNaN(r.base));
+  const r0=new Map([...rows].sort((a,b)=>b.base-a.base).map((r,i)=>[r.p.i,i+1]));
+  rows.sort((a,b)=>w?b.w-a.w:b.base-a.base);
+  $("rth").innerHTML="<tr><th class='n'>#</th><th>Player</th><th>Position</th><th>Club</th><th>League</th><th class='n'>Weight</th><th class='n'>Score</th>"+(w?"<th class='n'>Weighted</th><th class='n'>Move</th>":"")+"</tr>";
+  $("rtb").innerHTML=rows.slice(0,200).map((r,i)=>{const mv=r0.get(r.p.i)-(i+1),sc=s==="__rat"?2:1;
+    return `<tr data-i="${r.p.i}"><td class="n">${i+1}</td><td><b>${esc(r.p.r.Name)}</b></td><td class="mut">${esc(r.p.r.Position)}</td><td>${esc(r.p.r.Club)}</td><td>${esc(r.p.r.Division||"–")}</td><td class="n ${w?"":"mut"}">×${r.m.toFixed(3)}</td><td class="n">${r.base.toFixed(sc)}</td>`+(w?`<td class="sc"><i style="width:${Math.min(r.w/(s==="__rat"?10:100)*100,100)}%"></i><span>${r.w.toFixed(sc)}</span></td><td class="n ${mv>0?"val":"mut"}">${mv>0?"▲"+mv:mv<0?"▼"+(-mv):"–"}</td>`:"")+"</tr>";}).join("");
+  $("rcnt").textContent=`${rows.length} players`;
+  $("rnote").textContent=`Default league weights come from the spreadsheet’s league ratings (weight = 1 + ((rating − 94) / 91) × 0.15, so the Premier League is ×1.15 and the bottom of the ranking ×1.00). Leagues the spreadsheet doesn’t list are filled in by their position in your league ranking. Edit any weight above; changes are remembered in this browser. Weighted score = score × weight.`;
+}
+$("lgl").addEventListener("change",e=>{const k=e.target.dataset.k;if(k==null)return;LS[k].on=e.target.checked;lgSum();renderRk();});
+$("lgl").addEventListener("input",e=>{const k=e.target.dataset.w;if(k==null)return;const v=parseFloat(e.target.value);if(isNaN(v)||v<=0)return;
+  lgOver[k]=v;if(LS[k])LS[k].w=v;try{localStorage.setItem("fm_lgw",JSON.stringify(lgOver))}catch(x){}renderRk();});
+$("lgall").onclick=()=>{Object.values(LS).forEach(e=>e.on=true);renderLg();renderRk();};
+$("lgnone").onclick=()=>{Object.values(LS).forEach(e=>e.on=false);renderLg();renderRk();};
+$("lgtop").onclick=()=>{Object.keys(LS).forEach(k=>LS[k].on=TOP5.includes(k));renderLg();renderRk();};
+$("lgreset").onclick=()=>{lgOver={};try{localStorage.removeItem("fm_lgw")}catch(e){}Object.keys(LS).forEach(k=>LS[k].w=ldef(k));renderLg();renderRk();};
+$("lgshow").onchange=e=>{lgShowAll=e.target.checked;renderLg();};
+$("lq").addEventListener("input",renderLg);
+$("lgmin").onclick=()=>{const b=$("lgbox");b.classList.toggle("min");$("lgmin").textContent=b.classList.contains("min")?"Expand ▾":"Minimise ▴";};
+
+function setFs(v){document.documentElement.style.setProperty("--fs",v+"px");try{localStorage.setItem("fm_fs",v)}catch(e){}}
+$("fs").addEventListener("input",e=>setFs(e.target.value));
+try{const v=localStorage.getItem("fm_fs");if(v){$("fs").value=v;setFs(v);}}catch(e){}
+["aq","am"].forEach(id=>$(id).addEventListener("input",renderAll));
+["rs","rg","rw"].forEach(id=>$(id).addEventListener("change",renderRk));
+$("ath").addEventListener("click",e=>{const k=e.target.closest("th")?.dataset.k;if(!k)return;aDir=k===aSort?-aDir:1;aSort=k;renderAll();});
+["atb","rtb"].forEach(id=>$(id).addEventListener("click",e=>{const tr=e.target.closest("tr");if(tr)detail(+tr.dataset.i);}));
+
+// From a profile: compare inside My Club when the player belongs there and that section is open
+$("toCmp").addEventListener("click",()=>{const i=$("toCmp").dataset.i;if(i==null)return;$("dlg").close();
+  const p=P[+i],k=CLUB.includes($("app").dataset.tab)&&cmpList("k").includes(p);
+  if(k){tab("kc");$("kc0").value=i;renderCmp("k");}else{$("c0").value=i;tab("cmp");}});
+$("toSl").addEventListener("click",()=>{const i=$("toSl").dataset.i;if(i==null)return;toggleSL(P[+i]);slBtn();});
+document.querySelectorAll("#mtabs button,#tabs button,#ctabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
+$("tv").addEventListener("change",view);
+</script>
+</body>
+</html>
