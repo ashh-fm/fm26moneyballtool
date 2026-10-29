@@ -24,6 +24,7 @@ from urllib.parse import parse_qs, urlparse
 
 from export import to_row
 from fm26 import SCOPES, Game
+from sanity import KNOWN_BUILDS, check
 
 PORT = 8626
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -74,7 +75,8 @@ class Live:
             try:
                 if not self.g:
                     self._attach()
-                return {"ok": True, "pid": self.g.p.pid, "build": self.g.build.id}
+                return {"ok": True, "pid": self.g.p.pid, "build": self.g.build.id,
+                        "build_known": self.g.build.id in KNOWN_BUILDS}
             except Exception as e:  # game not running, access denied, unknown build
                 self.g = None
                 return {"ok": False, "error": str(e)}
@@ -92,13 +94,9 @@ class Live:
                     rows = [to_row(r) for r in raw]
                     rows.sort(key=lambda r: not r.get("Mins"))  # full rows first: the page reads columns from row 0
                     played = sum(1 for r in rows if r.get("Mins"))
-                    try:
-                        mine = self.g.my_clubs()
-                    except Exception:
-                        traceback.print_exc()
-                        mine = []
-                    return {"ok": True, "build": self.g.build.id, "date": today.isoformat() if today else None,
-                            "my_clubs": mine,
+                    warnings = check(rows, self.g.build.id)
+                    return {"ok": True, "build": self.g.build.id, "warnings": warnings,
+                            "date": today.isoformat() if today else None,
                             "scope": scope, "players": len(self.g.players()), "count": len(rows),
                             "played": played, "everyone": everyone,
                             "seconds": round(time.time() - t0, 1), "rows": rows}
